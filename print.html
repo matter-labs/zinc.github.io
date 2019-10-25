@@ -1,0 +1,1196 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ZRust</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="language/00-introduction.html">Introduction</a></li><li><a href="language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="language/03-types-00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="language/03-types-01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="language/03-types-02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="language/03-types-03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="language/03-types-04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="language/03-types-05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="language/03-types-06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="language/03-types-07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="language/03-types-08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li></ol></li><li><a href="language/04-operators-00-overview.html"><strong aria-hidden="true">4.</strong> Operators</a></li><li><ol class="section"><li><a href="language/04-operators-01-precedence.html"><strong aria-hidden="true">4.1.</strong> Precedence</a></li></ol></li><li><a href="language/05-statements-00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><a href="language/06-expressions-00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="language/07-program-00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="language/appendix/_appendix.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - keywords</a></li></ol></li><li><a href="interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="transpiler.html">Transpiler CLI</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">ZRust</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
+<p>ZRust: secure-by-design Rust-based language for constructing R1CS ZK-circuits and smart contracts.</p>
+<p>The language is almost strictly a subset of simple Rust (with minor differences dictated by the specifics of R1CS circuits). It is easily learnable by golang, c++, solidity and js developers.</p>
+<p>Its transpiler converts a program into an R1CS circuit using the <a href="https://github.com/matter-labs/bellman">bellman</a> library. This allows generation of Zero Knowledge Proofs for any proof system supported by bellman (such as Groth16, PLONK, Marlin).</p>
+<h1><a class="header" href="#design" id="design">Design</a></h1>
+<p>The goal of ZRust is to make writing zero-knowledge programs and smart
+contracts easy. It is being designed with the following principles in mind:</p>
+<ul>
+<li><strong>Ease of learning</strong>. Anyone familiar with C-like languages (Javascript, Java, Golang,
+C++, Rust, Solidity) should be able to learn ZRust quickly and with
+minimum effort.</li>
+<li><strong>Readability</strong>. The code in ZRust should be easy to read intuitively
+comprehensible for anybody familiar with the C++ language familiy. There should
+be no counter-intuitive concepts.</li>
+<li><strong>Security</strong>. It should be easy to write deterministic and secure programs.
+It should be possible to write safe code without need to understand language
+subtleties. Conversely, it should be difficult to write code which does not do
+what it intuitively appears to be doing.</li>
+<li><strong>Minimalism and simplicity</strong>. Less code is better. There should ideally be
+only one way to do something efficiently. Complexity should be reduced.</li>
+<li><strong>Expressiveness</strong>. The language should be powerful enough to make building
+complex programs easy.</li>
+<li><strong>Efficiency</strong>. Code should compile to the most efficient circuit possible.</li>
+<li><strong>Expose non-optimizable costs</strong>. Costs that cannot be optimized efficiently
+must be made explicit to the developers. An example is the requirement to
+explicitly specify the loop range with constants.</li>
+</ul>
+<p>The above mentioned goals led to the following decisions in the language design:</p>
+<ul>
+<li><strong>Functional programming</strong>. The langauge should have first-class support for
+functional programming principles, such as immutability and minimizing
+side-effects.</li>
+<li><strong>Rustiness</strong>. The language shall follow rust syntax and philosophy as closely
+as possible. It should be a subset of rust whenever possible. </li>
+<li><strong>Divergence from Rust</strong>:
+<ul>
+<li><strong>Types</strong>. Obviously we need to adapt the type system to be efficiently
+representable in finite fields, which are the basic building block of R1CS.</li>
+<li><strong>References and ownership</strong>. Memory management is very different in R1CS
+circuits compared to the von Neumann architecture. Also, since R1CS does not 
+imply parallel programming patterns, a lot of elements of the Rust design would be 
+unnecessary and redundant. The decision is to pass all variables &quot;by value&quot; by default 
+without moving ownership (see the developer guide for explanation).</li>
+<li><strong><code>for-while</code> loops</strong>. Combining <code>for</code> and <code>while</code> loops allows nicer syntax
+without hiding the fact that the <code>for-while</code> loop has a fixed number
+of iterations.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#examples" id="examples">Examples</a></h1>
+<p><code>simple_math.zrs</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+/// 
+/// The example library.
+/// 
+/// Returns x^3.
+/// 
+pub fn cube(x: u128) -&gt; u128 {
+    let mut r = x;
+    for i in 0..2 {
+        r = r * x;
+    }
+    r
+}
+#}</code></pre></pre>
+<p><code>main.zrs</code>:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+///
+/// The example binary.
+/// 
+/// Proves a knowledge of a cubic root `r` for a given public input `x`.
+///
+
+use simple_math;
+
+inputs {
+    x: u128,
+}
+
+witness {
+    r: u128,
+}
+
+require(x == simple_math::cube(r), &quot;x == r ^ 3&quot;);
+#}</code></pre></pre>
+<h1><a class="header" href="#types" id="types">Types</a></h1>
+<h2><a class="header" href="#variables" id="variables">Variables</a></h2>
+<p>Variables will have the following meta-information collected by the compiler:</p>
+<ul>
+<li>current variable (id or name) in the constraint system</li>
+<li>linear combination to compute the variable (which also includes representation of constant values)</li>
+<li>expected range: bit length which the user <strong>promises</strong> to respect with regard to witness</li>
+<li>enforced range: bit length which is <strong>guaranteed</strong> to have been enforced in the circuit</li>
+</ul>
+<h2><a class="header" href="#type-conversions" id="type-conversions">Type conversions</a></h2>
+<p>The language enforces static strong explicit typing with a little inference.
+Operators almost always require explicit type conversion.</p>
+<p>Only the <code>let</code> statement can infer types for now.</p>
+<p>Casting can be performed using <code>as</code> keyword:</p>
+<ul>
+<li>integers to types of greater bitlength</li>
+<li>enums can be implicitly converted to unsigned integers of enough bitlength (TODO)</li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let a = -1; // `i8`, after a cast using the unary minus and the `let` inference
+let b: u16 = a as u16; // ok, casted to the opposite sign with greater bitlength 
+let c: u8 = Order::FIRST; // ok, enum implicit casting to the enough bitlength
+#}</code></pre></pre>
+<h1><a class="header" href="#unit" id="unit">Unit</a></h1>
+<p><code>()</code> is the unit type and value.</p>
+<p>No known differences from the Rust behavior.</p>
+<p>The type cannot be used in any expressions or be casted to or from.</p>
+<h2><a class="header" href="#examples-1" id="examples-1">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let x = ();
+let y: () = {
+    debug!(42);
+};
+#}</code></pre></pre>
+<h1><a class="header" href="#boolean" id="boolean">Boolean</a></h1>
+<p><code>bool</code> is the boolean type keyword.</p>
+<p>No known differences from the Rust behavior, but its internal representation
+uses the elliptic curve field of bitlength <code>1</code>.</p>
+<p>The type cannot be casted to or from.</p>
+<h2><a class="header" href="#literals" id="literals">Literals</a></h2>
+<p><code>true</code> and <code>false</code></p>
+<h2><a class="header" href="#examples-2" id="examples-2">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let a = true;
+let b: bool = false;
+
+if a &amp;&amp; !b {
+    debug(a ^^ b);
+};
+#}</code></pre></pre>
+<h1><a class="header" href="#integer" id="integer">Integer</a></h1>
+<p>Integer types are somewhat different from those of Rust.</p>
+<h2><a class="header" href="#types-1" id="types-1">Types</a></h2>
+<ul>
+<li><code>u8</code> .. <code>u248</code>: unsigned integer keywords with different bitlength</li>
+<li><code>i8</code> .. <code>i248</code>: signed integer keywords with different bitlength</li>
+<li><code>field</code>: the native field unsigned integer</li>
+</ul>
+<p>Integer types bitlength step equals 8, that is, only the following bitlengths
+are possible: <code>8</code>, <code>16</code>, ..., <code>240</code>, <code>248</code>.</p>
+<p><code>field</code> is a native field element of the elliptic curve used in the constraint
+system. It represents an unsigned integer of bitlength equal to the field
+modulus length (e.g. for BN256 the field modulus length is <code>254</code> bit).</p>
+<p>All other types are represented using <code>field</code> as their basic building block.</p>
+<p>When integers variables are allocated, their bitlength must be enforced in the constraint system.</p>
+<h2><a class="header" href="#type-inference" id="type-inference">Type inference</a></h2>
+<p>If the literal type is not specified, the minimal possible bitlength is inferred.</p>
+<p><code>let</code> statement performs an implicit casting if the type is specified.</p>
+<h2><a class="header" href="#literals-1" id="literals-1">Literals</a></h2>
+<ul>
+<li>decimal: <code>0</code>, <code>1</code>, <code>122</code>, <code>574839572494237242</code></li>
+<li>hexadecimal: <code>0x0</code>, <code>0xfa</code>, <code>0x0001</code>, <code>0x1fffDEADffffffffffBEEFffff</code></li>
+</ul>
+<p>Following the Rust rules, only unsigned integer literals can be expressed, since
+the unary minus is not a part of the literal but a standalone operator. Thus,
+unsigned values can be implicitly casted to signed ones using the unary minus.</p>
+<h2><a class="header" href="#casting" id="casting">Casting</a></h2>
+<p>Casting is possible only to a type with greater bitlength. Probably, this
+behavior will become less strict in the future.</p>
+<h2><a class="header" href="#examples-3" id="examples-3">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let a = 0; // u8
+let a: i24 = 0; // i24
+let b = 256; // u16
+let c = -1;  // i8
+let c = -129; // i16
+let d = 0xff as field; // field
+let e: field = 0; // field
+#}</code></pre></pre>
+<h1><a class="header" href="#string" id="string">String</a></h1>
+<p>No known differences from the Rust behavior, taking into account its very
+limited implementation and usability.</p>
+<p>The string type exists only in the literal form and can only appear as the
+second argument of the <code>require</code> statement.</p>
+<h2><a class="header" href="#examples-4" id="examples-4">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+require(true != false, &quot;mega ultra extra total global example&quot;);
+#}</code></pre></pre>
+<h1><a class="header" href="#array" id="array">Array</a></h1>
+<p>Fixed-sized arrays follow the Rust rules.</p>
+<p>The only exception is the temporary restriction to constant indexes, that is,
+you cannot index an array with a variable for now.</p>
+<h2><a class="header" href="#indexing" id="indexing">Indexing</a></h2>
+<p>Arrays support an index operator:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let element = fibbonaci[3];
+fibbonaci[2] = 1;
+#}</code></pre></pre>
+<h2><a class="header" href="#examples-5" id="examples-5">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let fibbonaci: [u8; 5] = [1, 1, 2, 3, 5];
+let mut a: [u8, 3] = [1, 2, 3];
+#}</code></pre></pre>
+<h1><a class="header" href="#tuple" id="tuple">Tuple</a></h1>
+<p>No known differences from the Rust behavior.</p>
+<p>Like in Rust, <code>()</code> is the void value, <code>(value)</code> is a parenthesized expression,
+and <code>(value,)</code> is a tuple with one element.</p>
+<h2><a class="header" href="#examples-6" id="examples-6">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut tuple: (u8, field) = (0xff, 0 as field);
+tuple.0 = 42;
+debug(tuple.1);
+#}</code></pre></pre>
+<h1><a class="header" href="#enumeration" id="enumeration">Enumeration</a></h1>
+<p>Simple C-like enums are supported, following the restricted Rust syntax.</p>
+<p>The enum values can be implicitly casted to unsigned integers of enough
+bitlength in expressions and <code>let</code> statements, but this behavior will be
+probably forbidden in the future.</p>
+<h2><a class="header" href="#examples-7" id="examples-7">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum Order {
+    FIRST, // 0
+    SECOND, // 1
+}
+
+let x = Order::FIRST; // Order
+let y: u8 = Order::SECOND; // u8
+#}</code></pre></pre>
+<h1><a class="header" href="#structure" id="structure">Structure</a></h1>
+<p>No known differences from the Rust behavior.</p>
+<h2><a class="header" href="#examples-8" id="examples-8">Examples</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Person {
+    age: u8,
+    id: u64,
+};
+
+let mut person = struct Person {
+    age: 24,
+    id: 123456789 as u64,
+};
+person.age = 25;
+debug(person.id);
+#}</code></pre></pre>
+<h1><a class="header" href="#operators" id="operators">Operators</a></h1>
+<h2><a class="header" href="#path-resolution" id="path-resolution">Path resolution</a></h2>
+<p><code>::</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Module or enum</li>
+<li>Identifier or module</li>
+</ol>
+<p><strong>Returns</strong> the second operand.</p>
+<h2><a class="header" href="#array-indexing" id="array-indexing">Array indexing</a></h2>
+<p><code>[]</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Array expression</li>
+<li>Integer literal</li>
+</ol>
+<p><strong>Returns</strong> the array element or an out of range error.</p>
+<p><strong>Note</strong>: only integer literals can be array indexes now.</p>
+<h2><a class="header" href="#field-access" id="field-access">Field access</a></h2>
+<p><code>.</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Tuple expression</li>
+<li>Integer literal</li>
+</ol>
+<p><strong>Returns</strong> the tuple or structure element or an nonexistent field error.</p>
+<h2><a class="header" href="#unary-minus" id="unary-minus">Unary minus</a></h2>
+<p><code>-</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#logical-not" id="logical-not">Logical NOT</a></h2>
+<p><code>!</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#casting-1" id="casting-1">Casting</a></h2>
+<p><code>as</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer type</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#multiplication" id="multiplication">Multiplication</a></h2>
+<p><code>*</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#division" id="division">Division</a></h2>
+<p><code>/</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#remainder" id="remainder">Remainder</a></h2>
+<p><code>%</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#addition" id="addition">Addition</a></h2>
+<p><code>+</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#subtraction" id="subtraction">Subtraction</a></h2>
+<p><code>-</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#equality" id="equality">Equality</a></h2>
+<p><code>==</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer <strong>or</strong> boolean expression</li>
+<li>Integer <strong>or</strong> boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#non-equality" id="non-equality">Non-equality</a></h2>
+<p><code>!=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer <strong>or</strong> boolean expression</li>
+<li>Integer <strong>or</strong> boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#lesser-or-equals" id="lesser-or-equals">Lesser or equals</a></h2>
+<p><code>&lt;=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#greater-or-equals" id="greater-or-equals">Greater or equals</a></h2>
+<p><code>&gt;=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#lesser" id="lesser">Lesser</a></h2>
+<p><code>&lt;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#greater" id="greater">Greater</a></h2>
+<p><code>&gt;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-and" id="logical-and">Logical AND</a></h2>
+<p><code>&amp;&amp;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-xor" id="logical-xor">Logical XOR</a></h2>
+<p><code>^^</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-or" id="logical-or">Logical OR</a></h2>
+<p><code>||</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#exclusive-range-todo" id="exclusive-range-todo">Exclusive range (TODO)</a></h2>
+<p><code>..</code></p>
+<h2><a class="header" href="#inclusive-range-todo" id="inclusive-range-todo">Inclusive range (TODO)</a></h2>
+<p><code>..=</code></p>
+<h2><a class="header" href="#assignment" id="assignment">Assignment</a></h2>
+<p><code>=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Place expression</li>
+<li>Value expression</li>
+</ol>
+<p><strong>Returns</strong> <code>()</code>.</p>
+<h1><a class="header" href="#operator-precedence" id="operator-precedence">Operator precedence</a></h1>
+<p>The top one is executed the first.</p>
+<pre><code>|    Operator      |  Associativity  |
+|----------------- |-----------------|
+|        ::        |  left to right  |
+|       [] .       |  left to right  |
+|        - !       |      unary      |
+|        as        |  left to right  |
+|       * / %      |  left to right  |
+|        + -       |  left to right  |
+|  == != &lt;= &gt;= &lt; &gt; |   parenthesis   |
+|        &amp;&amp;        |  left to right  |
+|        ^^        |  left to right  |
+|        ⎮⎮        |  left to right  |
+|      .. ..=      |     single      |
+|         =        |     single      |
+</code></pre>
+<h1><a class="header" href="#statements" id="statements">Statements</a></h1>
+<p>The following statements have been implemented so far:</p>
+<ul>
+<li>empty statement</li>
+<li><code>let</code> declaration</li>
+<li><code>require</code></li>
+<li><code>debug</code></li>
+<li><code>for</code> loop</li>
+<li><code>type</code> alias declaration</li>
+<li><code>struct</code> declaration</li>
+<li>expression statement</li>
+</ul>
+<p>An important difference from Rust: all statements must be terminated with
+a <code>;</code>. That is, all statements including <code>struct</code> declaration and expression
+ones ending with <code>}</code> must be terminated with <code>;</code> as well.</p>
+<h2><a class="header" href="#empty" id="empty">Empty</a></h2>
+<p>An empty statement is just a <code>;</code>.</p>
+<h2><a class="header" href="#require" id="require">Require</a></h2>
+<p>The require statement checks the boolean expression for being true and aborts
+the program if it is false.</p>
+<p>It accepts an optional annotation string as the second argument.</p>
+<p><code>require</code> is going to be implemented as a built-in function.</p>
+<h3><a class="header" href="#example" id="example">Example</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+require(true != false, &quot;mega ultra test require&quot;);
+#}</code></pre></pre>
+<h2><a class="header" href="#let-declaration" id="let-declaration">Let declaration</a></h2>
+<p>The <code>let</code> declaration behaves just like in Rust, but it does not allow
+uninitialized variables.</p>
+<p>Shadowing is not allowed yet.</p>
+<h3><a class="header" href="#example-1" id="example-1">Example</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut variable: field = 0;
+#}</code></pre></pre>
+<h2><a class="header" href="#loop" id="loop">Loop</a></h2>
+<p>The <code>for</code> loop statement behaves just like in Rust, but it is merged with the
+<code>while</code> loop, so the optional <code>while</code> condition is checked before each iteration
+of the loop. The <code>while</code> condition expression has access to the inner scope and
+can use its variables and the loop iterator.</p>
+<h3><a class="header" href="#examples-9" id="examples-9">Examples</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    for i in 0..=10 while i % x != 8 {
+        debug(i);
+    }
+#}</code></pre></pre>
+<h2><a class="header" href="#type" id="type">Type</a></h2>
+<p>The <code>type</code> statement declares a type alias to avoid repeating complex types.</p>
+<h3><a class="header" href="#example-2" id="example-2">Example</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+type Alias = (field, u8, [field; 8]);
+#}</code></pre></pre>
+<h2><a class="header" href="#struct" id="struct">Struct</a></h2>
+<p>The <code>struct</code> statement declares a structure type.</p>
+<h3><a class="header" href="#example-3" id="example-3">Example</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Data = {
+    a: field,
+    b: u8,
+    c: (),
+};
+#}</code></pre></pre>
+<h2><a class="header" href="#debug" id="debug">Debug</a></h2>
+<p>The debug statement outputs an expression.</p>
+<p><code>debug</code> is going to be implemented as a built-in function.</p>
+<h3><a class="header" href="#example-4" id="example-4">Example</a></h3>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let value = 0xff;
+debug(value);
+#}</code></pre></pre>
+<h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
+<p>Expressions consist of operands and operators.</p>
+<h2><a class="header" href="#operands" id="operands">Operands</a></h2>
+<ul>
+<li>unit value</li>
+<li>variable</li>
+<li>literal</li>
+<li>type</li>
+<li>block</li>
+<li>conditional</li>
+<li>array</li>
+<li>tuple</li>
+<li>structure</li>
+</ul>
+<p>All the operand types expect blocks and conditionals are simple and generally
+just describe a single value in a single memory place.</p>
+<p>Blocks and conditionals also represent a value, but they also have some side
+effects. Blocks execute their statements, whereas conditionals behave in some
+special way:</p>
+<ul>
+<li>both branches are always executed</li>
+<li>conditionals create a name scope for variables</li>
+<li>all assignments inside a conditinal block are implemented as conditional assignments</li>
+<li>heavy function calls must be optimized with a stack (to explain in detail; this is tricky because it must be applied to the nested function calls)</li>
+</ul>
+<h2><a class="header" href="#value-expressions" id="value-expressions">Value expressions</a></h2>
+<p>All the expressions that represent a value. That is, anything except <code>type</code>.</p>
+<h2><a class="header" href="#place-expressions" id="place-expressions">Place expressions</a></h2>
+<p>Expressions which describe an allocated location in memory. That is,
+an identifier with optional array indexes and tuple or structure fields.</p>
+<h2><a class="header" href="#type-expressions" id="type-expressions">Type expressions</a></h2>
+<p>These ones are used only as the second operand of the casting operator. In all
+other places types are not a part of an expressions, e.g. in <code>struct</code> or <code>let</code>
+statements.</p>
+<h1><a class="header" href="#program-structure" id="program-structure">Program structure</a></h1>
+<h2><a class="header" href="#public-inputs-and-secret-witness" id="public-inputs-and-secret-witness">Public inputs and secret witness</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    input {
+        {identifier}: {type},
+        ...
+    }
+
+    witness {
+        {identifier}: {type},
+        ...
+    }
+#}</code></pre></pre>
+<p>Public inputs (defined in the <code>inputs</code> block) and secret witness (defined in the
+<code>witness</code> block) are the arguments of the program for which the circuit is
+implemented. The prover must provide both public inputs and secret witness data
+in order to generate proofs. The verifier must provide the same public input
+to verify the satisfiability of the proof.</p>
+<p>Input and witness can only be defined once at the beginning of a circuit.</p>
+<p>Variable names for input and witness are declared in the global variable namespace scope.</p>
+<p>Each circuit must have 0 or more input arguments. It can have 0 or more witness
+arguments (if not arguments are provided, <code>witness</code> block can be omitted).</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    input {
+        x: u128,
+        ...
+    }
+
+    witness {
+        cubic_root: u128,
+        ...
+    }
+#}</code></pre></pre>
+<h2><a class="header" href="#functions-todo" id="functions-todo">Functions (TODO)</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn {identifier}({arguments})[ -&gt; {type}] {
+    {statement}*    
+    {expression}
+}
+#}</code></pre></pre>
+<p>If the return type is omitted in the declaration, the function must return <code>()</code>.</p>
+<p>The value is returned in the last statement without the trailing semicolon.</p>
+<p>Not allowing returning the value in the middle of the function is a design
+decision to imply to the user that the function is always evaluated completely.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// calculate `x ^ y` for all `y` up to 8
+fn pow(x: u8, y: u8) -&gt; u8 {
+    require(y &lt; 8);
+    let r = 1;
+    for i in 0..8 {
+        if i &lt; y {
+            r = r * x;
+        };
+    };
+    r 
+}
+#}</code></pre></pre>
+<p>Recursion is not supported.</p>
+<h2><a class="header" href="#embedded-functions-todo" id="embedded-functions-todo">Embedded functions (TODO)</a></h2>
+<h3><a class="header" href="#into_bits--from_bits" id="into_bits--from_bits">into_bits / from_bits</a></h3>
+<p>Any primitive type and tuple can be converted to and from an array of <code>bool</code> bits.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+// into_bits
+let i: u16 = 7;
+let i_bits = i.into_bits(); // [bool; 16]
+let x = (1 as u64, 2 as u16).into_bits(); // [bool; 74]
+
+// from_bits
+let slice = x[0..10];
+let t: (u8, bool, bool) = slice.from_bits();
+#}</code></pre></pre>
+<h2><a class="header" href="#standard-library-todo" id="standard-library-todo">Standard library (TODO)</a></h2>
+<ul>
+<li>hashes: <code>sha256</code>, <code>pedersen</code>, <code>poseidon</code>, <code>blake2s</code></li>
+<li>signatures: <code>eddsa_verify</code></li>
+<li>curve primitives: <code>ecc</code></li>
+</ul>
+<h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
+<p>The following sections contain reference material you may find useful in
+your ZRust journey.</p>
+<h1><a class="header" href="#lexical-grammar" id="lexical-grammar">Lexical grammar</a></h1>
+<pre><code>lexeme = comment | identifier | keyword | literal | symbol ;
+
+comment = single_line_comment | multi_line_comment ;
+single_line_comment = '//', ( ? ANY ? - '\n' ), '\n' ;
+multi_line_comment = '/*', ( ? ANY ? - '*/' ), '*/' ;
+
+identifier = (
+    alpha, { alpha | digit | '_' }
+  | '_', alpha, { alpha }
+- keyword ) ;
+
+keyword =
+    'input'
+  | 'witness'
+
+  | 'let'
+  | 'mut'
+  | 'type'
+  | 'struct'
+  | 'enum'
+  | 'fn'
+
+  | 'for'
+  | 'in'
+  | 'while'
+  | 'if'
+  | 'else'
+
+  | 'bool'
+  | 'u8' | 'u16' ... 'u240' | 'u248'
+  | 'i8' | 'i16' ... 'i240' | 'i248'
+  | 'field'
+
+  | 'true'
+  | 'false'
+
+  | 'as'
+;
+
+literal = boolean | integer | string ;
+boolean = 'true' | 'false' ;
+integer =
+    '0'
+  | digit - '0', { digit }
+  | '0x', hex_digit, { hex_digit}
+;
+string = '&quot;', { ANY - '&quot;' | '\', ANY }, '&quot;' ;
+
+symbol =
+    '('
+  | ')'
+  | '['
+  | ']'
+  | '{'
+  | '}'
+  | '_'
+  | '.'
+  | ':'
+  | ';'
+  | ','
+  | '='
+  | '+'
+  | '-'
+  | '*'
+  | '/'
+  | '%'
+  | '\'
+  | '!'
+  | '&lt;'
+  | '&gt;'
+  | '::'
+  | '=='
+  | '!='
+  | '&lt;='
+  | '&gt;='  
+  | '&amp;&amp;'
+  | '^^'
+  | '||'
+  | '..'
+  | '..='
+;
+
+alpha =
+    'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
+  | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N'
+  | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U'
+  | 'V' | 'W' | 'X' | 'Y' | 'Z' 
+  | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g'
+  | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n'
+  | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u'
+  | 'v' | 'w' | 'x' | 'y' | 'z'
+;
+
+digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+
+hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+  | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
+  | 'a' | 'b' | 'c' | 'd' | 'e' | 'f'
+;
+
+</code></pre>
+<h1><a class="header" href="#syntax-grammar" id="syntax-grammar">Syntax grammar</a></h1>
+<pre><code>program = inputs, [ witnesses ], { statement } ;
+
+inputs = 'input', '{', field_list, '}' ;
+
+witnesses = 'witness', '{', field_list, '}' ;
+
+type =
+    'bool'
+  | 'u8' | 'u16' ... 'u240' | 'u248'
+  | 'i8' | 'i16' ... 'i240' | 'i248'
+  | 'field'
+  | '[', type, ';', integer, ']'
+  | '(', { type }, ')'
+  | identifier
+;
+
+field = identifier, ':', type ;
+field_list = [ field, { ',', field } ] ;
+
+variant = identifier, '=', integer ;
+variant_list = [ variant, { ',', variant } ] ;
+
+(* Statements *)
+statement =
+    empty_statement
+  | require_statement
+  | let_statement
+  | loop_statement
+  | type_statement
+  | struct_statement
+  | enum_statement
+  | debug_statement
+  | expression
+';' ;
+
+empty_statement = ;
+require_statement = 'require', '(', expression, ')' ;
+let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
+loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
+type_statement = 'type', identifier, '=', type ;
+struct_statement = 'struct', field_list ;
+enum_statement = 'enum', variant_list ;
+debug_statement = 'debug', '(', expression, ')' ;
+
+(* Expressions *)
+expression = operand_or, { '||', operand_or } ;
+operand_or = operand_xor, { '^^', operand_xor } ;
+operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
+operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
+operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
+operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
+operand_mul_div_rem = operand_as, { 'as', type } ;
+operand_as =
+    '-' | '!', operand_as
+  | operand_access, { '[', integer, ']' | '.', integer | '.', identifier }
+operand_access
+    tuple_expression
+  | block_expression
+  | array_expression
+  | conditional_expression
+  | match_expression
+  | struct_expression
+  | literal
+  | path_expression
+;
+
+block_expression = '{', { statement }, [ expression ], '}' ;
+
+conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
+
+match_expression = 'match', expression, '{', { literal, '=&gt;', expression, ',' }, '}' ;
+
+array_expression =
+    '[', [ expression, { ',', expression } ] ']'
+  | '[', expression, ';', integer, ']'
+;
+
+tuple_expression =
+    '(', ')'
+  | '(', expression, ')'
+  | '(', expression, ',', [ expression, { ',', expression } ], ')'
+;
+
+struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
+
+path_expression = identifier, { '::', identifier } ;
+
+</code></pre>
+<h1><a class="header" href="#keywords" id="keywords">Keywords</a></h1>
+<h4><a class="header" href="#built-ins" id="built-ins">Built-ins</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+input
+witness
+#}</code></pre></pre>
+<h4><a class="header" href="#declarations" id="declarations">Declarations</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let
+mut
+type
+struct
+enum
+fn
+#}</code></pre></pre>
+<h4><a class="header" href="#controls" id="controls">Controls</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+for
+in
+while
+if
+else
+match
+#}</code></pre></pre>
+<h4><a class="header" href="#types-2" id="types-2">Types</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+bool
+u8 ... u248
+i8 ... i248
+field
+#}</code></pre></pre>
+<h4><a class="header" href="#literals-2" id="literals-2">Literals</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+true
+false
+#}</code></pre></pre>
+<h4><a class="header" href="#operators-1" id="operators-1">Operators</a></h4>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+as
+#}</code></pre></pre>
+<h2><a class="header" href="#reserved" id="reserved">Reserved</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+pub
+ref
+#}</code></pre></pre>
+<h1><a class="header" href="#interpreter" id="interpreter">Interpreter</a></h1>
+<h2><a class="header" href="#interface" id="interface">Interface</a></h2>
+<pre><code>zrusti 0.4.0
+The ZRust language interpreter
+
+USAGE:
+    zrusti [FLAGS] --input &lt;input&gt;
+
+FLAGS:
+    -h, --help       Prints help information
+    -m, --meta       Generates meta info
+    -V, --version    Prints version information
+
+OPTIONS:
+    -i, --input &lt;input&gt;    Specifies the input *.zrs file name
+</code></pre>
+<h2><a class="header" href="#output" id="output">Output</a></h2>
+<p>The interpreter outputs using the debug statements only.</p>
+<h1><a class="header" href="#transpiler" id="transpiler">Transpiler</a></h1>
+<h2><a class="header" href="#interface-1" id="interface-1">Interface</a></h2>
+<pre><code>zrustc 0.4.0
+The ZRust language compiler
+
+USAGE:
+    zrustc [FLAGS] --input &lt;input&gt; --output &lt;output&gt;
+
+FLAGS:
+    -h, --help       Prints help information
+    -m, --meta       Generates meta info
+    -p, --profile    Runs the profiler and prints cost information
+    -V, --version    Prints version information
+
+OPTIONS:
+    -i, --input &lt;input&gt;      Specifies the input *.zrs file name
+    -o, --output &lt;output&gt;    Specifies the output *.rs file name
+</code></pre>
+<h2><a class="header" href="#output-1" id="output-1">Output</a></h2>
+<h3><a class="header" href="#meta-info" id="meta-info">Meta info</a></h3>
+<pre><code class="language-json">{
+    &quot;inputs&quot;: [
+        {
+          &quot;identifier&quot;: { &quot;name&quot;: &quot;a&quot; },
+          &quot;type&quot;: {&quot;name&quot;: &quot;uint&quot;, &quot;bitlength&quot;: 8}
+        }
+    ],
+    &quot;witnesses&quot;: [
+        {
+          &quot;identifier&quot;: { &quot;name&quot;: &quot;b&quot; },
+          &quot;type&quot;: {&quot;name&quot;: &quot;int&quot;, &quot;bitlength&quot;: 248}
+        }
+    ]
+}
+</code></pre>
+<h3><a class="header" href="#cost-profiling" id="cost-profiling">Cost profiling</a></h3>
+<p>The cost profiler prints number of constraints for each line:</p>
+<pre><code class="language-json">{
+    &quot;file&quot;: &quot;filename.zrs&quot;,
+    &quot;md5&quot;:  &quot;000011112222333344445555666677778888&quot;,
+    &quot;constraints&quot;: {
+        &quot;1&quot;: 2,
+        &quot;2&quot;: 0,
+        &quot;3&quot;: 1,
+        &quot;4&quot;: {&quot;inline&quot;: 4, &quot;block&quot;: 25},
+    }
+}
+</code></pre>
+<p>Each line must sum up constraints in all statements that begin in this line.</p>
+<p>If a line contains the beginning of a block enclosed in <code>{ ... }</code>, the costs
+must include the total cost of the block in curly brackets:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+1: if a == b { // 3 constraints
+2:     t = a * b; // 1 constraints
+3: } else {
+4:     t = a * b * c; // 2 constraint
+5: }
+#}</code></pre></pre>
+<p>=&gt;</p>
+<pre><code class="language-json">&quot;constraints&quot;: {
+    &quot;1&quot;: { &quot;inline&quot;: 3, &quot;block&quot;: 4 },
+    &quot;2&quot;: 1,
+    &quot;3&quot;: { &quot;inline&quot;: 0, &quot;block&quot;: 2 },
+    &quot;4&quot;: 2
+}
+</code></pre>
+<p>This information will be used to visualize the cost with IDE plugins.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
