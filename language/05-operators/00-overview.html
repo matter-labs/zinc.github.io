@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Operators - ZRust</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types/00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types/01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types/02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types/03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types/04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types/05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types/06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types/07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types/08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li><li><a href="../../language/03-types/09-function.html"><strong aria-hidden="true">3.9.</strong> Function</a></li></ol></li><li><a href="../../language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="../../language/04-statements/02-expression.html"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="../../language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="../../language/05-operators/00-overview.html" class="active"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-project-structure/00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">ZRust</h1>
+
+                        <div class="right-buttons">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#operators" id="operators">Operators</a></h1>
+<h2><a class="header" href="#path-resolution" id="path-resolution">Path resolution</a></h2>
+<p><code>::</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Module or enum</li>
+<li>Identifier or module</li>
+</ol>
+<p><strong>Returns</strong> the second operand.</p>
+<h2><a class="header" href="#array-indexing" id="array-indexing">Array indexing</a></h2>
+<p><code>[]</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Array expression</li>
+<li>Integer literal</li>
+</ol>
+<p><strong>Returns</strong> the array element or an out of range error.</p>
+<p><strong>Note</strong>: only integer literals can be array indexes now.</p>
+<h2><a class="header" href="#field-access" id="field-access">Field access</a></h2>
+<p><code>.</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Tuple expression</li>
+<li>Integer literal</li>
+</ol>
+<p><strong>Returns</strong> the tuple or structure element or an nonexistent field error.</p>
+<h2><a class="header" href="#unary-minus" id="unary-minus">Unary minus</a></h2>
+<p><code>-</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#logical-not" id="logical-not">Logical NOT</a></h2>
+<p><code>!</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#casting" id="casting">Casting</a></h2>
+<p><code>as</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer type</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<p>Casting allowed:</p>
+<ul>
+<li>integers to types of greater bitlength</li>
+<li>enums to integers of enough bitlength</li>
+</ul>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let a = -1; // `i8`, after a cast using the unary minus and the `let` inference
+let b: u16 = a as u16; // ok, casted to the opposite sign with greater bitlength 
+let c: u8 = Order::FIRST; // ok, enum implicit casting to the enough bitlength
+#}</code></pre></pre>
+<h2><a class="header" href="#multiplication" id="multiplication">Multiplication</a></h2>
+<p><code>*</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#division" id="division">Division</a></h2>
+<p><code>/</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#remainder" id="remainder">Remainder</a></h2>
+<p><code>%</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#addition" id="addition">Addition</a></h2>
+<p><code>+</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#subtraction" id="subtraction">Subtraction</a></h2>
+<p><code>-</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the integer result.</p>
+<h2><a class="header" href="#equality" id="equality">Equality</a></h2>
+<p><code>==</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer <strong>or</strong> boolean expression</li>
+<li>Integer <strong>or</strong> boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#non-equality" id="non-equality">Non-equality</a></h2>
+<p><code>!=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer <strong>or</strong> boolean expression</li>
+<li>Integer <strong>or</strong> boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#lesser-or-equals" id="lesser-or-equals">Lesser or equals</a></h2>
+<p><code>&lt;=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#greater-or-equals" id="greater-or-equals">Greater or equals</a></h2>
+<p><code>&gt;=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#lesser" id="lesser">Lesser</a></h2>
+<p><code>&lt;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#greater" id="greater">Greater</a></h2>
+<p><code>&gt;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Integer expression</li>
+<li>Integer expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-and" id="logical-and">Logical AND</a></h2>
+<p><code>&amp;&amp;</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-xor" id="logical-xor">Logical XOR</a></h2>
+<p><code>^^</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#logical-or" id="logical-or">Logical OR</a></h2>
+<p><code>||</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Boolean expression</li>
+<li>Boolean expression</li>
+</ol>
+<p><strong>Returns</strong> the boolean result.</p>
+<h2><a class="header" href="#exclusive-range-todo" id="exclusive-range-todo">Exclusive range (TODO)</a></h2>
+<p><code>..</code></p>
+<h2><a class="header" href="#inclusive-range-todo" id="inclusive-range-todo">Inclusive range (TODO)</a></h2>
+<p><code>..=</code></p>
+<h2><a class="header" href="#assignment" id="assignment">Assignment</a></h2>
+<p><code>=</code></p>
+<p><strong>Accepts</strong></p>
+<ol>
+<li>Place expression</li>
+<li>Value expression</li>
+</ol>
+<p><strong>Returns</strong> <code>()</code>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../../language/04-statements/03-control.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../../language/05-operators/01-precedence.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../../language/04-statements/03-control.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../../language/05-operators/01-precedence.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

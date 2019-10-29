@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Interpreter CLI - ZRust</title>
+        <title>Program structure - ZRust</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -11,21 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -35,7 +35,7 @@
     <body class="light">
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../../";
             var default_theme = "light";
         </script>
 
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="language/00-introduction.html">Introduction</a></li><li><a href="language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="language/03-types/00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="language/03-types/01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="language/03-types/02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="language/03-types/03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="language/03-types/04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="language/03-types/05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="language/03-types/06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="language/03-types/07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="language/03-types/08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li><li><a href="language/03-types/09-function.html"><strong aria-hidden="true">3.9.</strong> Function</a></li></ol></li><li><a href="language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="language/04-statements/02-expression.html"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="language/05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="language/07-project-structure/00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="interpreter.html" class="active">Interpreter CLI</a></li><li class="affix"><a href="transpiler.html">Transpiler CLI</a></li></ol>
+                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types/00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types/01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types/02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types/03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types/04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types/05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types/06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types/07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types/08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li><li><a href="../../language/03-types/09-function.html"><strong aria-hidden="true">3.9.</strong> Function</a></li></ol></li><li><a href="../../language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="../../language/04-statements/02-expression.html"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="../../language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="../../language/05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-project-structure/00-overview.html" class="active"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         <h1 class="menu-title">ZRust</h1>
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                             
@@ -145,37 +145,79 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#interpreter" id="interpreter">Interpreter</a></h1>
-<h2><a class="header" href="#interface" id="interface">Interface</a></h2>
-<pre><code>zrusti 0.5.0
-The ZRust language interpreter
+                        <h1><a class="header" href="#program-structure" id="program-structure">Program structure</a></h1>
+<p>A ZRust project consists of a binary file called <code>main.zrs</code> and zero or more
+library files whose contents can be imported into the binary file.</p>
+<p>Binary file must contain the three mandatory structures
+<code>input</code>, <code>witness</code>, <code>output</code>, and the <code>main</code> function.</p>
+<p>Library files may contain only declarations of types, functions, and constants.</p>
+<h2><a class="header" href="#public-inputs-and-secret-witness" id="public-inputs-and-secret-witness">Public inputs and secret witness</a></h2>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    input {
+        {identifier}: {type},
+        ...
+    }
 
-USAGE:
-    zrusti [FLAGS] --input &lt;input&gt;
+    witness {
+        {identifier}: {type},
+        ...
+    }
 
-FLAGS:
-    -h, --help       Prints help information
-    -m, --meta       Generates meta info
-    -V, --version    Prints version information
+    output {
+        {identifier}: {type},
+        ...
+    }
+#}</code></pre></pre>
+<p>Public inputs (defined in the <code>inputs</code> block) and secret witness (defined in the
+<code>witness</code> block) are the arguments of the program for which the circuit is
+implemented. The prover must provide both public inputs and secret witness data
+in order to generate proofs. The verifier must provide the same public input
+to verify the satisfiability of the proof.</p>
+<p>Inputs, witnesses, and outputs must be defined at the beginning of a circuit.
+Variable names for input and witness are declared in the global variable scope.</p>
+<p>Outputs contain the results of a circuit.</p>
+<p>Each circuit can have 0 or more input, witness, and output arguments, but all
+the sections must be declared, even if they are empty.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+    input {
+        x: u128,
+        ...
+    }
 
-OPTIONS:
-    -i, --input &lt;input&gt;    Specifies the input *.zrs file name
-</code></pre>
-<h2><a class="header" href="#output" id="output">Output</a></h2>
-<p>The interpreter outputs using the debug function only.</p>
+    witness {
+        cubic_root: u128,
+        ...
+    }
+
+    output {
+        result: field,
+        ...
+    }
+#}</code></pre></pre>
+<h2><a class="header" href="#standard-library-todo" id="standard-library-todo">Standard library (TODO)</a></h2>
+<ul>
+<li>hashes: <code>sha256</code>, <code>pedersen</code>, <code>poseidon</code>, <code>blake2s</code></li>
+<li>signatures: <code>eddsa_verify</code></li>
+<li>curve primitives: <code>ecc</code></li>
+<li>into_bits / from_bits</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="language/appendix/C-keywords.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../language/06-expressions/00-overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="transpiler.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../language/appendix/_overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -187,13 +229,13 @@ OPTIONS:
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="language/appendix/C-keywords.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../../language/06-expressions/00-overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="transpiler.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../../language/appendix/_overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -208,14 +250,14 @@ OPTIONS:
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         

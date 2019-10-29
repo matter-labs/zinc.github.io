@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types-00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types-01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types-02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types-03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types-04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types-05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types-06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types-07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types-08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li></ol></li><li><a href="../../language/04-operators-00-overview.html"><strong aria-hidden="true">4.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/04-operators-01-precedence.html"><strong aria-hidden="true">4.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/05-statements-00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><a href="../../language/06-expressions-00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-program-00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_appendix.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html" class="active"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
+                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types/00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types/01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types/02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types/03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types/04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types/05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types/06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types/07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types/08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li><li><a href="../../language/03-types/09-function.html"><strong aria-hidden="true">3.9.</strong> Function</a></li></ol></li><li><a href="../../language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="../../language/04-statements/02-expression.html"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="../../language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="../../language/05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-project-structure/00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html" class="active"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,11 +146,18 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#syntax-grammar" id="syntax-grammar">Syntax grammar</a></h1>
-<pre><code>program = inputs, [ witnesses ], { statement } ;
+<pre><code>(* Domain *)
+file = binary | library ;
+
+binary = inputs, witnesses, outputs, { statement } ;
+
+library = { statement } ;
 
 inputs = 'input', '{', field_list, '}' ;
 
 witnesses = 'witness', '{', field_list, '}' ;
+
+outputs = 'output', '{', field_list, '}' ;
 
 type =
     'bool'
@@ -171,24 +178,26 @@ variant_list = [ variant, { ',', variant } ] ;
 (* Statements *)
 statement =
     empty_statement
-  | require_statement
   | let_statement
   | loop_statement
   | type_statement
   | struct_statement
   | enum_statement
-  | debug_statement
+  | fn_statement
+  | mod_statement
+  | use_statement
   | expression
 ';' ;
 
 empty_statement = ;
-require_statement = 'require', '(', expression, ')' ;
 let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
 loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
 type_statement = 'type', identifier, '=', type ;
 struct_statement = 'struct', field_list ;
 enum_statement = 'enum', variant_list ;
-debug_statement = 'debug', '(', expression, ')' ;
+fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
+mod_statement = 'mod', identifier ;
+use_statement = 'use', path_expression ;
 
 (* Expressions *)
 expression = operand_or, { '||', operand_or } ;
@@ -200,7 +209,7 @@ operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } 
 operand_mul_div_rem = operand_as, { 'as', type } ;
 operand_as =
     '-' | '!', operand_as
-  | operand_access, { '[', integer, ']' | '.', integer | '.', identifier }
+  | operand_access, { '[', integer, ']' | '.', integer | '.', identifier | '(', expression_list, ')' }
 operand_access
     tuple_expression
   | block_expression
@@ -211,6 +220,8 @@ operand_access
   | literal
   | path_expression
 ;
+
+expression_list = [ expression, { ',', expression } ] ;
 
 block_expression = '{', { statement }, [ expression ], '}' ;
 

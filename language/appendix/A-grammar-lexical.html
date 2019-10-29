@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types-00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types-01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types-02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types-03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types-04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types-05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types-06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types-07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types-08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li></ol></li><li><a href="../../language/04-operators-00-overview.html"><strong aria-hidden="true">4.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/04-operators-01-precedence.html"><strong aria-hidden="true">4.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/05-statements-00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><a href="../../language/06-expressions-00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-program-00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_appendix.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html" class="active"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
+                <ol class="chapter"><li class="affix"><a href="../../language/00-introduction.html">Introduction</a></li><li><a href="../../language/01-design.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><a href="../../language/02-examples.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><a href="../../language/03-types/00-overview.html"><strong aria-hidden="true">3.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-types/01-unit.html"><strong aria-hidden="true">3.1.</strong> Unit</a></li><li><a href="../../language/03-types/02-boolean.html"><strong aria-hidden="true">3.2.</strong> Boolean</a></li><li><a href="../../language/03-types/03-integer.html"><strong aria-hidden="true">3.3.</strong> Integer</a></li><li><a href="../../language/03-types/04-string.html"><strong aria-hidden="true">3.4.</strong> String</a></li><li><a href="../../language/03-types/05-array.html"><strong aria-hidden="true">3.5.</strong> Array</a></li><li><a href="../../language/03-types/06-tuple.html"><strong aria-hidden="true">3.6.</strong> Tuple</a></li><li><a href="../../language/03-types/07-enumeration.html"><strong aria-hidden="true">3.7.</strong> Enum</a></li><li><a href="../../language/03-types/08-structure.html"><strong aria-hidden="true">3.8.</strong> Structure</a></li><li><a href="../../language/03-types/09-function.html"><strong aria-hidden="true">3.9.</strong> Function</a></li></ol></li><li><a href="../../language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="../../language/04-statements/02-expression.html"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="../../language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="../../language/05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-project-structure/00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html" class="active"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../interpreter.html">Interpreter CLI</a></li><li class="affix"><a href="../../transpiler.html">Transpiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -146,7 +146,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#lexical-grammar" id="lexical-grammar">Lexical grammar</a></h1>
-<pre><code>lexeme = comment | identifier | keyword | literal | symbol ;
+<pre><code>lexeme = comment | identifier | keyword | literal | symbol | EOF ;
 
 comment = single_line_comment | multi_line_comment ;
 single_line_comment = '//', ( ? ANY ? - '\n' ), '\n' ;
@@ -160,6 +160,7 @@ identifier = (
 keyword =
     'input'
   | 'witness'
+  | 'output'
 
   | 'let'
   | 'mut'
@@ -167,12 +168,15 @@ keyword =
   | 'struct'
   | 'enum'
   | 'fn'
+  | 'mod'
+  | 'use'
 
   | 'for'
   | 'in'
   | 'while'
   | 'if'
   | 'else'
+  | 'match'
 
   | 'bool'
   | 'u8' | 'u16' ... 'u240' | 'u248'
@@ -226,6 +230,8 @@ symbol =
   | '||'
   | '..'
   | '..='
+  | '=&gt;'
+  | '-&gt;'
 ;
 
 alpha =
@@ -253,7 +259,7 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../../language/appendix/_appendix.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../language/appendix/_overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
@@ -271,7 +277,7 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../../language/appendix/_appendix.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../../language/appendix/_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
