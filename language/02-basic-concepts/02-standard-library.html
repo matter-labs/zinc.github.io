@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Expression - ZRust</title>
+        <title>Standard library - ZRust</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="../../language/introduction.html">Introduction</a></li><li><a href="../../language/01-design/01-overview.html"><strong aria-hidden="true">1.</strong> Design</a></li><li><ol class="section"><li><a href="../../language/01-design/02-comparison.html"><strong aria-hidden="true">1.1.</strong> Comparison to Rust</a></li></ol></li><li><a href="../../language/02-examples/01-overview.html"><strong aria-hidden="true">2.</strong> Examples</a></li><li><ol class="section"><li><a href="../../language/02-examples/02-binary.html"><strong aria-hidden="true">2.1.</strong> Binary</a></li><li><a href="../../language/02-examples/03-library.html"><strong aria-hidden="true">2.2.</strong> Library</a></li></ol></li><li><a href="../../language/03-concepts/01-overview.html"><strong aria-hidden="true">3.</strong> Concepts</a></li><li><ol class="section"><li><a href="../../language/03-concepts/02-variables.html"><strong aria-hidden="true">3.1.</strong> Variables</a></li><li><a href="../../language/03-concepts/03-types/00-overview.html"><strong aria-hidden="true">3.2.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/03-concepts/03-types/01-scalar.html"><strong aria-hidden="true">3.2.1.</strong> Scalar</a></li><li><a href="../../language/03-concepts/03-types/02-compound.html"><strong aria-hidden="true">3.2.2.</strong> Compound</a></li><li><a href="../../language/03-concepts/03-types/03-custom.html"><strong aria-hidden="true">3.2.3.</strong> Custom</a></li><li><a href="../../language/03-concepts/03-types/04-other.html"><strong aria-hidden="true">3.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="../../language/04-statements/00-overview.html"><strong aria-hidden="true">4.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/04-statements/01-declaration.html"><strong aria-hidden="true">4.1.</strong> Declaration</a></li><li><a href="../../language/04-statements/02-expression.html" class="active"><strong aria-hidden="true">4.2.</strong> Expression</a></li><li><a href="../../language/04-statements/03-control.html"><strong aria-hidden="true">4.3.</strong> Control</a></li></ol></li><li><a href="../../language/05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/05-operators/01-precedence.html"><strong aria-hidden="true">5.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><a href="../../language/07-project-structure/00-overview.html"><strong aria-hidden="true">7.</strong> Program structure</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">8.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">8.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">8.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">8.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../compiler.html">Compiler CLI</a></li></ol>
+                <ol class="chapter"><li><a href="../../language/01-introduction/00-overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li><a href="../../language/01-introduction/01-design-background.html"><strong aria-hidden="true">1.1.</strong> Design background</a></li><li><a href="../../language/01-introduction/02-comparison-to-rust.html"><strong aria-hidden="true">1.2.</strong> Comparison to Rust</a></li></ol></li><li><a href="../../language/02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../../language/02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="../../language/02-basic-concepts/02-standard-library.html" class="active"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="../../language/03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="../../language/03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="../../language/03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="../../language/04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../../language/04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../../language/04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="../../language/04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="../../language/04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="../../language/05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../../language/05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../../language/05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../../language/06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../../language/08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../compiler.html">Compiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,69 +145,29 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#expression-statements" id="expression-statements">Expression statements</a></h1>
-<h2><a class="header" href="#empty" id="empty">Empty</a></h2>
-<p>The semicolon statement <code>;</code> is an empty statement.</p>
-<p>It is made mostly to keep backward-compatibility with presence or absence of
-semicolons in some possible cases in the future.</p>
-<h2><a class="header" href="#expression" id="expression">Expression</a></h2>
-<p>The expression statement is an expression terminated with a <code>;</code> in order
-to ignore its result. The most common use is the assignment to a mutable
-variable:</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-let mut a = 0;
-a = 42; // an expression statement ignoring the '()' result of the assignment
-#}</code></pre></pre>
-<p>For for information on expressions, check the <strong>Chapter 6</strong>.</p>
-<h2><a class="header" href="#semicolons" id="semicolons">Semicolons</a></h2>
-<p>In contrast with Rust, expression statements must be always terminated with <code>;</code>
-in ZRust to get rid of some ambiguities regarding block and conditional
-expressions. Let us compare the examples of Rust and ZRust to illustrate the
-problem.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn blocks() -&gt; i32 {
-    {
-        get_unit()
-    } // a statement, but only because the block result is ()
-    {
-        get_integer()
-    } // a return expression, only because the block result is an integer
-}
-#}</code></pre></pre>
-<p>In the Rust example above, the blocks are completely identical, but their semantic
-meaning depends on the block return type. ZRust solves this problem by enforcing
-all expression statements to be explictly terminated with a semicolon, like in
-the following ZRust example:</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn blocks() -&gt; i32 {
-    {
-        get_unit()
-    }; // a statement, because it is explicitly terminated with a semicolon
-    {
-        get_integer()
-    } // a return expression, because it goes the last in the function block
-}
-#}</code></pre></pre>
-<p>Conditional and match expressions follow the same rules as simple blocks.</p>
+                        <h1><a class="header" href="#standard-library" id="standard-library">Standard library</a></h1>
+<p>Most of the standard library functions will be embedded into the ZRust virtual
+machine, which is described in the <strong>Chapter 8</strong>.</p>
+<p>The standard library will provide computation-heavy algorithms like:</p>
+<ul>
+<li>hashes: <code>sha256</code>, <code>pedersen</code>, <code>poseidon</code>, <code>blake2s</code></li>
+<li>signatures: <code>eddsa_verify</code></li>
+<li>curve primitives: <code>ecc</code></li>
+<li>into_bits / from_bits</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../../language/04-statements/01-declaration.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../language/02-basic-concepts/01-input-output.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../../language/04-statements/03-control.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../language/03-examples/00-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -219,13 +179,13 @@ fn blocks() -&gt; i32 {
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../../language/04-statements/01-declaration.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../../language/02-basic-concepts/01-input-output.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../../language/04-statements/03-control.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../../language/03-examples/00-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 

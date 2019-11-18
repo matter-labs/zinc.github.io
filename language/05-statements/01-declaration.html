@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>A - Lexical grammar - ZRust</title>
+        <title>Declaration - ZRust</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li><a href="../../language/01-introduction/00-overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li><a href="../../language/01-introduction/01-design-background.html"><strong aria-hidden="true">1.1.</strong> Design background</a></li><li><a href="../../language/01-introduction/02-comparison-to-rust.html"><strong aria-hidden="true">1.2.</strong> Comparison to Rust</a></li></ol></li><li><a href="../../language/02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../../language/02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="../../language/02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="../../language/03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="../../language/03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="../../language/03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="../../language/04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../../language/04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../../language/04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="../../language/04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="../../language/04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="../../language/05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../../language/05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../../language/05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../../language/06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../../language/08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html" class="active"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../compiler.html">Compiler CLI</a></li></ol>
+                <ol class="chapter"><li><a href="../../language/01-introduction/00-overview.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li><a href="../../language/01-introduction/01-design-background.html"><strong aria-hidden="true">1.1.</strong> Design background</a></li><li><a href="../../language/01-introduction/02-comparison-to-rust.html"><strong aria-hidden="true">1.2.</strong> Comparison to Rust</a></li></ol></li><li><a href="../../language/02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../../language/02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="../../language/02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="../../language/03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="../../language/03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="../../language/03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="../../language/04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../../language/04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../../language/04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../../language/04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="../../language/04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="../../language/04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="../../language/05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../../language/05-statements/01-declaration.html" class="active"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../../language/05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../../language/05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../../language/06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../../language/06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../../language/07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../../language/08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../../language/appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="../../language/appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="../../language/appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="../../language/appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="../../compiler.html">Compiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,133 +145,78 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#lexical-grammar" id="lexical-grammar">Lexical grammar</a></h1>
-<p>These are the ZRust lexical grammar rules in the EWBF notation.</p>
-<pre><code>lexeme = comment | identifier | keyword | literal | symbol | EOF ;
-
-comment = single_line_comment | multi_line_comment ;
-single_line_comment = '//', ( ? ANY ? - '\n' ), '\n' ;
-multi_line_comment = '/*', ( ? ANY ? - '*/' ), '*/' ;
-
-identifier = (
-    alpha, { alpha | digit | '_' }
-  | '_', alpha, { alpha }
-- keyword ) ;
-
-keyword =
-    'input'
-  | 'witness'
-  | 'output'
-
-  | 'let'
-  | 'mut'
-  | 'type'
-  | 'struct'
-  | 'enum'
-  | 'fn'
-  | 'mod'
-  | 'use'
-
-  | 'for'
-  | 'in'
-  | 'while'
-  | 'if'
-  | 'else'
-  | 'match'
-
-  | 'bool'
-  | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
-  | 'u72' | 'u80' | 'u88' | 'u96' | 'u104' | 'u112' | 'u120' | 'u128'
-  | 'u136' | 'u144' | 'u152' | 'u160' | 'u168' | 'u176' | 'u184' | 'u192'
-  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248' | 'field'
-  | 'i8' | 'i16' | 'i24' | 'i32' | 'i40' | 'i48' | 'i56' | 'i64'
-  | 'i72' | 'i80' | 'i88' | 'i96' | 'i104' | 'i112' | 'i120' | 'i128'
-  | 'i136' | 'i144' | 'i152' | 'i160' | 'i168' | 'i176' | 'i184' | 'i192'
-  | 'i200' | 'i208' | 'i216' | 'i224' | 'i232' | 'i240' | 'i248'
-
-  | 'true'
-  | 'false'
-
-  | 'as'
-;
-
-literal = boolean | integer | string ;
-boolean = 'true' | 'false' ;
-integer =
-    '0'
-  | digit - '0', { digit }
-  | '0x', hex_digit, { hex_digit}
-;
-string = '&quot;', { ANY - '&quot;' | '\', ANY }, '&quot;' ;
-
-symbol =
-    '('
-  | ')'
-  | '['
-  | ']'
-  | '{'
-  | '}'
-  | '_'
-  | '.'
-  | ':'
-  | ';'
-  | ','
-  | '='
-  | '+'
-  | '-'
-  | '*'
-  | '/'
-  | '%'
-  | '\'
-  | '!'
-  | '&lt;'
-  | '&gt;'
-  | '::'
-  | '=='
-  | '!='
-  | '&lt;='
-  | '&gt;='  
-  | '&amp;&amp;'
-  | '^^'
-  | '||'
-  | '..'
-  | '..='
-  | '=&gt;'
-  | '-&gt;'
-;
-
-alpha =
-    'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G'
-  | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N'
-  | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U'
-  | 'V' | 'W' | 'X' | 'Y' | 'Z' 
-  | 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g'
-  | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n'
-  | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u'
-  | 'v' | 'w' | 'x' | 'y' | 'z'
-;
-
-digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
-
-hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-  | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
-  | 'a' | 'b' | 'c' | 'd' | 'e' | 'f'
-;
-
-</code></pre>
+                        <h1><a class="header" href="#declaration-statements" id="declaration-statements">Declaration statements</a></h1>
+<p>The declaration statements declare a new item, that is, a type, variable or module.</p>
+<h2><a class="header" href="#let-variable-declaration" id="let-variable-declaration"><code>let</code> variable declaration</a></h2>
+<p><code>let [mut] {identifier}[: {type}] = {expression};</code></p>
+<p>The <code>let</code> declaration behaves just like in Rust, but it does not allow
+uninitialized variables.</p>
+<p>The type is optional and is used mostly to cast integer literal or double check
+the expression result type, otherwise it is inferred.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+let mut variable: field = 0;
+#}</code></pre></pre>
+<h2><a class="header" href="#type-alias-declaration" id="type-alias-declaration"><code>type</code> alias declaration</a></h2>
+<p><code>type {identifier} = {type};</code></p>
+<p>The <code>type</code> statement declares a type alias to avoid repeating complex types.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+type Alias = (field, u8, [field; 8]);
+#}</code></pre></pre>
+<h2><a class="header" href="#struct-type-declaration" id="struct-type-declaration"><code>struct</code> type declaration</a></h2>
+<p>The <code>struct</code> statement declares a structure.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+struct Data {
+    a: field,
+    b: u8,
+    c: (),
+}
+#}</code></pre></pre>
+<h2><a class="header" href="#enum-type-declaration" id="enum-type-declaration"><code>enum</code> type declaration</a></h2>
+<p>The <code>enum</code> statement declares an enumeration.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+enum List {
+    A = 1,
+    B = 2,
+    C = 3,
+}
+#}</code></pre></pre>
+<h2><a class="header" href="#fn-type-declaration" id="fn-type-declaration"><code>fn</code> type declaration</a></h2>
+<p>The <code>fn</code> statement declares a function.</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn sum(a: u8, b: u8) -&gt; u8 {
+    a + b
+}
+#}</code></pre></pre>
+<h2><a class="header" href="#mod-module-declaration" id="mod-module-declaration"><code>mod</code> module declaration</a></h2>
+<p><code>mod {identifier};</code></p>
+<p>The <code>mod</code> statement declares a new module and behaves the same way as in Rust.</p>
+<h2><a class="header" href="#use-module-import" id="use-module-import"><code>use</code> module import</a></h2>
+<p><code>use {path};</code></p>
+<p>The <code>use</code> statement imports an item from another namespace and behaves the same
+way as in Rust.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../../language/appendix/_overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../../language/05-statements/00-overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../../language/appendix/B-grammar-syntax.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../../language/05-statements/02-expression.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -283,13 +228,13 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../../language/appendix/_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../../language/05-statements/00-overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../../language/appendix/B-grammar-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../../language/05-statements/02-expression.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
