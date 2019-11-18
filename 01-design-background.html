@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Compiler CLI - ZRust</title>
+        <title>Design background - ZRust</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="compiler.html" class="active">Compiler CLI</a></li></ol>
+                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="01-design-background.html" class="active"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="compiler.html">Compiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,34 +145,80 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#compiler-cli" id="compiler-cli">Compiler CLI</a></h1>
-<h2><a class="header" href="#interface" id="interface">Interface</a></h2>
-<pre><code>zrustc 0.5.0
-The ZRust compiler
-
-USAGE:
-    zrustc [FLAGS] --input &lt;input&gt; --output &lt;output&gt;
-
-FLAGS:
-    -h, --help       Prints help information
-    -m, --meta       Generates meta info
-    -V, --version    Prints version information
-
-OPTIONS:
-    -i, --input &lt;input&gt;      Specifies the *.zrs input file name
-    -o, --output &lt;output&gt;    Specifies the *.zrsb output file name
-</code></pre>
+                        <p>The goal of ZRust is to make writing safe zero-knowledge programs and ZKP-based
+smart contracts easy. It has been designed with the following principles in mind:</p>
+<ul>
+<li><strong>Security</strong>. It should be easy to write deterministic and secure programs.
+Conversely, it should be hard to write code to exploit some possible
+vulnerabilities found in other programming languages.</li>
+<li><strong>Safety</strong>. The language must enforce the most strict semantics available,
+such as a strong static explicit type system.</li>
+<li><strong>Efficiency</strong>. The code should compile to the most efficient circuit possible.</li>
+<li><strong>Cost-exposition</strong>. Performance costs that cannot be optimized efficiently
+must be made explicit to the developers. An example is the requirement to
+explicitly specify the loop range with constants.</li>
+<li><strong>Simplicity</strong>. Anyone familiar with C-like languages (Javascript, Java,
+Golang, C++, Rust, Solidity, Move) should be able to learn ZRust quickly and
+with minimum effort.</li>
+<li><strong>Readability</strong>. The code in ZRust should be easily readable to anybody
+familiar with the C++ language family. There should be no counter-intuitive concepts.</li>
+<li><strong>Minimalism</strong>. Less code is better. There should ideally be only one way to
+do something efficiently. Complexity should be reduced.</li>
+<li><strong>Expressiveness</strong>. The language should be powerful enough to make building
+complex programs easy.</li>
+<li><strong>Turing incompleteness</strong>. Unbounded looping and recursion are not permitted
+in ZRust. This not only allows more efficient R1CS circuit construction but
+also makes formal verifiability about the call and stack safety easier and
+eliminates the gas computation problem inherent to Turing-complete smart
+contract platforms, such as EVM.</li>
+</ul>
+<h1><a class="header" href="#key-features" id="key-features">Key features</a></h1>
+<ul>
+<li>Type safety</li>
+<li>Type inference</li>
+<li>Immutability</li>
+<li>Movable resources as a first-class citizen</li>
+<li>Module definition and import</li>
+<li>Expressive syntax</li>
+<li>Industrial-grade compiler optimizations</li>
+<li>Turing incompleteness: no recursion or unbounded looping</li>
+<li>Flat learning curve for Rust/JS/Solidity/C++ developers</li>
+</ul>
+<h1><a class="header" href="#comparison-to-rust" id="comparison-to-rust">Comparison to Rust</a></h1>
+<p>ZRust is designed specifically for ZK-circuits and ZKP-based smart contract
+development, so some differences from Rust are inevitable.</p>
+<h2><a class="header" href="#type-system" id="type-system">Type system</a></h2>
+<p>We need to adapt the type system to be efficiently representable in
+finite fields, which are the basic building block of R1CS. The current type
+system mostly follows Rust, but some aspects are borrowed from smart contract
+languages. For example, ZRust provides integer types with 1-byte step sizes,
+like those in Solidity.</p>
+<h2><a class="header" href="#ownership-and-borrowing" id="ownership-and-borrowing">Ownership and borrowing</a></h2>
+<p>Memory management is very different in R1CS
+circuits compared to the von Neumann architecture. Also, since R1CS does not
+imply parallel programming patterns, a lot of elements of the Rust design would
+be unnecessary and redundant. ZRust has no ownership mechanism found in Rust
+because all variables will be passed by value. The borrowing mechanism is still
+being designed, but probably, only immutable references will be allowed shortly.</p>
+<h2><a class="header" href="#loops-and-recursion" id="loops-and-recursion">Loops and recursion</a></h2>
+<p>ZRust is a Turing-incomplete language, as it does not allow recursion and
+variable loop indexes. Each loop range must be bounded with constant literals
+or expressions.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="appendix/C-keywords.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="02-basic-concepts/00-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -182,11 +228,15 @@ OPTIONS:
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="appendix/C-keywords.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a href="02-basic-concepts/00-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 

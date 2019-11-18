@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Compiler CLI - ZRust</title>
+        <title>Expressions - ZRust</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -11,21 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -35,7 +35,7 @@
     <body class="light">
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = "light";
         </script>
 
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="compiler.html" class="active">Compiler CLI</a></li></ol>
+                <ol class="chapter"><li class="affix"><a href="../index.html">Introduction</a></li><li><a href="../01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="../02-basic-concepts/00-overview.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../02-basic-concepts/01-input-output.html"><strong aria-hidden="true">2.1.</strong> Inputs, witnesses and output</a></li><li><a href="../02-basic-concepts/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li></ol></li><li><a href="../03-examples/00-overview.html"><strong aria-hidden="true">3.</strong> Examples</a></li><li><ol class="section"><li><a href="../03-examples/01-binary.html"><strong aria-hidden="true">3.1.</strong> Binary</a></li><li><a href="../03-examples/02-library.html"><strong aria-hidden="true">3.2.</strong> Library</a></li></ol></li><li><a href="../04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../04-variables-and-types/02-types/02-compound.html"><strong aria-hidden="true">4.2.2.</strong> Compound</a></li><li><a href="../04-variables-and-types/02-types/03-custom.html"><strong aria-hidden="true">4.2.3.</strong> Custom</a></li><li><a href="../04-variables-and-types/02-types/04-other.html"><strong aria-hidden="true">4.2.4.</strong> Other</a></li></ol></li></ol></li><li><a href="../05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../07-expressions/00-overview.html" class="active"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../appendix/_overview.html"><strong aria-hidden="true">9.</strong> Appendix</a></li><li><ol class="section"><li><a href="../appendix/A-grammar-lexical.html"><strong aria-hidden="true">9.1.</strong> A - Lexical grammar</a></li><li><a href="../appendix/B-grammar-syntax.html"><strong aria-hidden="true">9.2.</strong> B - Syntax grammar</a></li><li><a href="../appendix/C-keywords.html"><strong aria-hidden="true">9.3.</strong> C - Keywords</a></li></ol></li><li><a href="../compiler.html">Compiler CLI</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -113,7 +113,7 @@
                         <h1 class="menu-title">ZRust</h1>
 
                         <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
                                 <i id="print-button" class="fa fa-print"></i>
                             </a>
                             
@@ -145,34 +145,30 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#compiler-cli" id="compiler-cli">Compiler CLI</a></h1>
-<h2><a class="header" href="#interface" id="interface">Interface</a></h2>
-<pre><code>zrustc 0.5.0
-The ZRust compiler
-
-USAGE:
-    zrustc [FLAGS] --input &lt;input&gt; --output &lt;output&gt;
-
-FLAGS:
-    -h, --help       Prints help information
-    -m, --meta       Generates meta info
-    -V, --version    Prints version information
-
-OPTIONS:
-    -i, --input &lt;input&gt;      Specifies the *.zrs input file name
-    -o, --output &lt;output&gt;    Specifies the *.zrsb output file name
-</code></pre>
+                        <h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
+<p>Expressions consist of operands and operators.</p>
+<p>Operators have already been described in the <strong>Chapter 6</strong>.</p>
+<h2><a class="header" href="#operands" id="operands">Operands</a></h2>
+<p>Any syntax constructions computed into values can be used in expressions.
+ZRust does all the type checking at compile time, so you can build expressions
+of arbitrary complexity without caring about safety.
+However, you should care about readability and maintainability, since there are
+probably other people going to work with your code.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="appendix/C-keywords.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../06-operators/01-precedence.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
+                        
+                            <a rel="next" href="../08-virtual-machine/00-overview.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
                         
 
                         <div style="clear: both"></div>
@@ -182,11 +178,15 @@ OPTIONS:
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="appendix/C-keywords.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../06-operators/01-precedence.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
+                
+                    <a href="../08-virtual-machine/00-overview.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
                 
             </nav>
 
@@ -199,14 +199,14 @@ OPTIONS:
         
 
         
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
 
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
         
