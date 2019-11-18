@@ -145,7 +145,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h2><a class="header" href="#inputs-witnesses-and-the-output" id="inputs-witnesses-and-the-output">Inputs, witnesses and the output</a></h2>
+                        <h1><a class="header" href="#inputs-witnesses-and-the-output" id="inputs-witnesses-and-the-output">Inputs, witnesses and the output</a></h1>
+<p>Public inputs (defined as the <code>Input</code> type) and secret witness (defined as the
+<code>Witness</code> type) are the arguments of the program for which the circuit is
+implemented. The prover must provide both public inputs and secret witness data
+in order to generate proofs. The verifier must provide the same public input
+to verify the satisfiability of the proof.</p>
+<p>The output data defined as the <code>Output</code> type contain the result of a
+circuit execution.</p>
+<p>Actually, <code>input</code>, <code>witness</code> and the output can be of any type, but using
+structures is considered a good design as it makes their use in the code more
+explicit.</p>
 <pre><pre class="playpen"><code class="language-rust">struct Input {
     {identifier}: {type},
     ...
@@ -163,16 +173,6 @@ struct Output {
 
 fn main(input: Input, witness: Witness) -&gt; Output { Output { ... } }
 </code></pre></pre>
-<p>Public inputs (defined as the <code>Input</code> type) and secret witness (defined as the
-<code>Witness</code> type) are the arguments of the program for which the circuit is
-implemented. The prover must provide both public inputs and secret witness data
-in order to generate proofs. The verifier must provide the same public input
-to verify the satisfiability of the proof.</p>
-<p>The output data defined as the <code>Output</code> type contain the result of a
-circuit execution.</p>
-<p>Actually, <code>input</code>, <code>witness</code> and the output can be of any type, but using
-structures is considered a good design as it makes their use in the code more
-explicit.</p>
 
                     </main>
 
