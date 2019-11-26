@@ -154,7 +154,7 @@ zero-knowledge proofs practical for bringing scalability and privacy to blockcha
 <p>At the same time, most existing languages and frameworks for constructing R1CS
 circuits, while being useful in academic research and prototyping, do not
 provide a satisfying degree of expressiveness and brevity to write readable and
-easily maintainable programs. A notable exception is <em>xjsnark</em>, but being
+easily maintainable programs. A notable exception is <em>xJsnark</em>, but being
 based on Java it lacks a lot of safety features of modern functional languages.</p>
 <p>Further, existing frameworks completely lack functionality specific for
 smart contracts. Security and safety aspects are crucial for developing smart
@@ -173,6 +173,7 @@ contract specifics.</p>
 <p>The language is under heavy development, so many of its aspects will eventually
 be improved or changed. However, the basic principles, such as security and
 simplicity, will never be questioned.</p>
+<h1><a class="header" href="#design-background" id="design-background">Design background</a></h1>
 <p>The goal of ZRust is to make writing safe zero-knowledge programs and ZKP-based
 smart contracts easy. It has been designed with the following principles in mind:</p>
 <ul>
@@ -235,7 +236,7 @@ or expressions.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting started</a></h1>
 <p>A ZRust project consists of a binary file called <code>main.zrs</code> and zero or more
 library files whose contents can be imported into the binary file.</p>
-<p>Binary file must contain the <code>main</code> function, which accepts input and witness
+<p>The binary file must contain the <code>main</code> function, which accepts input and witness
 data, and returns the output data.</p>
 <p>Library files may contain only declarations of types, functions, and constants.</p>
 <h2><a class="header" href="#zargo-build-tool" id="zargo-build-tool">Zargo build tool</a></h2>
@@ -249,7 +250,7 @@ in order to generate proofs. The verifier must provide the same public input
 to verify the satisfiability of the proof.</p>
 <p>The output data defined as the <code>Output</code> type contain the result of a
 circuit execution.</p>
-<p>Actually, <code>input</code>, <code>witness</code> and the output can be of any type, but using
+<p>Actually, input, witness, and output can be of any type, but using
 structures is considered a good design as it makes their use in the code more
 explicit.</p>
 <pre><code class="language-rust no_run noplaypen">struct Input {
@@ -274,14 +275,14 @@ fn main(input: Input, witness: Witness) -&gt; Output { Output { ... } }
 into the ZRust VM. </p>
 <h2><a class="header" href="#built-in-functions" id="built-in-functions">Built-in functions</a></h2>
 <p>Built-in functions closely resemble <code>macro_rules</code> found in Rust, but you do not
-have to declare them, since the compiler already knows all the built-in function
+have to declare them since the compiler already knows all the built-in function
 signatures.</p>
 <p>Among these functions are:</p>
 <ul>
-<li>helper ones: <code>dbg</code>, <code>assert</code> etc.</li>
-<li>hashing ones: <code>sha256</code>, <code>pedersen</code>, <code>rescue</code> etc.</li>
+<li>helper ones: <code>dbg</code>, <code>assert</code>, etc.</li>
+<li>hashing ones: <code>sha256</code>, <code>pedersen</code>, <code>rescue</code>, etc.</li>
 </ul>
-<p>The exhaustive list of function signatures is provided in the appendix D.</p>
+<p>The exhaustive list of function signatures is provided in the <strong>Appendix D</strong>.</p>
 <p>To call such a function, use the Rust macro syntax, as in the following example:</p>
 <pre><pre class="playpen"><code class="language-rust">fn main(input: field) {
     let input_sha256 = sha256!(input);
@@ -355,7 +356,7 @@ mutating where the compiler is unable to check your intentions.</p>
     y = 42; // ok
 }
 </code></pre>
-<p>If you are familiar with Rust, you will not have any troubles understanding this
+<p>If you are familiar with Rust, you will not have any trouble understanding this
 concept, since the syntax and semantics are almost identical. However, pattern
 matching and destructuring are not implemented yet.</p>
 <p>Immutable variables are similar to constants. Like with constants, you cannot
@@ -392,16 +393,16 @@ several variables with similar logical meaning.</p>
 <p>ZRust is a statically typed language, thus all the variables must have a type
 known at the compile time. Strict type system allows to catch the majority of
 runtime errors, which are very common to dynamically typed languages. ZRust type
-system closely resembles that of Rust, but with some modifications, limitations
+system closely resembles that of Rust, but with some modifications, limitations,
 and restrictions.</p>
 <p>Types are divided into three major classes: scalar, compound, and custom.
 Unit, boolean, integer, and string are the scalar types and you can learn more
 about them in <strong>subchapter 1</strong>.
 Arrays and tuples are the compound types explained in <strong>subchapter 2</strong>.
-Structures, enumerations and functions are custom types described in <strong>subchapter 3</strong>.
+Structures, enumerations, and functions are custom types described in <strong>subchapter 3</strong>.
 Custom types differ from others in having a user-defined name and special
 declaration syntax.
-The string type does not belong to any of the classes described above, since
+The string type does not belong to any of the classes described above since
 it is used mostly to annotate statements and provide error messages. For more
 details, check the <strong>subchapter 4</strong>.</p>
 <p>You can also declare type aliases in ZRust, which allow you to shorten type
@@ -417,7 +418,7 @@ some inference abilities will not do any harm, so you do not have to specify
 types in places where they are highly obvious.</p>
 <h3><a class="header" href="#explicit" id="explicit">Explicit</a></h3>
 <p>Type conversions can be only performed on the integer and enumeration types with
-the <code>as</code> operator. <strong>Chapter 5</strong> explains the operator behavior in details.</p>
+the casting operator. <strong>Chapter 5</strong> explains the operator behavior in details.</p>
 <h3><a class="header" href="#implicit" id="implicit">Implicit</a></h3>
 <p>The <code>let</code> statement can perform implicit type casting of integers if the type
 is specified to the left of the assignment symbol. Let us examine the statement:</p>
@@ -483,7 +484,7 @@ if a &amp;&amp; !b {
 };
 </code></pre>
 <h2><a class="header" href="#integer" id="integer">Integer</a></h2>
-<p>Integer types are somewhat different from those of Rust, since they are
+<p>Integer types are somewhat different from those of Rust since they are
 extended to be able to use any size between 1 and 32 bytes. This feature was
 borrowed from Solidity and it helps to reduce the number of constraints and
 smart contract size. Internal integer representation uses the BN256 field of
@@ -496,11 +497,11 @@ different bitlength.</p>
 </ul>
 <p>Integer types bitlength step equals 8, that is, only the following bitlengths
 are possible: <code>8</code>, <code>16</code>, ..., <code>240</code>, <code>248</code>.</p>
-<p><code>field</code> is a native field element of the elliptic curve used in the constraint
-system. It represents an unsigned integer of bitlength equal to the field
-modulus length (e.g. for BN256 the field modulus length is <code>254</code> bit).</p>
+<p>A <code>field</code> value is a native field element of the elliptic curve used in the
+constraint system. It represents an unsigned integer of bitlength equal to the
+field modulus length (e.g. for BN256 the field modulus length is <code>254</code> bit).</p>
 <p>All the types are represented using <code>field</code> as their basic building block.
-When integers variables are allocated, their bitlength must be enforced in the
+When an integer variable is allocated, its bitlength must be enforced in the
 constraint system.</p>
 <h3><a class="header" href="#literals-1" id="literals-1">Literals</a></h3>
 <ul>
@@ -541,16 +542,16 @@ fibbonaci[2] = 1;
 stored in memory and gathered together due to some logical relations.</p>
 <p>Like in Rust, <code>()</code> is the void value, <code>(value)</code> is a parenthesized expression,
 and <code>(value,)</code> is a tuple with one element.</p>
-<p>Tuple fields can be accessed via the dot operator, which is explained in details
+<p>Tuple fields can be accessed via the dot operator, which is explained in detail
 in <strong>Chapter 5</strong>.</p>
 <pre><code class="language-rust no_run noplaypen">let mut tuple: (u8, field) = (0xff, 0 as field);
 tuple.0 = 42;
 debug(tuple.1);
 </code></pre>
 <h1><a class="header" href="#custom-types" id="custom-types">Custom types</a></h1>
-<p>Structures, enumerations and function are the custom types. They must be
+<p>Structure, enumeration, and function are the custom types. They must be
 explicitly declared in the code using the <code>struct</code>, <code>enum</code>, and <code>fn</code> statements
-respectively. These types always have a name, which allows to distinguish them,
+respectively. These types always have a name allowing to distinguish them,
 even if their signatures are the same. Thus, compound types facilitate type
 checking and reduce code verbosity and repeatability.</p>
 <h2><a class="header" href="#structure" id="structure">Structure</a></h2>
@@ -558,8 +559,8 @@ checking and reduce code verbosity and repeatability.</p>
 multiple related values that make up a meaningful group. Structures allow you
 to easily build complex data types and pass them around your code with as little
 verbosity as possible.</p>
-<p>Structure fields can be accessed via the dot operator, which is explained in details
-in <strong>Chapter 5</strong>.</p>
+<p>Structure fields can be accessed via the dot operator, which is explained in
+detail in <strong>Chapter 5</strong>.</p>
 <pre><code class="language-rust no_run noplaypen">struct Person {
     age: u8,
     id: u64,
@@ -573,8 +574,8 @@ person.age = 25;
 </code></pre>
 <h2><a class="header" href="#enumeration" id="enumeration">Enumeration</a></h2>
 <p>Enums allow you to define a type by enumerating its possible values. Only simple
-C-like enums are supported for now, which are basically groups of constants,
-following the Rust syntax:</p>
+C-like enums are supported for now, which are groups of constants, following
+the Rust syntax:</p>
 <pre><code class="language-rust no_run noplaypen">enum Order {
     FIRST = 0,
     SECOND = 1,
@@ -597,9 +598,9 @@ let z = Order::SECOND as u8; // the type is u8 (explicit casting)
 <h2><a class="header" href="#function" id="function">Function</a></h2>
 <p>The function is the only callable type in ZRust and it closely follows the Rust
 syntax. However, R1CS specifics require that functions must be executed completely,
-thus there are no <code>return</code> statement in ZRust. The only way to return a value is
+thus there is no <code>return</code> statement in ZRust. The only way to return a value is
 to specify it as the last unterminated statement of the function block.</p>
-<p>Functions consist of several parts: the name, arguments, return type and the
+<p>Functions consist of several parts: the name, arguments, return type, and the
 code block. The name is the function type name and it uniquely defines a function.
 The arguments can be only passed by value, and the function result can only be
 returned by value. If the return type is omitted, the function is considered
@@ -616,8 +617,8 @@ let result = wierd_sum(42, 27);
 std::require(result == 100);
 </code></pre>
 <h1><a class="header" href="#other-types" id="other-types">Other types</a></h1>
-<p>Other types does not belong to any type classes, but provide some features which
-may be changed in the future. One of such types is the string.</p>
+<p>Other types do not belong to any type class but provide some features which
+may be changed in the future. One such type is the string.</p>
 <h2><a class="header" href="#string" id="string">String</a></h2>
 <p>For now, strings have very limited implementation and usability.</p>
 <p>The string type exists only in the literal form and can only appear as the
@@ -638,8 +639,8 @@ second argument of the <code>require</code> function:</p>
 <p><code>let [mut] {identifier}[: {type}] = {expression};</code></p>
 <p>The <code>let</code> declaration behaves just like in Rust, but it does not allow
 uninitialized variables.</p>
-<p>The type is optional and is used mostly to cast integer literal or double check
-the expression result type, otherwise it is inferred.</p>
+<p>The type is optional and is used mostly to cast integer literal or double-check
+the expression result type, otherwise, it is inferred.</p>
 <pre><code class="language-rust no_run noplaypen">let mut variable: field = 0;
 </code></pre>
 <h2><a class="header" href="#type-alias-declaration" id="type-alias-declaration"><code>type</code> alias declaration</a></h2>
@@ -677,10 +678,6 @@ the expression result type, otherwise it is inferred.</p>
 <p>The <code>use</code> statement imports an item from another namespace and behaves the same
 way as in Rust.</p>
 <h1><a class="header" href="#expression-statements" id="expression-statements">Expression statements</a></h1>
-<h2><a class="header" href="#empty" id="empty">Empty</a></h2>
-<p>The semicolon statement <code>;</code> is an empty statement.</p>
-<p>It is made mostly to keep backward-compatibility with presence or absence of
-semicolons in some possible cases in the future.</p>
 <h2><a class="header" href="#expression" id="expression">Expression</a></h2>
 <p>The expression statement is an expression terminated with a <code>;</code> in order
 to ignore its result. The most common use is the assignment to a mutable
@@ -705,7 +702,7 @@ problem.</p>
 </code></pre>
 <p>In the Rust example above, the blocks are completely identical, but their semantic
 meaning depends on the block return type. ZRust solves this problem by enforcing
-all expression statements to be explictly terminated with a semicolon, like in
+all expression statements to be explicitly terminated with a semicolon, like in
 the following ZRust example:</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {
@@ -747,7 +744,7 @@ can use its variables and the loop iterator.</p>
 <li>Array expression</li>
 <li>Integer literal</li>
 </ol>
-<p><strong>Returns</strong> the array element or an out of range error.</p>
+<p><strong>Returns</strong> an array element or error.</p>
 <p><strong>Note</strong>: only integer literals can be array indexes now.</p>
 <h2><a class="header" href="#field-access" id="field-access">Field access</a></h2>
 <p><code>.</code></p>
@@ -756,7 +753,7 @@ can use its variables and the loop iterator.</p>
 <li>Tuple expression</li>
 <li>Integer literal</li>
 </ol>
-<p><strong>Returns</strong> the tuple or structure element or an nonexistent field error.</p>
+<p><strong>Returns</strong> a tuple or structure element or error.</p>
 <h2><a class="header" href="#unary-minus" id="unary-minus">Unary minus</a></h2>
 <p><code>-</code></p>
 <p><strong>Accepts</strong></p>
@@ -930,10 +927,10 @@ let c: u8 = Order::First; // casting to an integer of enough bitlength
 </tbody></table>
 <h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
 <p>Expressions consist of operands and operators.</p>
-<p>Operators have already been described in the <strong>Chapter 6</strong>.</p>
+<p>Operators have already been described in <strong>Chapter 6</strong>.</p>
 <h2><a class="header" href="#operands" id="operands">Operands</a></h2>
 <p>Any syntax constructions computed into values can be used in expressions.
-ZRust does all the type checking at compile time, so you can build expressions
+ZRust does all the type checking at compile-time, so you can build expressions
 of arbitrary complexity without caring about safety.
 However, you should care about readability and maintainability, since there are
 probably other people going to work with your code.</p>

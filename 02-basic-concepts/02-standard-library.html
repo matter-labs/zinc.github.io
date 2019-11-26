@@ -150,14 +150,14 @@
 into the ZRust VM. </p>
 <h2><a class="header" href="#built-in-functions" id="built-in-functions">Built-in functions</a></h2>
 <p>Built-in functions closely resemble <code>macro_rules</code> found in Rust, but you do not
-have to declare them, since the compiler already knows all the built-in function
+have to declare them since the compiler already knows all the built-in function
 signatures.</p>
 <p>Among these functions are:</p>
 <ul>
-<li>helper ones: <code>dbg</code>, <code>assert</code> etc.</li>
-<li>hashing ones: <code>sha256</code>, <code>pedersen</code>, <code>rescue</code> etc.</li>
+<li>helper ones: <code>dbg</code>, <code>assert</code>, etc.</li>
+<li>hashing ones: <code>sha256</code>, <code>pedersen</code>, <code>rescue</code>, etc.</li>
 </ul>
-<p>The exhaustive list of function signatures is provided in the appendix D.</p>
+<p>The exhaustive list of function signatures is provided in the <strong>Appendix D</strong>.</p>
 <p>To call such a function, use the Rust macro syntax, as in the following example:</p>
 <pre><pre class="playpen"><code class="language-rust">fn main(input: field) {
     let input_sha256 = sha256!(input);

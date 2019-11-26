@@ -146,10 +146,6 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#expression-statements" id="expression-statements">Expression statements</a></h1>
-<h2><a class="header" href="#empty" id="empty">Empty</a></h2>
-<p>The semicolon statement <code>;</code> is an empty statement.</p>
-<p>It is made mostly to keep backward-compatibility with presence or absence of
-semicolons in some possible cases in the future.</p>
 <h2><a class="header" href="#expression" id="expression">Expression</a></h2>
 <p>The expression statement is an expression terminated with a <code>;</code> in order
 to ignore its result. The most common use is the assignment to a mutable
@@ -174,7 +170,7 @@ problem.</p>
 </code></pre>
 <p>In the Rust example above, the blocks are completely identical, but their semantic
 meaning depends on the block return type. ZRust solves this problem by enforcing
-all expression statements to be explictly terminated with a semicolon, like in
+all expression statements to be explicitly terminated with a semicolon, like in
 the following ZRust example:</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {

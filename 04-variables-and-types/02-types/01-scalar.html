@@ -182,7 +182,7 @@ if a &amp;&amp; !b {
 };
 </code></pre>
 <h2><a class="header" href="#integer" id="integer">Integer</a></h2>
-<p>Integer types are somewhat different from those of Rust, since they are
+<p>Integer types are somewhat different from those of Rust since they are
 extended to be able to use any size between 1 and 32 bytes. This feature was
 borrowed from Solidity and it helps to reduce the number of constraints and
 smart contract size. Internal integer representation uses the BN256 field of
@@ -195,11 +195,11 @@ different bitlength.</p>
 </ul>
 <p>Integer types bitlength step equals 8, that is, only the following bitlengths
 are possible: <code>8</code>, <code>16</code>, ..., <code>240</code>, <code>248</code>.</p>
-<p><code>field</code> is a native field element of the elliptic curve used in the constraint
-system. It represents an unsigned integer of bitlength equal to the field
-modulus length (e.g. for BN256 the field modulus length is <code>254</code> bit).</p>
+<p>A <code>field</code> value is a native field element of the elliptic curve used in the
+constraint system. It represents an unsigned integer of bitlength equal to the
+field modulus length (e.g. for BN256 the field modulus length is <code>254</code> bit).</p>
 <p>All the types are represented using <code>field</code> as their basic building block.
-When integers variables are allocated, their bitlength must be enforced in the
+When an integer variable is allocated, its bitlength must be enforced in the
 constraint system.</p>
 <h3><a class="header" href="#literals-1" id="literals-1">Literals</a></h3>
 <ul>
