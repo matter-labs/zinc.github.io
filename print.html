@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>ZRust</title>
+        <title>Zinc</title>
         
         <meta name="robots" content="noindex" />
         
@@ -112,7 +112,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">ZRust</h1>
+                        <h1 class="menu-title">Zinc</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -147,7 +147,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <img style="display: block; margin: auto;" width="200" height="200" src="./zrust-color.png"/>
+                        <img style="display: block; margin: auto;" width="200" height="200" src="./zinc-color.png"/>
 <h1><a class="header" href="#introduction" id="introduction">Introduction</a></h1>
 <p>Recent rapid advances in R1CS-based SNARKs finally make application of
 zero-knowledge proofs practical for bringing scalability and privacy to blockchains.</p>
@@ -162,10 +162,10 @@ contracts since they deal with valuable financial assets. Modern smart contract
 languages, such as <em>Simplicity</em> or Libra's <em>Move</em>, deliberately made design
 choices that favor safety and formal verifiability of the code over generalistic
 expressiveness.</p>
-<p>ZRust was created to fill the gap between these two worlds: provide a smart
+<p>Zinc was created to fill the gap between these two worlds: provide a smart
 contract language optimized for R1CS circuits, which is reliable and simple at
 the same time, and can be quickly learned by a large number of software developers.</p>
-<p>We decided to borrow the Rust syntax and semantics. ZRust is a subset of Rust
+<p>We decided to borrow the Rust syntax and semantics. Zinc is a subset of Rust
 with minor differences dictated by the subtleties of R1CS circuits. It is easily
 learnable by any developer familiar with Rust, Golang, C++ or other C-like
 languages. Also, experience with Solidity will help in understanding some smart
@@ -174,7 +174,7 @@ contract specifics.</p>
 be improved or changed. However, the basic principles, such as security and
 simplicity, will never be questioned.</p>
 <h1><a class="header" href="#design-background" id="design-background">Design background</a></h1>
-<p>The goal of ZRust is to make writing safe zero-knowledge programs and ZKP-based
+<p>The goal of Zinc is to make writing safe zero-knowledge programs and ZKP-based
 smart contracts easy. It has been designed with the following principles in mind:</p>
 <ul>
 <li><strong>Security</strong>. It should be easy to write deterministic and secure programs.
@@ -187,16 +187,16 @@ such as a strong static explicit type system.</li>
 must be made explicit to the developers. An example is the requirement to
 explicitly specify the loop range with constants.</li>
 <li><strong>Simplicity</strong>. Anyone familiar with C-like languages (Javascript, Java,
-Golang, C++, Rust, Solidity, Move) should be able to learn ZRust quickly and
+Golang, C++, Rust, Solidity, Move) should be able to learn Zinc quickly and
 with minimum effort.</li>
-<li><strong>Readability</strong>. The code in ZRust should be easily readable to anybody
+<li><strong>Readability</strong>. The code in Zinc should be easily readable to anybody
 familiar with the C++ language family. There should be no counter-intuitive concepts.</li>
 <li><strong>Minimalism</strong>. Less code is better. There should ideally be only one way to
 do something efficiently. Complexity should be reduced.</li>
 <li><strong>Expressiveness</strong>. The language should be powerful enough to make building
 complex programs easy.</li>
 <li><strong>Turing incompleteness</strong>. Unbounded looping and recursion are not permitted
-in ZRust. This not only allows more efficient R1CS circuit construction but
+in Zinc. This not only allows more efficient R1CS circuit construction but
 also makes formal verifiability about the call and stack safety easier and
 eliminates the gas computation problem inherent to Turing-complete smart
 contract platforms, such as EVM.</li>
@@ -214,33 +214,33 @@ contract platforms, such as EVM.</li>
 <li>Flat learning curve for Rust/JS/Solidity/C++ developers</li>
 </ul>
 <h1><a class="header" href="#comparison-to-rust" id="comparison-to-rust">Comparison to Rust</a></h1>
-<p>ZRust is designed specifically for ZK-circuits and ZKP-based smart contract
+<p>Zinc is designed specifically for ZK-circuits and ZKP-based smart contract
 development, so some differences from Rust are inevitable.</p>
 <h2><a class="header" href="#type-system" id="type-system">Type system</a></h2>
 <p>We need to adapt the type system to be efficiently representable in
 finite fields, which are the basic building block of R1CS. The current type
 system mostly follows Rust, but some aspects are borrowed from smart contract
-languages. For example, ZRust provides integer types with 1-byte step sizes,
+languages. For example, Zinc provides integer types with 1-byte step sizes,
 like those in Solidity.</p>
 <h2><a class="header" href="#ownership-and-borrowing" id="ownership-and-borrowing">Ownership and borrowing</a></h2>
 <p>Memory management is very different in R1CS
 circuits compared to the von Neumann architecture. Also, since R1CS does not
 imply parallel programming patterns, a lot of elements of the Rust design would
-be unnecessary and redundant. ZRust has no ownership mechanism found in Rust
+be unnecessary and redundant. Zinc has no ownership mechanism found in Rust
 because all variables will be passed by value. The borrowing mechanism is still
 being designed, but probably, only immutable references will be allowed shortly.</p>
 <h2><a class="header" href="#loops-and-recursion" id="loops-and-recursion">Loops and recursion</a></h2>
-<p>ZRust is a Turing-incomplete language, as it does not allow recursion and
+<p>Zinc is a Turing-incomplete language, as it does not allow recursion and
 variable loop indexes. Each loop range must be bounded with constant literals
 or expressions.</p>
 <h1><a class="header" href="#getting-started" id="getting-started">Getting started</a></h1>
-<p>A ZRust project consists of a binary file called <code>main.zrs</code> and zero or more
+<p>A Zinc project consists of a binary file called <code>main.zn</code> and zero or more
 library files whose contents can be imported into the binary file.</p>
 <p>The binary file must contain the <code>main</code> function, which accepts input and witness
 data, and returns the output data.</p>
 <p>Library files may contain only declarations of types, functions, and constants.</p>
 <h2><a class="header" href="#zargo-build-tool" id="zargo-build-tool">Zargo build tool</a></h2>
-<p>The Zargo build tool is the ZRust project builder which will be available soon.
+<p>The Zargo build tool is the Zinc project builder which will be available soon.
 It is being designed after the <code>cargo</code> tool from the Rust ecosystem.</p>
 <h1><a class="header" href="#inputs-witnesses-and-the-output" id="inputs-witnesses-and-the-output">Inputs, witnesses and the output</a></h1>
 <p>Public inputs (defined as the <code>Input</code> type) and secret witness (defined as the
@@ -272,7 +272,7 @@ fn main(input: Input, witness: Witness) -&gt; Output { Output { ... } }
 </code></pre>
 <h1><a class="header" href="#standard-library" id="standard-library">Standard library</a></h1>
 <p>The standard library is currently limited to several built-in functions embedded
-into the ZRust VM. </p>
+into the Zinc VM. </p>
 <h2><a class="header" href="#built-in-functions" id="built-in-functions">Built-in functions</a></h2>
 <p>Built-in functions closely resemble <code>macro_rules</code> found in Rust, but you do not
 have to declare them since the compiler already knows all the built-in function
@@ -296,12 +296,12 @@ signatures.</p>
 }
 </code></pre></pre>
 <h1><a class="header" href="#examples" id="examples">Examples</a></h1>
-<p>The examples in this chapter will illustrate various ZRust concepts and help you
-to understand its advantages. Also, there is a ZRust playground under
+<p>The examples in this chapter will illustrate various Zinc concepts and help you
+to understand its advantages. Also, there is a Zinc playground under
 development which will allow you to try everything yourself.</p>
 <h1><a class="header" href="#binary" id="binary">Binary</a></h1>
 <pre><code class="language-rust no_run noplaypen">/// 
-/// './main.rs'
+/// './main.zn'
 ///
 /// Proves a knowledge of a cubic root `r` for a given public input `x`.
 ///
@@ -321,13 +321,13 @@ struct Witness {
 struct Output {}
 
 fn main(input: Input, witness: Witness) -&gt; Output {
-    require(x == cube(r), &quot;x == r ^ 3&quot;);
+    assert!(x == cube(r), &quot;x == r ^ 3&quot;);
     Output {}
 }
 </code></pre>
 <h1><a class="header" href="#library" id="library">Library</a></h1>
 <pre><code class="language-rust no_run noplaypen">/// 
-/// './lib.rs'
+/// './lib.zn'
 /// 
 /// Returns x^3.
 /// 
@@ -340,10 +340,10 @@ fn cube(x: u128) -&gt; u128 {
 }
 </code></pre>
 <h1><a class="header" href="#variables-and-types" id="variables-and-types">Variables and types</a></h1>
-<p>This chapter describes the ZRust language concepts. Here you will learn about
+<p>This chapter describes the Zinc language concepts. Here you will learn about
 variables and types.</p>
 <h1><a class="header" href="#variables" id="variables">Variables</a></h1>
-<p>As it was said before, ZRust is mostly about safety and security. Thus,
+<p>As it was said before, Zinc is mostly about safety and security. Thus,
 variables are immutable by default. If you are going to change their values,
 you must explicitly mark them as mutable. It protects your data from accidental
 mutating where the compiler is unable to check your intentions.</p>
@@ -373,7 +373,7 @@ fn test() {
     // const VALUE: field = 0;
 }
 </code></pre>
-<p>Variable shadowing can be a convenient feature, but ZRust is going to enforce
+<p>Variable shadowing can be a convenient feature, but Zinc is going to enforce
 warning-as-error development workflow, forbidding shadowing as a potentially
 unsafe trick. You should use mutable variables and type suffixes if you have
 several variables with similar logical meaning.</p>
@@ -390,9 +390,9 @@ several variables with similar logical meaning.</p>
 }
 </code></pre>
 <h1><a class="header" href="#types" id="types">Types</a></h1>
-<p>ZRust is a statically typed language, thus all the variables must have a type
+<p>Zinc is a statically typed language, thus all the variables must have a type
 known at the compile time. Strict type system allows to catch the majority of
-runtime errors, which are very common to dynamically typed languages. ZRust type
+runtime errors, which are very common to dynamically typed languages. Zinc type
 system closely resembles that of Rust, but with some modifications, limitations,
 and restrictions.</p>
 <p>Types are divided into three major classes: scalar, compound, and custom.
@@ -405,7 +405,7 @@ declaration syntax.
 The string type does not belong to any of the classes described above since
 it is used mostly to annotate statements and provide error messages. For more
 details, check the <strong>subchapter 4</strong>.</p>
-<p>You can also declare type aliases in ZRust, which allow you to shorten type
+<p>You can also declare type aliases in Zinc, which allow you to shorten type
 signatures of complex types by giving them a name:</p>
 <pre><code class="language-rust no_run noplaypen">type ComplexType = [(u8, [bool; 8], field); 16];
 
@@ -438,7 +438,7 @@ let negative = -positive; // i8
 </code></pre>
 <p><strong>Chapter 5</strong> explains the negation operator with more detail.</p>
 <h3><a class="header" href="#inference" id="inference">Inference</a></h3>
-<p>For now, ZRust infers types in two cases: integer literals and <code>let</code> bindings.</p>
+<p>For now, Zinc infers types in two cases: integer literals and <code>let</code> bindings.</p>
 <p>Integer literals are always inferred as values of the minimal possible size.
 That is, <code>255</code> is a <code>u8</code> value, whereas <code>256</code> is a <code>u16</code> value. Signed integers
 must be implicitly casted using the negation operator.</p>
@@ -527,7 +527,7 @@ let e: field = 0; // field
 </code></pre>
 <h1><a class="header" href="#compound-types" id="compound-types">Compound types</a></h1>
 <p>Compound types consist of several fields bound together. There are two such types
-in ZRust: arrays and tuples.</p>
+in Zinc: arrays and tuples.</p>
 <h2><a class="header" href="#array" id="array">Array</a></h2>
 <p>Arrays are collections of values of the same type sequentially stored in the memory.</p>
 <p>Fixed-sized arrays follow the Rust rules. The only exception is the restriction
@@ -596,9 +596,9 @@ let y: u8 = Order::SECOND; // the type is u8 (implicit casting)
 let z = Order::SECOND as u8; // the type is u8 (explicit casting)
 </code></pre>
 <h2><a class="header" href="#function" id="function">Function</a></h2>
-<p>The function is the only callable type in ZRust and it closely follows the Rust
+<p>The function is the only callable type in Zinc and it closely follows the Rust
 syntax. However, R1CS specifics require that functions must be executed completely,
-thus there is no <code>return</code> statement in ZRust. The only way to return a value is
+thus there is no <code>return</code> statement in Zinc. The only way to return a value is
 to specify it as the last unterminated statement of the function block.</p>
 <p>Functions consist of several parts: the name, arguments, return type, and the
 code block. The name is the function type name and it uniquely defines a function.
@@ -626,7 +626,7 @@ second argument of the <code>require</code> function:</p>
 <pre><code class="language-rust no_run noplaypen">std::require(true != false, &quot;mega ultra extra total global example&quot;);
 </code></pre>
 <h1><a class="header" href="#statements" id="statements">Statements</a></h1>
-<p>The basic element of the ZRust program is <strong>the statement</strong>.</p>
+<p>The basic element of the Zinc program is <strong>the statement</strong>.</p>
 <p>Statements are divided into several types:</p>
 <ol>
 <li>Declaration statements</li>
@@ -688,8 +688,8 @@ a = 42; // an expression statement ignoring the '()' result of the assignment
 <p>For for information on expressions, check the <strong>Chapter 6</strong>.</p>
 <h2><a class="header" href="#semicolons" id="semicolons">Semicolons</a></h2>
 <p>In contrast with Rust, expression statements must be always terminated with <code>;</code>
-in ZRust to get rid of some ambiguities regarding block and conditional
-expressions. Let us compare the examples of Rust and ZRust to illustrate the
+in Zinc to get rid of some ambiguities regarding block and conditional
+expressions. Let us compare the examples of Rust and Zinc to illustrate the
 problem.</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {
@@ -701,9 +701,9 @@ problem.</p>
 }
 </code></pre>
 <p>In the Rust example above, the blocks are completely identical, but their semantic
-meaning depends on the block return type. ZRust solves this problem by enforcing
+meaning depends on the block return type. Zinc solves this problem by enforcing
 all expression statements to be explicitly terminated with a semicolon, like in
-the following ZRust example:</p>
+the following Zinc example:</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {
         get_unit()
@@ -930,25 +930,25 @@ let c: u8 = Order::First; // casting to an integer of enough bitlength
 <p>Operators have already been described in <strong>Chapter 6</strong>.</p>
 <h2><a class="header" href="#operands" id="operands">Operands</a></h2>
 <p>Any syntax constructions computed into values can be used in expressions.
-ZRust does all the type checking at compile-time, so you can build expressions
+Zinc does all the type checking at compile-time, so you can build expressions
 of arbitrary complexity without caring about safety.
 However, you should care about readability and maintainability, since there are
 probably other people going to work with your code.</p>
 <h1><a class="header" href="#virtual-machine" id="virtual-machine">Virtual machine</a></h1>
-<p>ZRust code is compiled into bytecode which can be run by ZRust VM.</p>
-<p>ZRust VM is a virtual machine that serves three purposes: executing arbitrary
+<p>Zinc code is compiled into bytecode which can be run by Zinc VM.</p>
+<p>Zinc VM is a virtual machine that serves three purposes: executing arbitrary
 computations, generating zero-knowledge proof of performed computations, and
 verification of the provided proof without knowing the input data.</p>
-<p>ZRust VM is a stack-based virtual machine which is similar to many others like
+<p>Zinc VM is a stack-based virtual machine which is similar to many others like
 the Python VM. Even though the VM is designed considering specifics and
 limitations of zero-knowledge computations, bytecode instructions only
 manipulate data on the stack while all zero-knowledge constraints are
 automatically applied by the virtual machine.</p>
 <h1><a class="header" href="#appendix" id="appendix">Appendix</a></h1>
 <p>The following sections contain reference material you may find useful in
-your ZRust journey.</p>
+your Zinc journey.</p>
 <h1><a class="header" href="#lexical-grammar" id="lexical-grammar">Lexical grammar</a></h1>
-<p>These are the ZRust lexical grammar rules in the EWBF notation.</p>
+<p>These are the Zinc lexical grammar rules in the EWBF notation.</p>
 <pre><code>lexeme = comment | identifier | keyword | literal | symbol | EOF ;
 
 comment = single_line_comment | multi_line_comment ;
@@ -961,18 +961,17 @@ identifier = (
 - keyword ) ;
 
 keyword =
-    'input'
-  | 'witness'
-  | 'output'
-
-  | 'let'
+    'let'
   | 'mut'
+  | 'const'
+  | 'static'
   | 'type'
   | 'struct'
   | 'enum'
   | 'fn'
   | 'mod'
   | 'use'
+  | 'impl'
 
   | 'for'
   | 'in'
@@ -1028,6 +1027,7 @@ symbol =
   | '!'
   | '&lt;'
   | '&gt;'
+  | '&amp;'
   | '::'
   | '=='
   | '!='
@@ -1062,14 +1062,90 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
 </code></pre>
 <h1><a class="header" href="#syntax-grammar" id="syntax-grammar">Syntax grammar</a></h1>
-<p>These are the ZRust syntax grammar rules in the EWBF notation.</p>
-<pre><code>(* Domain *)
-file = binary | library ;
+<p>These are the Zinc syntax grammar rules in the EWBF notation.</p>
+<pre><code>file = { module_local_statement } ;
 
-binary = { outer_statement } ;
+(* Statements *)
+module_local_statement =
+    const_statement
+  | static_statement
+  | type_statement
+  | struct_statement
+  | enum_statement
+  | fn_statement
+  | mod_statement
+  | use_statement
+  | impl_statement
 
-library = { outer_statement } ;
+function_local_statement =
+    let_statement
+  | const_statement
+  | loop_statement
+  | expression
 
+implementation_local_statement =
+    const_statement
+  | fn_statement
+';' ;
+
+let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
+loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
+type_statement = 'type', identifier, '=', type ;
+struct_statement = 'struct', field_list ;
+enum_statement = 'enum', variant_list ;
+fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
+mod_statement = 'mod', identifier ;
+use_statement = 'use', path_expression ;
+impl_statement = 'impl', identifier, '{', { implementation_local_statement }, '}' ;
+
+(* Expressions *)
+expression = operand_or, { '||', operand_or } ;
+operand_or = operand_xor, { '^^', operand_xor } ;
+operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
+operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
+operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
+operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
+operand_mul_div_rem = operand_as, { 'as', type } ;
+operand_as = { '-' | '!', '&amp;', '*' }, operand_access ;
+operand_access = operand_path, {
+    '[', expression, ']'
+  | '.', integer | member_name
+  | '(', expression_list, ')'
+} ;
+operand_path = operand_terminal, { '::', operand_terminal }, [ '!' ] ;
+operand_terminal =
+    tuple_expression
+  | block_expression
+  | array_expression
+  | conditional_expression
+  | match_expression
+  | struct_expression
+  | literal
+  | identifier
+;
+
+expression_list = [ expression, { ',', expression } ] ;
+
+block_expression = '{', { function_local_statement }, [ expression ], '}' ;
+
+conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
+
+match_expression = 'match', expression, '{', { pattern_match, '=&gt;', expression, ',' }, '}' ;
+
+array_expression =
+    '[', [ expression, { ',', expression } ] ']'
+  | '[', expression, ';', integer, ']'
+;
+
+tuple_expression =
+    '(', ')'
+  | '(', expression, ')'
+  | '(', expression, ',', [ expression, { ',', expression } ], ')'
+;
+
+struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
+
+(* Parts *)
 type =
     'bool'
   | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
@@ -1085,82 +1161,21 @@ type =
   | identifier
 ;
 
+pattern_match =
+    boolean
+  | integer
+  | identifier
+  | operand_path
+  | '_'
+;
+
 field = identifier, ':', type ;
 field_list = [ field, { ',', field } ] ;
 
 variant = identifier, '=', integer ;
 variant_list = [ variant, { ',', variant } ] ;
 
-(* Statements *)
-outer_statement =
-    type_statement
-  | struct_statement
-  | enum_statement
-  | fn_statement
-  | mod_statement
-  | use_statement
-
-inner_statement =
-    empty_statement
-  | let_statement
-  | loop_statement
-  | expression
-';' ;
-
-empty_statement = ;
-let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
-loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
-type_statement = 'type', identifier, '=', type ;
-struct_statement = 'struct', field_list ;
-enum_statement = 'enum', variant_list ;
-fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
-mod_statement = 'mod', identifier ;
-use_statement = 'use', path_expression ;
-
-(* Expressions *)
-expression = operand_or, { '||', operand_or } ;
-operand_or = operand_xor, { '^^', operand_xor } ;
-operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
-operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
-operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
-operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
-operand_mul_div_rem = operand_as, { 'as', type } ;
-operand_as =
-    '-' | '!', operand_as
-  | operand_access, { '[', integer, ']' | '.', integer | '.', identifier | '(', expression_list, ')' }
-operand_access
-    tuple_expression
-  | block_expression
-  | array_expression
-  | conditional_expression
-  | match_expression
-  | struct_expression
-  | literal
-  | path_expression
-;
-
-expression_list = [ expression, { ',', expression } ] ;
-
-block_expression = '{', { inner_statement }, [ expression ], '}' ;
-
-conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
-
-match_expression = 'match', expression, '{', { literal, '=&gt;', expression, ',' }, '}' ;
-
-array_expression =
-    '[', [ expression, { ',', expression } ] ']'
-  | '[', expression, ';', integer, ']'
-;
-
-tuple_expression =
-    '(', ')'
-  | '(', expression, ')'
-  | '(', expression, ',', [ expression, { ',', expression } ], ')'
-;
-
-struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
-
-path_expression = identifier, { '::', identifier } ;
+member_name = identifier ;
 
 </code></pre>
 <h1><a class="header" href="#keywords" id="keywords">Keywords</a></h1>
@@ -1200,19 +1215,19 @@ ref
 <h1><a class="header" href="#built-in-functions-1" id="built-in-functions-1">Built-in functions</a></h1>
 <h1><a class="header" href="#compiler-cli" id="compiler-cli">Compiler CLI</a></h1>
 <h2><a class="header" href="#interface" id="interface">Interface</a></h2>
-<pre><code>zrustc 0.5.0
-The ZRust compiler
+<pre><code>znc 0.5.0
+The Zinc compiler
 
 USAGE:
-    zrustc [FLAGS] --input &lt;input&gt; --output &lt;output&gt;
+    znc [FLAGS] --input &lt;input&gt; --output &lt;output&gt;
 
 FLAGS:
     -h, --help       Prints help information
     -V, --version    Prints version information
 
 OPTIONS:
-    -i, --input &lt;input&gt;      Specifies the *.zrs input file name
-    -o, --output &lt;output&gt;    Specifies the *.zrsb output file name
+    -i, --input &lt;input&gt;      Specifies the *.zn input file name
+    -o, --output &lt;output&gt;    Specifies the *.znb output file name
 </code></pre>
 
                     </main>

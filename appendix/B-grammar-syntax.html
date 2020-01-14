@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>B - Syntax grammar - ZRust</title>
+        <title>B - Syntax grammar - Zinc</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -110,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">ZRust</h1>
+                        <h1 class="menu-title">Zinc</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -146,14 +146,90 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#syntax-grammar" id="syntax-grammar">Syntax grammar</a></h1>
-<p>These are the ZRust syntax grammar rules in the EWBF notation.</p>
-<pre><code>(* Domain *)
-file = binary | library ;
+<p>These are the Zinc syntax grammar rules in the EWBF notation.</p>
+<pre><code>file = { module_local_statement } ;
 
-binary = { outer_statement } ;
+(* Statements *)
+module_local_statement =
+    const_statement
+  | static_statement
+  | type_statement
+  | struct_statement
+  | enum_statement
+  | fn_statement
+  | mod_statement
+  | use_statement
+  | impl_statement
 
-library = { outer_statement } ;
+function_local_statement =
+    let_statement
+  | const_statement
+  | loop_statement
+  | expression
 
+implementation_local_statement =
+    const_statement
+  | fn_statement
+';' ;
+
+let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
+loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
+type_statement = 'type', identifier, '=', type ;
+struct_statement = 'struct', field_list ;
+enum_statement = 'enum', variant_list ;
+fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
+mod_statement = 'mod', identifier ;
+use_statement = 'use', path_expression ;
+impl_statement = 'impl', identifier, '{', { implementation_local_statement }, '}' ;
+
+(* Expressions *)
+expression = operand_or, { '||', operand_or } ;
+operand_or = operand_xor, { '^^', operand_xor } ;
+operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
+operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
+operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
+operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
+operand_mul_div_rem = operand_as, { 'as', type } ;
+operand_as = { '-' | '!', '&amp;', '*' }, operand_access ;
+operand_access = operand_path, {
+    '[', expression, ']'
+  | '.', integer | member_name
+  | '(', expression_list, ')'
+} ;
+operand_path = operand_terminal, { '::', operand_terminal }, [ '!' ] ;
+operand_terminal =
+    tuple_expression
+  | block_expression
+  | array_expression
+  | conditional_expression
+  | match_expression
+  | struct_expression
+  | literal
+  | identifier
+;
+
+expression_list = [ expression, { ',', expression } ] ;
+
+block_expression = '{', { function_local_statement }, [ expression ], '}' ;
+
+conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
+
+match_expression = 'match', expression, '{', { pattern_match, '=&gt;', expression, ',' }, '}' ;
+
+array_expression =
+    '[', [ expression, { ',', expression } ] ']'
+  | '[', expression, ';', integer, ']'
+;
+
+tuple_expression =
+    '(', ')'
+  | '(', expression, ')'
+  | '(', expression, ',', [ expression, { ',', expression } ], ')'
+;
+
+struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
+
+(* Parts *)
 type =
     'bool'
   | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
@@ -169,82 +245,21 @@ type =
   | identifier
 ;
 
+pattern_match =
+    boolean
+  | integer
+  | identifier
+  | operand_path
+  | '_'
+;
+
 field = identifier, ':', type ;
 field_list = [ field, { ',', field } ] ;
 
 variant = identifier, '=', integer ;
 variant_list = [ variant, { ',', variant } ] ;
 
-(* Statements *)
-outer_statement =
-    type_statement
-  | struct_statement
-  | enum_statement
-  | fn_statement
-  | mod_statement
-  | use_statement
-
-inner_statement =
-    empty_statement
-  | let_statement
-  | loop_statement
-  | expression
-';' ;
-
-empty_statement = ;
-let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
-loop_statement = 'for', identifier, 'in', integer, '..' | '..=', integer, [ 'while', expression ], block_expression ;
-type_statement = 'type', identifier, '=', type ;
-struct_statement = 'struct', field_list ;
-enum_statement = 'enum', variant_list ;
-fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
-mod_statement = 'mod', identifier ;
-use_statement = 'use', path_expression ;
-
-(* Expressions *)
-expression = operand_or, { '||', operand_or } ;
-operand_or = operand_xor, { '^^', operand_xor } ;
-operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
-operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
-operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
-operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
-operand_mul_div_rem = operand_as, { 'as', type } ;
-operand_as =
-    '-' | '!', operand_as
-  | operand_access, { '[', integer, ']' | '.', integer | '.', identifier | '(', expression_list, ')' }
-operand_access
-    tuple_expression
-  | block_expression
-  | array_expression
-  | conditional_expression
-  | match_expression
-  | struct_expression
-  | literal
-  | path_expression
-;
-
-expression_list = [ expression, { ',', expression } ] ;
-
-block_expression = '{', { inner_statement }, [ expression ], '}' ;
-
-conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
-
-match_expression = 'match', expression, '{', { literal, '=&gt;', expression, ',' }, '}' ;
-
-array_expression =
-    '[', [ expression, { ',', expression } ] ']'
-  | '[', expression, ';', integer, ']'
-;
-
-tuple_expression =
-    '(', ')'
-  | '(', expression, ')'
-  | '(', expression, ',', [ expression, { ',', expression } ], ')'
-;
-
-struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
-
-path_expression = identifier, { '::', identifier } ;
+member_name = identifier ;
 
 </code></pre>
 

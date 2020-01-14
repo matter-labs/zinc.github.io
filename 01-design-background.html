@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Design background - ZRust</title>
+        <title>Design background - Zinc</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -110,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">ZRust</h1>
+                        <h1 class="menu-title">Zinc</h1>
 
                         <div class="right-buttons">
                             <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -146,7 +146,7 @@
                 <div id="content" class="content">
                     <main>
                         <h1><a class="header" href="#design-background" id="design-background">Design background</a></h1>
-<p>The goal of ZRust is to make writing safe zero-knowledge programs and ZKP-based
+<p>The goal of Zinc is to make writing safe zero-knowledge programs and ZKP-based
 smart contracts easy. It has been designed with the following principles in mind:</p>
 <ul>
 <li><strong>Security</strong>. It should be easy to write deterministic and secure programs.
@@ -159,16 +159,16 @@ such as a strong static explicit type system.</li>
 must be made explicit to the developers. An example is the requirement to
 explicitly specify the loop range with constants.</li>
 <li><strong>Simplicity</strong>. Anyone familiar with C-like languages (Javascript, Java,
-Golang, C++, Rust, Solidity, Move) should be able to learn ZRust quickly and
+Golang, C++, Rust, Solidity, Move) should be able to learn Zinc quickly and
 with minimum effort.</li>
-<li><strong>Readability</strong>. The code in ZRust should be easily readable to anybody
+<li><strong>Readability</strong>. The code in Zinc should be easily readable to anybody
 familiar with the C++ language family. There should be no counter-intuitive concepts.</li>
 <li><strong>Minimalism</strong>. Less code is better. There should ideally be only one way to
 do something efficiently. Complexity should be reduced.</li>
 <li><strong>Expressiveness</strong>. The language should be powerful enough to make building
 complex programs easy.</li>
 <li><strong>Turing incompleteness</strong>. Unbounded looping and recursion are not permitted
-in ZRust. This not only allows more efficient R1CS circuit construction but
+in Zinc. This not only allows more efficient R1CS circuit construction but
 also makes formal verifiability about the call and stack safety easier and
 eliminates the gas computation problem inherent to Turing-complete smart
 contract platforms, such as EVM.</li>
@@ -186,23 +186,23 @@ contract platforms, such as EVM.</li>
 <li>Flat learning curve for Rust/JS/Solidity/C++ developers</li>
 </ul>
 <h1><a class="header" href="#comparison-to-rust" id="comparison-to-rust">Comparison to Rust</a></h1>
-<p>ZRust is designed specifically for ZK-circuits and ZKP-based smart contract
+<p>Zinc is designed specifically for ZK-circuits and ZKP-based smart contract
 development, so some differences from Rust are inevitable.</p>
 <h2><a class="header" href="#type-system" id="type-system">Type system</a></h2>
 <p>We need to adapt the type system to be efficiently representable in
 finite fields, which are the basic building block of R1CS. The current type
 system mostly follows Rust, but some aspects are borrowed from smart contract
-languages. For example, ZRust provides integer types with 1-byte step sizes,
+languages. For example, Zinc provides integer types with 1-byte step sizes,
 like those in Solidity.</p>
 <h2><a class="header" href="#ownership-and-borrowing" id="ownership-and-borrowing">Ownership and borrowing</a></h2>
 <p>Memory management is very different in R1CS
 circuits compared to the von Neumann architecture. Also, since R1CS does not
 imply parallel programming patterns, a lot of elements of the Rust design would
-be unnecessary and redundant. ZRust has no ownership mechanism found in Rust
+be unnecessary and redundant. Zinc has no ownership mechanism found in Rust
 because all variables will be passed by value. The borrowing mechanism is still
 being designed, but probably, only immutable references will be allowed shortly.</p>
 <h2><a class="header" href="#loops-and-recursion" id="loops-and-recursion">Loops and recursion</a></h2>
-<p>ZRust is a Turing-incomplete language, as it does not allow recursion and
+<p>Zinc is a Turing-incomplete language, as it does not allow recursion and
 variable loop indexes. Each loop range must be bounded with constant literals
 or expressions.</p>
 

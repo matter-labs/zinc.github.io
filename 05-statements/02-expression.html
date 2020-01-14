@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Expression - ZRust</title>
+        <title>Expression - Zinc</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -110,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">ZRust</h1>
+                        <h1 class="menu-title">Zinc</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -156,8 +156,8 @@ a = 42; // an expression statement ignoring the '()' result of the assignment
 <p>For for information on expressions, check the <strong>Chapter 6</strong>.</p>
 <h2><a class="header" href="#semicolons" id="semicolons">Semicolons</a></h2>
 <p>In contrast with Rust, expression statements must be always terminated with <code>;</code>
-in ZRust to get rid of some ambiguities regarding block and conditional
-expressions. Let us compare the examples of Rust and ZRust to illustrate the
+in Zinc to get rid of some ambiguities regarding block and conditional
+expressions. Let us compare the examples of Rust and Zinc to illustrate the
 problem.</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {
@@ -169,9 +169,9 @@ problem.</p>
 }
 </code></pre>
 <p>In the Rust example above, the blocks are completely identical, but their semantic
-meaning depends on the block return type. ZRust solves this problem by enforcing
+meaning depends on the block return type. Zinc solves this problem by enforcing
 all expression statements to be explicitly terminated with a semicolon, like in
-the following ZRust example:</p>
+the following Zinc example:</p>
 <pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
     {
         get_unit()

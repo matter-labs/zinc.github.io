@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Binary - ZRust</title>
+        <title>Binary - Zinc</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -110,7 +110,7 @@
                             
                         </div>
 
-                        <h1 class="menu-title">ZRust</h1>
+                        <h1 class="menu-title">Zinc</h1>
 
                         <div class="right-buttons">
                             <a href="../print.html" title="Print this book" aria-label="Print this book">
@@ -147,7 +147,7 @@
                     <main>
                         <h1><a class="header" href="#binary" id="binary">Binary</a></h1>
 <pre><code class="language-rust no_run noplaypen">/// 
-/// './main.rs'
+/// './main.zn'
 ///
 /// Proves a knowledge of a cubic root `r` for a given public input `x`.
 ///
@@ -167,7 +167,7 @@ struct Witness {
 struct Output {}
 
 fn main(input: Input, witness: Witness) -&gt; Output {
-    require(x == cube(r), &quot;x == r ^ 3&quot;);
+    assert!(x == cube(r), &quot;x == r ^ 3&quot;);
     Output {}
 }
 </code></pre>
