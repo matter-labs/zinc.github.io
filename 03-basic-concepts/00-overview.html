@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>B - Syntax grammar - Zinc</title>
+        <title>Basic concepts - Zinc</title>
         
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -78,7 +78,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="../index.html">Introduction</a></li><li><a href="../01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="../02-getting-started/01-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../02-getting-started/02-more-complex-example.html"><strong aria-hidden="true">2.1.</strong> More complex example</a></li></ol></li><li><a href="../03-basic-concepts/00-overview.html"><strong aria-hidden="true">3.</strong> Basic concepts</a></li><li><ol class="section"><li><a href="../03-basic-concepts/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li><li><a href="../03-basic-concepts/02-standard-library.html"><strong aria-hidden="true">3.2.</strong> Standard library</a></li></ol></li><li><a href="../04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../04-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">4.2.2.</strong> Arrays</a></li><li><a href="../04-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">4.2.3.</strong> Tuples</a></li><li><a href="../04-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">4.2.4.</strong> Structures</a></li><li><a href="../04-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">4.2.5.</strong> Enumerations</a></li><li><a href="../04-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">4.2.6.</strong> Strings</a></li><li><a href="../04-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">4.2.7.</strong> Casting and conversions</a></li></ol></li><li><a href="../04-variables-and-types/03-functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li></ol></li><li><a href="../05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../09-zargo-circuit-manager/00-overview.html"><strong aria-hidden="true">9.</strong> Zargo circuit manager</a></li><li><a href="../appendix/_overview.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li><a href="../appendix/A-grammar-lexical.html"><strong aria-hidden="true">10.1.</strong> A - Lexical grammar</a></li><li><a href="../appendix/B-grammar-syntax.html" class="active"><strong aria-hidden="true">10.2.</strong> B - Syntax grammar</a></li><li><a href="../appendix/C-keywords.html"><strong aria-hidden="true">10.3.</strong> C - Keywords</a></li><li><a href="../appendix/D-built-in-functions.html"><strong aria-hidden="true">10.4.</strong> D - Built-in functions</a></li><li><a href="../appendix/E-standard-library.html"><strong aria-hidden="true">10.5.</strong> E - Standard library</a></li></ol></li></ol>
+                <ol class="chapter"><li class="affix"><a href="../index.html">Introduction</a></li><li><a href="../01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="../02-getting-started/01-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../02-getting-started/02-more-complex-example.html"><strong aria-hidden="true">2.1.</strong> More complex example</a></li></ol></li><li><a href="../03-basic-concepts/00-overview.html" class="active"><strong aria-hidden="true">3.</strong> Basic concepts</a></li><li><ol class="section"><li><a href="../03-basic-concepts/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li><li><a href="../03-basic-concepts/02-standard-library.html"><strong aria-hidden="true">3.2.</strong> Standard library</a></li></ol></li><li><a href="../04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../04-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">4.2.2.</strong> Arrays</a></li><li><a href="../04-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">4.2.3.</strong> Tuples</a></li><li><a href="../04-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">4.2.4.</strong> Structures</a></li><li><a href="../04-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">4.2.5.</strong> Enumerations</a></li><li><a href="../04-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">4.2.6.</strong> Strings</a></li><li><a href="../04-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">4.2.7.</strong> Casting and conversions</a></li></ol></li><li><a href="../04-variables-and-types/03-functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li></ol></li><li><a href="../05-statements/00-overview.html"><strong aria-hidden="true">5.</strong> Statements</a></li><li><ol class="section"><li><a href="../05-statements/01-declaration.html"><strong aria-hidden="true">5.1.</strong> Declaration</a></li><li><a href="../05-statements/02-expression.html"><strong aria-hidden="true">5.2.</strong> Expression</a></li><li><a href="../05-statements/03-control.html"><strong aria-hidden="true">5.3.</strong> Control</a></li></ol></li><li><a href="../06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li><a href="../06-operators/01-precedence.html"><strong aria-hidden="true">6.1.</strong> Precedence</a></li></ol></li><li><a href="../07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><a href="../08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../09-zargo-circuit-manager/00-overview.html"><strong aria-hidden="true">9.</strong> Zargo circuit manager</a></li><li><a href="../appendix/_overview.html"><strong aria-hidden="true">10.</strong> Appendix</a></li><li><ol class="section"><li><a href="../appendix/A-grammar-lexical.html"><strong aria-hidden="true">10.1.</strong> A - Lexical grammar</a></li><li><a href="../appendix/B-grammar-syntax.html"><strong aria-hidden="true">10.2.</strong> B - Syntax grammar</a></li><li><a href="../appendix/C-keywords.html"><strong aria-hidden="true">10.3.</strong> C - Keywords</a></li><li><a href="../appendix/D-built-in-functions.html"><strong aria-hidden="true">10.4.</strong> D - Built-in functions</a></li><li><a href="../appendix/E-standard-library.html"><strong aria-hidden="true">10.5.</strong> E - Standard library</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -145,124 +145,39 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#syntax-grammar" id="syntax-grammar">Syntax grammar</a></h1>
-<p>These are the Zinc syntax grammar rules in the EWBF notation.</p>
-<pre><code>file = { module_local_statement } ;
+                        <h1><a class="header" href="#basic-concepts" id="basic-concepts">Basic concepts</a></h1>
+<p>A Zinc project consists of an entry point file called <code>main.zn</code> and zero or more
+module files whose contents can be imported into the main file.</p>
+<p>The entry point file must contain the <code>main</code> function, which accepts secret witness
+data and returns public input data. For more detail, see the
+<a href="./01-input-output.html">next section</a>.</p>
+<p>Module files may contain only declarations of types, functions, and constants.</p>
+<h2><a class="header" href="#examples" id="examples">Examples</a></h2>
+<h3><a class="header" href="#entry" id="entry">Entry</a></h3>
+<pre><code class="language-rust no_run noplaypen">/// 
+/// 'src/main.zn'
+///
+/// Proves a knowledge of a cube root `r` for a given public input `x`.
+///
 
-(* Statements *)
-module_local_statement =
-    const_statement
-  | static_statement
-  | type_statement
-  | struct_statement
-  | enum_statement
-  | fn_statement
-  | mod_statement
-  | use_statement
-  | impl_statement
+mod simple_math;
 
-function_local_statement =
-    let_statement
-  | const_statement
-  | loop_statement
-  | expression
+use simple_math::cube;
 
-implementation_local_statement =
-    const_statement
-  | fn_statement
-';' ;
+fn main(x: field, r: field) -&gt; field {
+    assert!(x == cube(r), &quot;x == r ^ 3&quot;);
+    x
+}
+</code></pre>
+<h3><a class="header" href="#module" id="module">Module</a></h3>
+<pre><code class="language-rust no_run noplaypen">/// 
+/// 'src/simple_math.zn'
+/// 
 
-let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
-loop_statement = 'for', identifier, 'in', expression, [ 'while', expression ], block_expression ;
-type_statement = 'type', identifier, '=', type ;
-struct_statement = 'struct', field_list ;
-enum_statement = 'enum', variant_list ;
-fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
-mod_statement = 'mod', identifier ;
-use_statement = 'use', path_expression ;
-impl_statement = 'impl', identifier, '{', { implementation_local_statement }, '}' ;
-
-(* Expressions *)
-expression = operand_assignment, [ '=', operand_assignment ] ;
-operand_assignment = operand_range, [ '..' | '..=', operand_range ] ;
-operand_range = operand_or, { '||', operand_or } ;
-operand_or = operand_xor, { '^^', operand_xor } ;
-operand_xor = operand_and, { '&amp;&amp;', operand_and } ;
-operand_and = operand_comparison, [ '==' | '!=' | '&gt;=' | '&lt;=' | '&gt;' | '&lt;', operand_comparison ] ;
-operand_comparison = operand_add_sub, { '+' | '-', operand_add_sub } ;
-operand_add_sub = operand_mul_div_rem, { '*' | '/' | '%', operand_mul_div_rem } ;
-operand_mul_div_rem = operand_as, { 'as', type } ;
-operand_as = { '-' | '!', '&amp;', '*' }, operand_access ;
-operand_access = operand_path, {
-    '[', expression, ']'
-  | '.', integer | member_name
-  | '(', expression_list, ')'
-} ;
-operand_path = operand_terminal, { '::', operand_terminal }, [ '!' ] ;
-operand_terminal =
-    tuple_expression
-  | block_expression
-  | array_expression
-  | conditional_expression
-  | match_expression
-  | struct_expression
-  | literal
-  | identifier
-;
-
-expression_list = [ expression, { ',', expression } ] ;
-
-block_expression = '{', { function_local_statement }, [ expression ], '}' ;
-
-conditional_expression = 'if', expression, block_expression, [ 'else', conditional_expression | block_expression ] ;
-
-match_expression = 'match', expression, '{', { pattern_match, '=&gt;', expression, ',' }, '}' ;
-
-array_expression =
-    '[', [ expression, { ',', expression } ] ']'
-  | '[', expression, ';', integer, ']'
-;
-
-tuple_expression =
-    '(', ')'
-  | '(', expression, ')'
-  | '(', expression, ',', [ expression, { ',', expression } ], ')'
-;
-
-struct_expression = 'struct', path_expression, [ '{', field_list, '}' ] ;
-
-(* Parts *)
-type =
-    'bool'
-  | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
-  | 'u72' | 'u80' | 'u88' | 'u96' | 'u104' | 'u112' | 'u120' | 'u128'
-  | 'u136' | 'u144' | 'u152' | 'u160' | 'u168' | 'u176' | 'u184' | 'u192'
-  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248' | 'field'
-  | 'i8' | 'i16' | 'i24' | 'i32' | 'i40' | 'i48' | 'i56' | 'i64'
-  | 'i72' | 'i80' | 'i88' | 'i96' | 'i104' | 'i112' | 'i120' | 'i128'
-  | 'i136' | 'i144' | 'i152' | 'i160' | 'i168' | 'i176' | 'i184' | 'i192'
-  | 'i200' | 'i208' | 'i216' | 'i224' | 'i232' | 'i240' | 'i248'
-  | '[', type, ';', integer, ']'
-  | '(', { type }, ')'
-  | identifier
-;
-
-pattern_match =
-    boolean
-  | integer
-  | identifier
-  | operand_path
-  | '_'
-;
-
-field = identifier, ':', type ;
-field_list = [ field, { ',', field } ] ;
-
-variant = identifier, '=', integer ;
-variant_list = [ variant, { ',', variant } ] ;
-
-member_name = identifier ;
-
+/// Returns x^3.
+fn cube(x: field) -&gt; field {
+    x * x * x
+}
 </code></pre>
 
                     </main>
@@ -270,13 +185,13 @@ member_name = identifier ;
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../appendix/A-grammar-lexical.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../02-getting-started/02-more-complex-example.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../appendix/C-keywords.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../03-basic-concepts/01-input-output.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -288,13 +203,13 @@ member_name = identifier ;
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../appendix/A-grammar-lexical.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a href="../02-getting-started/02-more-complex-example.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../appendix/C-keywords.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a href="../03-basic-concepts/01-input-output.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
