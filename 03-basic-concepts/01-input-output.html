@@ -163,7 +163,7 @@ being provided into <strong>program</strong> yields the same <strong>output</str
 executing the program.</p>
 <p>The following example illustrates a circuit proving knowledge of some
 <code>sha256</code> hash preimage:</p>
-<pre><code class="language-rust no_run noplaypen">use std::sha256;
+<pre><code class="language-rust no_run noplaypen">use std::crypto::sha256;
 
 fn main(preimage: [bool; 256]) -&gt; [bool; 256] {
     sha256(preimage)
