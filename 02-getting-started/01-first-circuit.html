@@ -172,7 +172,7 @@ cd preimage
 <p>The command above will create a directory with <code>Zargo.toml</code> manifest and the <code>src/</code>
 folder with an entry point module <code>main.zn</code>.</p>
 <p>Let's replace the <code>main.zn</code> contents with the following code:</p>
-<pre><code class="language-rust no_run noplaypen">use std::sha256;
+<pre><code class="language-rust no_run noplaypen">use std::crypto::sha256;
 
 fn main(preimage: [bool; 256]) -&gt; [bool; 256] {
     sha256(preimage)
