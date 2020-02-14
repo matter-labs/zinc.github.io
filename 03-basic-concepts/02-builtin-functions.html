@@ -152,7 +152,9 @@ anywhere in your code.</p>
 <p>This function creates a custom constraint in any place of your code.
 Using <code>assert!()</code> you can check whether some condition is true
 and make the circuit exit with an error if otherwise:</p>
-<pre><code class="language-rust no_run noplaypen">fn wrong(a: u8, b: u8) -&gt; u8 {
+<pre><code class="language-rust no_run noplaypen">const BAD_VALUE: u8 = 42;
+
+fn wrong(a: u8, b: u8) -&gt; u8 {
     let c = a + b - BAD_VALUE;
     assert!(a + b == c, &quot;always fails&quot;);
     c
@@ -160,8 +162,12 @@ and make the circuit exit with an error if otherwise:</p>
 </code></pre>
 <h2><a class="header" href="#dbg" id="dbg"><code>dbg!()</code></a></h2>
 <p>This function prints data to the terminal and is used only for debugging purposes.</p>
-<pre><code class="language-rust no_run noplaypen">fn print_sum(a: u8, b: u8) {
-    dbg!(&quot;{} + {} == {}&quot;, a, b, a + b);
+<p>The first argument is the format string, where each <code>{}</code> placeholder is replaced
+with a corresponding value from the next arguments. The number of placeholders
+must be equal to the number of the arguments not including the format string.</p>
+<pre><code class="language-rust no_run noplaypen">// a = 5, b = 3
+fn print_sum(a: u8, b: u8) {
+    dbg!(&quot;{} + {} = {}&quot;, a, b, a + b); // prints '5 + 3 = 8'
 }
 </code></pre>
 <h2><a class="header" href="#example" id="example">Example</a></h2>

@@ -165,7 +165,7 @@ system, but <code>std</code> makes an exception to simplify development for now.
 <p>Computes the <code>sha256</code> hash of a given bit array.</p>
 <p>Arguments:</p>
 <ul>
-<li>preimage bit array <code>[bool; N]</code></li>
+<li>preimage bit array <code>[bool; 8*N]</code> (the size must be multiple of 8)</li>
 </ul>
 <p>Returns: 256-bit hash <code>[bool; 256]</code></p>
 <h3><a class="header" href="#stdcryptopedersen" id="stdcryptopedersen"><code>std::crypto::pedersen</code></a></h3>
