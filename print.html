@@ -1,19 +1,30 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Zinc v0.1.5</title>
+        <title>Zinc v0.2.0</title>
         
         <meta name="robots" content="noindex" />
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="The official Zinc book">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -21,8 +32,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
@@ -34,11 +46,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -62,8 +74,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -80,7 +95,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="index.html">Introduction</a></li><li><a href="01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="02-getting-started/01-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="02-getting-started/02-more-complex-example.html"><strong aria-hidden="true">2.1.</strong> More complex example</a></li></ol></li><li><a href="03-basic-concepts/00-overview.html"><strong aria-hidden="true">3.</strong> Basic concepts</a></li><li><ol class="section"><li><a href="03-basic-concepts/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li><li><a href="03-basic-concepts/02-builtin-functions.html"><strong aria-hidden="true">3.2.</strong> Built-in functions</a></li><li><a href="03-basic-concepts/03-standard-library.html"><strong aria-hidden="true">3.3.</strong> Standard library</a></li></ol></li><li><a href="04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="04-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">4.2.2.</strong> Arrays</a></li><li><a href="04-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">4.2.3.</strong> Tuples</a></li><li><a href="04-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">4.2.4.</strong> Structures</a></li><li><a href="04-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">4.2.5.</strong> Enumerations</a></li><li><a href="04-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">4.2.6.</strong> Strings</a></li><li><a href="04-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">4.2.7.</strong> Casting and conversions</a></li></ol></li><li><a href="04-variables-and-types/03-functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li></ol></li><li><a href="05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="05-operators/01-arithmetic.html"><strong aria-hidden="true">5.1.</strong> Arithmetic</a></li><li><a href="05-operators/02-bitwise.html"><strong aria-hidden="true">5.2.</strong> Bitwise</a></li><li><a href="05-operators/03-comparison.html"><strong aria-hidden="true">5.3.</strong> Comparison</a></li><li><a href="05-operators/04-logical.html"><strong aria-hidden="true">5.4.</strong> Logical</a></li><li><a href="05-operators/05-casting.html"><strong aria-hidden="true">5.5.</strong> Casting</a></li><li><a href="05-operators/06-access.html"><strong aria-hidden="true">5.6.</strong> Access</a></li><li><a href="05-operators/07-range.html"><strong aria-hidden="true">5.7.</strong> Range</a></li><li><a href="05-operators/08-assignment.html"><strong aria-hidden="true">5.8.</strong> Assignment</a></li></ol></li><li><a href="06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><ol class="section"><li><a href="06-expressions/01-literals.html"><strong aria-hidden="true">6.1.</strong> Literals</a></li><li><a href="06-expressions/02-blocks.html"><strong aria-hidden="true">6.2.</strong> Blocks</a></li><li><a href="06-expressions/03-conditionals.html"><strong aria-hidden="true">6.3.</strong> Conditionals</a></li></ol></li><li><a href="07-statements/00-overview.html"><strong aria-hidden="true">7.</strong> Statements</a></li><li><ol class="section"><li><a href="07-statements/01-declaration.html"><strong aria-hidden="true">7.1.</strong> Declaration</a></li><li><a href="07-statements/02-expression.html"><strong aria-hidden="true">7.2.</strong> Expression</a></li><li><a href="07-statements/03-control.html"><strong aria-hidden="true">7.3.</strong> Control</a></li></ol></li><li><a href="08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="09-zargo-circuit-manager/00-overview.html"><strong aria-hidden="true">9.</strong> Zargo circuit manager</a></li><li><a href="10-schnorr-signature-tool/00-overview.html"><strong aria-hidden="true">10.</strong> Schnorr signature tool</a></li><li><a href="appendix/_overview.html"><strong aria-hidden="true">11.</strong> Appendix</a></li><li><ol class="section"><li><a href="appendix/A-grammar-lexical.html"><strong aria-hidden="true">11.1.</strong> A - Lexical grammar</a></li><li><a href="appendix/B-grammar-syntax.html"><strong aria-hidden="true">11.2.</strong> B - Syntax grammar</a></li><li><a href="appendix/C-keywords.html"><strong aria-hidden="true">11.3.</strong> C - Keywords</a></li><li><a href="appendix/D-built-in-functions.html"><strong aria-hidden="true">11.4.</strong> D - Built-in functions</a></li><li><a href="appendix/E-standard-library.html"><strong aria-hidden="true">11.5.</strong> E - Standard library</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">Introduction</a></li><li class="chapter-item expanded "><a href="01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li class="chapter-item expanded "><a href="02-getting-started/00-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="02-getting-started/01-builtin-functions.html"><strong aria-hidden="true">2.1.</strong> Built-in functions</a></li><li class="chapter-item expanded "><a href="02-getting-started/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li><li class="chapter-item expanded "><a href="02-getting-started/03-more-complex-example.html"><strong aria-hidden="true">2.3.</strong> More complex example</a></li></ol></li><li class="chapter-item expanded "><a href="03-circuits/00-overview.html"><strong aria-hidden="true">3.</strong> Zero-knowledge circuits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="03-circuits/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li></ol></li><li class="chapter-item expanded "><a href="04-smart-contracts/00-overview.html"><strong aria-hidden="true">4.</strong> Smart contracts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="04-smart-contracts/01-data-and-functions.html"><strong aria-hidden="true">4.1.</strong> Data and functions</a></li><li class="chapter-item expanded "><a href="04-smart-contracts/02-minimal-example.html"><strong aria-hidden="true">4.2.</strong> Uniswap example</a></li></ol></li><li class="chapter-item expanded "><a href="05-variables-and-types/00-overview.html"><strong aria-hidden="true">5.</strong> Variables and types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="05-variables-and-types/01-variables.html"><strong aria-hidden="true">5.1.</strong> Variables</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">5.2.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">5.2.1.</strong> Scalar</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">5.2.2.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">5.2.3.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">5.2.4.</strong> Structures</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">5.2.5.</strong> Enumerations</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">5.2.6.</strong> Strings</a></li><li class="chapter-item expanded "><a href="05-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">5.2.7.</strong> Casting and conversions</a></li></ol></li><li class="chapter-item expanded "><a href="05-variables-and-types/03-functions.html"><strong aria-hidden="true">5.3.</strong> Functions</a></li></ol></li><li class="chapter-item expanded "><a href="06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="06-operators/01-arithmetic.html"><strong aria-hidden="true">6.1.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="06-operators/02-bitwise.html"><strong aria-hidden="true">6.2.</strong> Bitwise</a></li><li class="chapter-item expanded "><a href="06-operators/03-comparison.html"><strong aria-hidden="true">6.3.</strong> Comparison</a></li><li class="chapter-item expanded "><a href="06-operators/04-logical.html"><strong aria-hidden="true">6.4.</strong> Logical</a></li><li class="chapter-item expanded "><a href="06-operators/05-casting.html"><strong aria-hidden="true">6.5.</strong> Casting</a></li><li class="chapter-item expanded "><a href="06-operators/06-access.html"><strong aria-hidden="true">6.6.</strong> Access</a></li><li class="chapter-item expanded "><a href="06-operators/07-range.html"><strong aria-hidden="true">6.7.</strong> Range</a></li><li class="chapter-item expanded "><a href="06-operators/08-assignment.html"><strong aria-hidden="true">6.8.</strong> Assignment</a></li></ol></li><li class="chapter-item expanded "><a href="07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="07-expressions/01-literals.html"><strong aria-hidden="true">7.1.</strong> Literals</a></li><li class="chapter-item expanded "><a href="07-expressions/02-blocks.html"><strong aria-hidden="true">7.2.</strong> Blocks</a></li><li class="chapter-item expanded "><a href="07-expressions/03-conditionals.html"><strong aria-hidden="true">7.3.</strong> Conditionals</a></li><li class="chapter-item expanded "><a href="07-expressions/04-constant.html"><strong aria-hidden="true">7.4.</strong> Constant</a></li></ol></li><li class="chapter-item expanded "><a href="08-statements/00-overview.html"><strong aria-hidden="true">8.</strong> Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="08-statements/01-declaration.html"><strong aria-hidden="true">8.1.</strong> Declaration</a></li><li class="chapter-item expanded "><a href="08-statements/02-expression.html"><strong aria-hidden="true">8.2.</strong> Expression</a></li><li class="chapter-item expanded "><a href="08-statements/03-control.html"><strong aria-hidden="true">8.3.</strong> Control</a></li></ol></li><li class="chapter-item expanded "><a href="09-virtual-machine/00-overview.html"><strong aria-hidden="true">9.</strong> Virtual machine</a></li><li class="chapter-item expanded "><a href="10-zargo/00-overview.html"><strong aria-hidden="true">10.</strong> Zargo</a></li><li class="chapter-item expanded "><a href="11-schnorr/00-overview.html"><strong aria-hidden="true">11.</strong> Schnorr signature tool</a></li><li class="chapter-item expanded "><a href="appendix/_overview.html"><strong aria-hidden="true">12.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="appendix/A-grammar-lexical.html"><strong aria-hidden="true">12.1.</strong> A - Lexical grammar</a></li><li class="chapter-item expanded "><a href="appendix/B-grammar-syntax.html"><strong aria-hidden="true">12.2.</strong> B - Syntax grammar</a></li><li class="chapter-item expanded "><a href="appendix/C-keywords.html"><strong aria-hidden="true">12.3.</strong> C - Keywords</a></li><li class="chapter-item expanded "><a href="appendix/D-built-in-functions.html"><strong aria-hidden="true">12.4.</strong> D - Built-in functions</a></li><li class="chapter-item expanded "><a href="appendix/E-standard-library.html"><strong aria-hidden="true">12.5.</strong> E - Standard library</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -89,37 +104,36 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Zinc v0.1.5</h1>
+                    <h1 class="menu-title">Zinc v0.2.0</h1>
 
-                        <div class="right-buttons">
-                            <a href="print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -154,15 +168,15 @@ zero-knowledge proofs practical for bringing scalability and privacy to blockcha
 <p>At the same time, most existing languages and frameworks for constructing R1CS
 circuits, while being useful in academic research and prototyping, do not
 provide a satisfying degree of expressiveness and brevity to write readable and
-easily maintainable programs. A notable exception is <em>xJsnark</em>, but being
+easily maintainable programs. A notable exception is <strong>xJsnark</strong>, but being
 based on Java it lacks a lot of safety features of modern functional languages.</p>
 <p>Further, existing frameworks completely lack functionality specific for
 smart contracts. Security and safety aspects are crucial for developing smart
 contracts since they deal with valuable financial assets. Modern smart contract
-languages, such as <em>Simplicity</em> or Libra's <em>Move</em>, deliberately made design
+languages, such as <strong>Simplicity</strong> or Libra's <strong>Move</strong>, deliberately made design
 choices that favor safety and formal verifiability of the code over generalistic
 expressiveness.</p>
-<p>Zinc was created to fill the gap between these two worlds: provide a smart
+<p>Zinc is created to fill the gap between these two worlds: to provide a smart
 contract language optimized for R1CS circuits, which is reliable and simple at
 the same time, and can be quickly learned by a large number of software developers.</p>
 <p>We decided to borrow the Rust syntax and semantics. Zinc is a subset of Rust
@@ -174,13 +188,13 @@ contract specifics.</p>
 be improved or changed. However, the basic principles, such as security and
 simplicity, will never be questioned.</p>
 <h1><a class="header" href="#design-background" id="design-background">Design background</a></h1>
-<p>The goal of Zinc is to make writing safe zero-knowledge programs and ZKP-based
+<p>The goal of Zinc is to make writing safe zero-knowledge circuits and ZKP-based
 smart contracts easy. It has been designed with the following principles in mind:</p>
 <ul>
 <li><strong>Security</strong>. It should be easy to write deterministic and secure programs.
 Conversely, it should be hard to write code to exploit some possible
 vulnerabilities found in other programming languages.</li>
-<li><strong>Safety</strong>. The language must enforce the most strict semantics available,
+<li><strong>Safety</strong>. The language must enforce the strictest semantics available,
 such as a strong static explicit type system.</li>
 <li><strong>Efficiency</strong>. The code should compile to the most efficient circuit possible.</li>
 <li><strong>Cost-exposition</strong>. Performance costs that cannot be optimized efficiently
@@ -223,12 +237,12 @@ system mostly follows Rust, but some aspects are borrowed from smart contract
 languages. For example, Zinc provides integer types with 1-byte step sizes,
 like those in Solidity.</p>
 <h2><a class="header" href="#ownership-and-borrowing" id="ownership-and-borrowing">Ownership and borrowing</a></h2>
-<p>Memory management is very different in R1CS
-circuits compared to the von Neumann architecture. Also, since R1CS does not
-imply parallel programming patterns, a lot of elements of the Rust design would
-be unnecessary and redundant. Zinc has no ownership mechanism found in Rust
-because all variables will be passed by value. The borrowing mechanism is still
-being designed, but probably, only immutable references will be allowed shortly.</p>
+<p>Memory management is very different in R1CS circuits compared to the
+von Neumann architecture. Also, since R1CS does not imply parallel programming
+patterns, a lot of elements of the Rust design would be unnecessary and redundant.
+Zinc has no ownership mechanism found in Rust because all variables will be
+passed by value. The borrowing mechanism is still being designed, but probably,
+only immutable references will be allowed in the future.</p>
 <h2><a class="header" href="#loops-and-recursion" id="loops-and-recursion">Loops and recursion</a></h2>
 <p>Zinc is a Turing-incomplete language, as it does not allow recursion and
 variable loop indexes. Every loop range must be bounded with constant literals
@@ -237,19 +251,19 @@ or expressions.</p>
 <h2><a class="header" href="#zinc-installation" id="zinc-installation">Zinc installation</a></h2>
 <p>To start using the Zinc framework, do the following:</p>
 <ol>
-<li>Download its <a href="https://github.com/zpreview/public/releases">binaries</a> for your OS and architecture.</li>
+<li>Download its <a href="https://github.com/matter-labs/zinc/releases">binaries</a> for your OS and architecture.</li>
 <li>Add the folder with the binaries to <code>PATH</code></li>
 <li>Use the binaries via your favorite terminal</li>
 </ol>
-<p>The Zinc framework consists of three tools:</p>
+<p>The minimal Zinc framework consists of three tools:</p>
 <ul>
 <li><code>zargo</code> circuit manager</li>
 <li><code>znc</code> Zinc compiler</li>
 <li><code>zvm</code> Zinc virtual machine</li>
 </ul>
 <p><code>zargo</code> can use the compiler and virtual machine through its interface,
-so you will only need <code>zargo</code> to work with your circuits.</p>
-<p>For more information on <code>zargo</code>, check out this <a href="02-getting-started/../09-zargo-circuit-manager/00-overview.html">chapter</a>.</p>
+so you will only need <code>zargo</code> to work with your projects.</p>
+<p>For more information on <code>zargo</code>, check out this <a href="02-getting-started/../10-zargo-circuit-manager/00-overview.html">chapter</a>.</p>
 <p>Let's now move on to writing 'Hello, World!' in Zinc!</p>
 <h2><a class="header" href="#the-visual-studio-code-extension" id="the-visual-studio-code-extension">The Visual Studio Code extension</a></h2>
 <p>There is a syntax highlighting extension for Zinc called <code>Zinc Syntax Highligthing</code>.
@@ -257,7 +271,7 @@ The IDE should recommend installing it once you have opened a Zinc file!</p>
 <h2><a class="header" href="#creating-the-circuit" id="creating-the-circuit">Creating the circuit</a></h2>
 <p>Let's create our first circuit, which will be able to prove knowledge of
 some <code>sha256</code> hash preimage:</p>
-<pre><code>zargo new preimage
+<pre><code>zargo new --type circuit preimage
 cd preimage
 </code></pre>
 <p>The command above will create a directory with <code>Zargo.toml</code> manifest and the <code>src/</code>
@@ -279,7 +293,7 @@ fn main(preimage: field) -&gt; [bool; SHA256_HASH_SIZE] {
 </code></pre>
 <h2><a class="header" href="#all-in-one-command" id="all-in-one-command">All-in-one command</a></h2>
 <p>When you have finished writing the code, run <code>zargo proof-check</code>. This command
-will build and run the circuit, generate keys for trusted setup, generate a proof
+will build and run the circuit, generate keys for the trusted setup, generate a proof
 and verify it.</p>
 <h2><a class="header" href="#step-by-step" id="step-by-step">Step by step</a></h2>
 <p>Let's get through each step of the command above manually to better understand
@@ -294,7 +308,7 @@ the project root. There is also a file called <code>witness.json</code> in the
 <h3><a class="header" href="#running-the-circuit" id="running-the-circuit">Running the circuit</a></h3>
 <p>Before you run the circuit, open the <code>data/witness.json</code> file with
 your favorite editor and fill it with some meaningful values.</p>
-<p>Now, execute <code>zargo run &gt; data/public-data.json</code> to run the circuit and
+<p>Now, execute <code>zargo run &gt; data/public_data.json</code> to run the circuit and
 write the resulting public data to a file.</p>
 <blockquote>
 <p>There is a useful tool called <code>jq</code>. You may use it together with <code>zargo run</code>
@@ -313,393 +327,17 @@ the verifier.</p>
 the following command:</p>
 <pre><code class="language-bash">zargo prove &gt; proof.txt
 </code></pre>
-<p>This will also write the program's output to <code>data/public-data.json</code> which is later
-used by the verifier.</p>
 <h3><a class="header" href="#verifying-a-proof" id="verifying-a-proof">Verifying a proof</a></h3>
-<p>Before verifying a proof, make sure that the prover and verifier use the same
-version of the Zinc framework.
-Some versions may be compatible, but it is to be decided yet.</p>
+<p>Before verifying a proof, make sure the prover and verifier use the same
+version of the Zinc framework.</p>
 <p>To verify a proof, pass it to the Zinc VM with the same public data you used to
-generated it, and the verification key:</p>
+generate it and the verification key:</p>
 <pre><code class="language-bash">zargo verify &lt; proof.txt
 </code></pre>
 <p>Congratulations! You have developed your first circuit and verified your first
 Zero-Knowledge Proof!</p>
-<p>Feel free to proceed to the next chapters to know more about the Zinc framework!</p>
-<h1><a class="header" href="#merkle-proof" id="merkle-proof">Merkle proof</a></h1>
-<p>In this chapter, we will implement a circuit able to validate the Merkle tree
-root hash.</p>
-<p>At this stage of reading the book, you may be unfamiliar with some language
-concepts. So, if you struggle to understand some examples, you are welcome to
-read the rest of the book first, and then come back here.</p>
-<p>Our circuit will accept the tree node path, address, and the balance available
-as the secret witness data. The public data will be the Merkle tree root hash.</p>
-<h2><a class="header" href="#creating-a-new-project" id="creating-a-new-project">Creating a new project</a></h2>
-<p>Let's create a new circuit called <code>merkle-proof</code>:</p>
-<pre><code class="language-bash">zargo new merkle-proof
-cd merkle-proof
-</code></pre>
-<p>Now, you can open the project in your favorite IDE and go to <code>src/main.zn</code>,
-where we are going to start writing the circuit code.</p>
-<h2><a class="header" href="#defining-types" id="defining-types">Defining types</a></h2>
-<p>Let's start by defining the secret witness data arguments and the public data
-return type.</p>
-<pre><pre class="playpen"><code class="language-rust">struct PublicInput {
-    root_hash: [bool; 256],
-}
-
-fn main(
-    address: [bool; 10], // the node address in the merkle tree
-    balance: field, // the balance stored in the node
-    merkle_path: [[bool; 256]; 10] // the hash path to the node
-) -&gt; PublicInput {
-    // ...
-}
-</code></pre></pre>
-<p>As you can see, some complex types are used in several places of our code, so
-it is very convenient to create an alias for such type.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-type Sha256Digest = [bool; 256];
-#}</code></pre></pre>
-<h2><a class="header" href="#creating-functions" id="creating-functions">Creating functions</a></h2>
-<p>Now, we will write a function to calculate the <code>sha256</code> hash of
-our balance. We need it to verify the balance stored within the leaf node at our
-Merkle tree path.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn balance_hash(balance: field) -&gt; Sha256Digest {
-    let bits = std::convert::to_bits(balance); // [bool; 254]
-    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
-    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
-}
-#}</code></pre></pre>
-<p>The function accepts <code>balance</code> we passed as secret witness data, converts it
-into a bit array of length 254 (elliptic curve field length), and pads the
-array with 2 extra zero bits, since we are going to pass 256 bit vector to the
-<code>sha256</code> function.</p>
-<p>We have also used here three functions from the Zinc <a href="02-getting-started/../appendix/E-standard-library.html">standard library</a>
-from three different modules. The <code>std::crypto::sha256</code>-like paths might seem a
-bit verbose, but we will solve this problem later.</p>
-<p>At this stage, this is how our code looks like:</p>
-<pre><pre class="playpen"><code class="language-rust">type Sha256Digest = [bool; 256];
-
-struct PublicInput {
-    root_hash: Sha256Digest,
-}
-
-fn balance_hash(balance: field) -&gt; Sha256Digest {
-    let bits = std::convert::to_bits(balance); // [bool; 254]
-    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
-    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
-}
-
-fn main(
-    address: [bool; 10], // the node address in the merkle tree
-    balance: field, // the balance stored in the node
-    merkle_path: [Sha256Digest; 10] // the hash path to the node
-) -&gt; PublicInput {
-    let leaf_hash = balance_hash(balance);
-
-    // ...
-}
-</code></pre></pre>
-<p>Now, we need a function to calculate a tree node hash:</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
-    let mut data = [false; 512]; // [bool; 512]
-
-    // Casting to u16 is needed to make the range types equal,
-    // since 0 will be inferred as u8, and 256 - as u16.
-    for i in 0 as u16..256 {
-        data[i] = left[i];
-        data[256 + i] = right[i];
-    }
-
-    std::crypto::sha256(data) // [bool; 256] a.k.a. Sha256Digest
-}
-#}</code></pre></pre>
-<p>The Zinc standard library does not support array concatenation yet, so, for now,
-we will do it by hand, allocating an array to contain two leaf node digests,
-then put the digests together and hash them with <code>std::crypto::sha256</code>.</p>
-<p>Finally, let's define a function to calculate the hash of the whole tree:</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn restore_root_hash(
-    leaf_hash: Sha256Digest,
-    address: [bool; 10],
-    merkle_path: [Sha256Digest; 10],
-) -&gt; Sha256Digest
-{
-    let mut current = leaf_hash; // Sha256Digest
-
-    // Traverse the tree from the left node to the root node
-    for i in 0..10 {
-        // Multiple variables binding is not supported yet,
-        // so we going to store leaves as an array of two digests.
-        // If address[i] is 0, we are in the left node, otherwise,
-        // we are in the right node.
-        let left_and_right = if address[i] {
-            [current, merkle_path[i]] // [Sha256Digest; 2]
-        } else {
-            [merkle_path[i], current] // [Sha256Digest; 2]
-        };
-
-        // remember the current node hash
-        current = merkle_node_hash(left_and_right[0], left_and_right[1]);
-    }
-
-    // return the root node hash
-    current
-}
-#}</code></pre></pre>
-<p>Congratulations! Now we have a working circuit able to verify the Merkle proof!</p>
-<pre><pre class="playpen"><code class="language-rust">// main.zn
-
-type Sha256Digest = [bool; 256];
-
-fn balance_hash(balance: field) -&gt; Sha256Digest {
-    let bits = std::convert::to_bits(balance); // [bool; 254]
-    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
-    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
-}
-
-fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
-    let mut data = [false; 512]; // [bool; 512]
-
-    // Casting to u16 is needed to make the range types equal,
-    // since 0 will be inferred as u8, and 256 - as u16.
-    for i in 0 as u16..256 {
-        data[i] = left[i];
-        data[256 + i] = right[i];
-    }
-
-    std::crypto::sha256(data) // [bool; 256] a.k.a. Sha256Digest
-}
-
-fn restore_root_hash(
-    leaf_hash: Sha256Digest,
-    address: [bool; 10],
-    merkle_path: [Sha256Digest; 10],
-) -&gt; Sha256Digest
-{
-    let mut current = leaf_hash; // Sha256Digest
-
-    // Traverse the tree from the left node to the root node
-    for i in 0..10 {
-        // Multiple variables binding is not supported yet,
-        // so we going to store leaves as an array of two digests.
-        // If address[i] is 0, we are in the left node, otherwise,
-        // we are in the right node.
-        let left_and_right = if address[i] {
-            [current, merkle_path[i]] // [Sha256Digest; 2]
-        } else {
-            [merkle_path[i], current] // [Sha256Digest; 2]
-        };
-
-        // remember the current node hash
-        current = merkle_node_hash(left_and_right[0], left_and_right[1]);
-    }
-
-    // return the root node hash
-    current
-}
-
-struct PublicInput {
-    root_hash: Sha256Digest,
-}
-
-fn main(
-    address: [bool; 10],
-    balance: field,
-    merkle_path: [Sha256Digest; 10]
-) -&gt; PublicInput {
-    let leaf_hash = balance_hash(balance);
-
-    let root_hash = restore_root_hash(
-        leaf_hash,
-        address,
-        merkle_path,
-    );
-
-    PublicInput {
-        root_hash: root_hash,
-    }
-}
-</code></pre></pre>
-<h2><a class="header" href="#defining-a-module" id="defining-a-module">Defining a module</a></h2>
-<p>Our <code>main.zn</code> module has got a little overpopulated by now, so let's move our
-functions to another one called <code>merkle</code>. At first, create a file called <code>merkle.zn</code>
-in the <code>src</code> directory besides <code>main.zn</code>. Then, move everything above the
-<code>PublicInput</code> definition to that file. Our <code>main.zn</code> will now look like this:</p>
-<pre><pre class="playpen"><code class="language-rust">struct PublicInput {
-    root_hash: Sha256Digest, // undeclared `Sha256Digest`
-}
-
-fn main(
-    address: [bool; 10],
-    balance: field,
-    merkle_path: [Sha256Digest; 10] // undeclared `Sha256Digest`
-) -&gt; PublicInput {
-    let leaf_hash = balance_hash(balance); // undeclared `balance_hash`
-
-    let root_hash = restore_root_hash( // undeclared `restore_root_hash`
-        leaf_hash,
-        address,
-        merkle_path,
-    );
-
-    PublicInput {
-        root_hash: root_hash,
-    }
-}
-</code></pre></pre>
-<p>This code will not compile, as we have several items undeclared now! Let's
-define our <code>merkle</code> module and resolve the function paths:</p>
-<pre><pre class="playpen"><code class="language-rust">mod merkle; // defined a module
-
-struct PublicInput {
-    root_hash: merkle::Sha256Digest, // use a type declaration from `merkle`
-}
-
-fn main(
-    address: [bool; 10],
-    balance: field,
-    merkle_path: [merkle::Sha256Digest; 10] // use a type declaration from `merkle`
-) -&gt; PublicInput {
-    let leaf_hash = merkle::balance_hash(balance); // call a function from `merkle`
-
-    // call a function from `merkle`
-    let root_hash = merkle::restore_root_hash(
-        leaf_hash,
-        address,
-        merkle_path,
-    );
-
-    PublicInput {
-        root_hash: root_hash,
-    }
-}
-</code></pre></pre>
-<p>Perfect! Now all our functions and types are defined. By the way, let's have a
-glance at our <code>merkle</code> module, where you can find another improvement!</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-use std::crypto::sha256; // an import
-
-type Sha256Digest = [bool; 256];
-
-fn balance_hash(balance: field) -&gt; Sha256Digest {
-    let bits = std::convert::to_bits(balance);
-    let bits_padded = std::array::pad(bits, 256, false);
-    sha256(bits_padded)
-}
-
-fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
-    let mut data = [false; 512];
-
-    for i in 0 as u16..256 {
-        data[i] = left[i];
-        data[256 + i] = right[i];
-    }
-
-    sha256(data)
-}
-
-fn restore_root_hash(
-    leaf_hash: Sha256Digest,
-    address: [bool; 10],
-    merkle_path: [Sha256Digest; 10],
-) -&gt; Sha256Digest
-{
-    let mut current = leaf_hash;
-
-    for i in 0..10 {
-        let left_and_right = if address[i] {
-            [current, merkle_path[i]]
-        } else {
-            [merkle_path[i], current]
-        };
-
-        current = merkle_node_hash(left_and_right[0], left_and_right[1]);
-    }
-
-    current
-}
-#}</code></pre></pre>
-<p>You may notice a <code>use</code> statement at the first line of code. It is an import statement
-which is designed to prevent using long repeated paths in our code. As you can see,
-now we call the standard library function like this <code>sha256(data)</code>, but not like
-that <code>std::crypto::sha256(data)</code>.</p>
-<h2><a class="header" href="#finalizing" id="finalizing">Finalizing</a></h2>
-<p>Congratulations, you are an experienced Zinc developer!
-Now, you may build the circuit, generate and verify a proof, like it was
-explained in the <a href="02-getting-started/./01-first-circuit.html">previous chapter</a>,
-and move on to reading the rest of the book!</p>
-<h1><a class="header" href="#basic-concepts" id="basic-concepts">Basic concepts</a></h1>
-<p>A Zinc project consists of an entry point file called <code>main.zn</code> and zero or more
-module files whose contents can be imported into the main file.</p>
-<p>The entry point file must contain the <code>main</code> function, which accepts secret witness
-data and returns public input data. For more detail, see the
-<a href="03-basic-concepts/./01-input-output.html">next section</a>.</p>
-<p>Module files may contain only declarations of types, functions, and constants.</p>
-<h2><a class="header" href="#examples" id="examples">Examples</a></h2>
-<h3><a class="header" href="#entry-point-file" id="entry-point-file">Entry point file</a></h3>
-<pre><code class="language-rust no_run noplaypen">/// 
-/// 'src/main.zn'
-///
-/// Proves a knowledge of a cube root `r` for a given public input `x`.
-///
-
-mod simple_math;
-
-use simple_math::cube;
-
-fn main(x: field, r: field) -&gt; field {
-    assert!(x == cube(r), &quot;x == r ^ 3&quot;);
-    x
-}
-</code></pre>
-<h3><a class="header" href="#module-simple_math-file" id="module-simple_math-file">Module <code>simple_math</code> file</a></h3>
-<pre><code class="language-rust no_run noplaypen">/// 
-/// 'src/simple_math.zn'
-/// 
-
-/// Returns x^3.
-fn cube(x: field) -&gt; field {
-    x * x * x
-}
-</code></pre>
-<h1><a class="header" href="#input-and-output" id="input-and-output">Input and output</a></h1>
-<p>In terms of zero-knowledge circuits, the information that we are trying to prove
-valid is called <strong>public input</strong>. And the secret piece of information that may
-be known only by prover is called <strong>witness</strong>.</p>
-<p>In the Zinc framework, the program's <strong>result</strong> becomes <strong>public input</strong>.
-That means that whatever the <code>main</code> function returns should be known by verifier.
-All other runtime values including <strong>arguments</strong> represent circuit's <strong>witness</strong>.</p>
-<p>So when verifier checks the program's <strong>result</strong> and the <strong>proof</strong>
-it is safe to state that:</p>
-<blockquote>
-<p>There is some set of <strong>arguments</strong> known to <strong>prover</strong>, which,
-being provided into <strong>program</strong> yields the same <strong>output</strong>.</p>
-</blockquote>
-<p>The prover must provide program's arguments to generate the result and proof.</p>
-<p>Verifier will use the proof to check that the result has been obtained by
-executing the program.</p>
-<p>The following example illustrates a circuit proving knowledge of some
-<code>sha256</code> hash preimage:</p>
-<pre><code class="language-rust no_run noplaypen">use std::crypto::sha256;
-
-fn main(preimage: [bool; 256]) -&gt; [bool; 256] {
-    sha256(preimage)
-}
-</code></pre>
+<p>Now you may proceed to implementing the <a href="02-getting-started/03-more-complex-example.html">more complex example</a>
+after reading about the <a href="02-getting-started/01-builtin-functions.html">built-in functions</a> and <a href="02-getting-started/02-standard-library.html">standard library</a>.</p>
 <h1><a class="header" href="#built-in-functions" id="built-in-functions">Built-in functions</a></h1>
 <p>There are several built-in functions, which can be called directly from
 anywhere in your code.</p>
@@ -739,27 +377,27 @@ as in the following example:</p>
 actually, these functions have nothing to do with macros. Instead, they
 represent some special Zinc VM instructions.</p>
 </blockquote>
-<p>The exhaustive list of function signatures is provided in <a href="03-basic-concepts/../appendix/D-built-in-functions.html">Appendix D</a>.</p>
+<p>The exhaustive list of function signatures is provided in <a href="02-getting-started/../appendix/D-built-in-functions.html">Appendix D</a>.</p>
 <h1><a class="header" href="#standard-library" id="standard-library">Standard library</a></h1>
 <p>The standard library is currently located in a built-in module called <code>std</code>.
-The library contains three modules for now:</p>
+The library contains the following modules:</p>
 <ul>
 <li><code>crypto</code> - cryptographic and hash functions
 <ul>
 <li><code>ecc</code> - elliptic curve cryptography</li>
-<li><code>schnorr</code> - EDDSA signatyre verification</li>
+<li><code>schnorr</code> - EDDSA signature verification</li>
 </ul>
 </li>
 <li><code>convert</code> - bit array conversion functions</li>
 <li><code>array</code> - array processing functions</li>
 <li><code>ff</code> - finite field functions</li>
 </ul>
-<p>All the function signatures are listed in <a href="03-basic-concepts/../appendix/E-standard-library.html">Appendix E</a>.</p>
-<p>Standard library items can be used directly or be imported with <code>use</code>:</p>
+<p>All the standard library contents are listed in <a href="02-getting-started/../appendix/E-standard-library.html">Appendix E</a>.</p>
+<p>Standard library items can be used directly or imported with <code>use</code>:</p>
 <pre><code class="language-rust no_run noplaypen">use std::crypto::sha256;
 
 fn main(preimage: [bool; 256]) -&gt; ([bool; 256], (field, field)) {
-    let input_sha256 = sha256(preimage); // through import
+    let input_sha256 = sha256(preimage); // imported
     dbg!(input_sha256);
 
     let input_pedersen = std::crypto::pedersen(preimage); // directly
@@ -768,6 +406,615 @@ fn main(preimage: [bool; 256]) -&gt; ([bool; 256], (field, field)) {
     (input_sha256, input_pedersen)
 }
 </code></pre>
+<h1><a class="header" href="#merkle-proof" id="merkle-proof">Merkle proof</a></h1>
+<p>In this chapter, we will implement a circuit able to validate the Merkle tree
+root hash.</p>
+<p>At this stage of reading the book, you may be unfamiliar with some language
+concepts. So, if you struggle to understand some examples, you are welcome to
+read the rest of the book first, and then come back.</p>
+<p>Our circuit will accept the tree node path, address, and the balance available
+as the secret witness data. The public data will be the Merkle tree root hash.</p>
+<h2><a class="header" href="#creating-a-new-project" id="creating-a-new-project">Creating a new project</a></h2>
+<p>Let's create a new circuit called <code>merkle-proof</code>:</p>
+<pre><code class="language-bash">zargo new --type circuit merkle-proof
+cd merkle-proof
+</code></pre>
+<p>Now, you can open the project in your favorite IDE and go to <code>src/main.zn</code>,
+where we are going to start writing the circuit code.</p>
+<h2><a class="header" href="#defining-types" id="defining-types">Defining types</a></h2>
+<p>Let's start by defining the secret witness data arguments and the public data
+return type.</p>
+<pre><code class="language-rust no_run noplaypen">struct PublicInput {
+    root_hash: [bool; 256],
+}
+
+fn main(
+    address: [bool; 10], // the node address in the merkle tree
+    balance: field, // the balance stored in the node
+    merkle_path: [[bool; 256]; 10] // the hash path to the node
+) -&gt; PublicInput {
+    // ...
+}
+</code></pre>
+<p>As you can see, some complex types are used in several places of our code, so
+it is very convenient to create an alias for such type.</p>
+<pre><code class="language-rust no_run noplaypen">type Sha256Digest = [bool; 256];
+</code></pre>
+<h2><a class="header" href="#creating-functions" id="creating-functions">Creating functions</a></h2>
+<p>Now, we will write a function to calculate the <code>sha256</code> hash of
+our balance. We need it to verify the balance stored within the leaf node at our
+Merkle tree path.</p>
+<pre><code class="language-rust no_run noplaypen">fn balance_hash(balance: field) -&gt; Sha256Digest {
+    let bits = std::convert::to_bits(balance); // [bool; 254]
+    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
+    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
+}
+</code></pre>
+<p>The function accepts <code>balance</code> we passed as secret witness data, converts it
+into a bit array of length 254 (elliptic curve field length), and pads the
+array with 2 extra zero bits, since we are going to pass a 256-bit array to the
+<code>sha256</code> function.</p>
+<p>We have also used here three functions from the Zinc <a href="02-getting-started/../appendix/E-standard-library.html">standard library</a>
+from three different modules. Paths like <code>std::crypto::sha256</code> might seem a
+bit verbose, but we will solve this problem later.</p>
+<p>At this stage, this is how our code looks like:</p>
+<pre><code class="language-rust no_run noplaypen">type Sha256Digest = [bool; 256];
+
+struct PublicInput {
+    root_hash: Sha256Digest,
+}
+
+fn balance_hash(balance: field) -&gt; Sha256Digest {
+    let bits = std::convert::to_bits(balance); // [bool; 254]
+    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
+    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
+}
+
+fn main(
+    address: [bool; 10], // the node address in the merkle tree
+    balance: field, // the balance stored in the node
+    merkle_path: [Sha256Digest; 10] // the hash path to the node
+) -&gt; PublicInput {
+    let leaf_hash = balance_hash(balance);
+
+    // ...
+}
+</code></pre>
+<p>Now, we need a function to calculate a tree node hash:</p>
+<pre><code class="language-rust no_run noplaypen">fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
+    let mut data = [false; 512]; // [bool; 512]
+
+    // Casting to u16 is needed to make the range types equal,
+    // since 0 will be inferred as u8, and 256 - as u16.
+    for i in 0 as u16..256 {
+        data[i] = left[i];
+        data[256 + i] = right[i];
+    }
+
+    std::crypto::sha256(data) // [bool; 256] a.k.a. Sha256Digest
+}
+</code></pre>
+<p>The Zinc standard library does not support array concatenation yet, so for now,
+we will do it by hand, allocating an array to contain two leaves node digests,
+then put the digests together and hash them with <code>std::crypto::sha256</code>.</p>
+<p>Finally, let's define a function to calculate the hash of the whole tree:</p>
+<pre><code class="language-rust no_run noplaypen">fn restore_root_hash(
+    leaf_hash: Sha256Digest,
+    address: [bool; 10],
+    merkle_path: [Sha256Digest; 10],
+) -&gt; Sha256Digest
+{
+    let mut current = leaf_hash; // Sha256Digest
+
+    // Traverse the tree from the left node to the root node
+    for i in 0..10 {
+        // Multiple variables binding is not supported yet,
+        // so we going to store leaves as an array of two digests.
+        // If address[i] is 0, we are in the left node, otherwise,
+        // we are in the right node.
+        let left_and_right = if address[i] {
+            [current, merkle_path[i]] // [Sha256Digest; 2]
+        } else {
+            [merkle_path[i], current] // [Sha256Digest; 2]
+        };
+
+        // remember the current node hash
+        current = merkle_node_hash(left_and_right[0], left_and_right[1]);
+    }
+
+    // return the root node hash
+    current
+}
+</code></pre>
+<p>Congratulations! Now we have a working circuit able to verify the Merkle proof!</p>
+<pre><code class="language-rust no_run noplaypen">// main.zn
+
+type Sha256Digest = [bool; 256];
+
+fn balance_hash(balance: field) -&gt; Sha256Digest {
+    let bits = std::convert::to_bits(balance); // [bool; 254]
+    let bits_padded = std::array::pad(bits, 256, false); // [bool; 256]
+    std::crypto::sha256(bits_padded) // [bool; 256] a.k.a. Sha256Digest
+}
+
+fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
+    let mut data = [false; 512]; // [bool; 512]
+
+    for i in 0..256 {
+        data[i] = left[i];
+        data[256 + i] = right[i];
+    }
+
+    std::crypto::sha256(data) // [bool; 256] a.k.a. Sha256Digest
+}
+
+fn restore_root_hash(
+    leaf_hash: Sha256Digest,
+    address: [bool; 10],
+    merkle_path: [Sha256Digest; 10],
+) -&gt; Sha256Digest
+{
+    let mut current = leaf_hash; // Sha256Digest
+
+    // Traverse the tree from the left node to the root node
+    for i in 0..10 {
+        // Multiple variables binding is not supported yet,
+        // so we going to store leaves as a tuple of two digests.
+        // If address[i] is 0, we are in the left node, otherwise,
+        // we are in the right node.
+        let left_and_right = if address[i] {
+            (current, merkle_path[i]) // (Sha256Digest, Sha256Digest)
+        } else {
+            (merkle_path[i], current) // (Sha256Digest, Sha256Digest)
+        };
+
+        // remember the current node hash
+        current = merkle_node_hash(left_and_right.0, left_and_right.1);
+    }
+
+    // return the root node hash
+    current
+}
+
+struct PublicInput {
+    root_hash: Sha256Digest,
+}
+
+fn main(
+    address: [bool; 10],
+    balance: field,
+    merkle_path: [Sha256Digest; 10]
+) -&gt; PublicInput {
+    let leaf_hash = balance_hash(balance);
+
+    let root_hash = restore_root_hash(
+        leaf_hash,
+        address,
+        merkle_path,
+    );
+
+    PublicInput {
+        root_hash: root_hash,
+    }
+}
+</code></pre>
+<h2><a class="header" href="#defining-a-module" id="defining-a-module">Defining a module</a></h2>
+<p>Our <code>main.zn</code> module has got a little overpopulated by now, so let's move our
+functions to another one called <code>merkle</code>. At first, create a file called <code>merkle.zn</code>
+in the <code>src</code> directory besides <code>main.zn</code>. Then, move everything above the
+<code>PublicInput</code> definition to that file. Our <code>main.zn</code> will now look like this:</p>
+<pre><code class="language-rust no_run noplaypen">struct PublicInput {
+    root_hash: Sha256Digest, // undeclared `Sha256Digest`
+}
+
+fn main(
+    address: [bool; 10],
+    balance: field,
+    merkle_path: [Sha256Digest; 10] // undeclared `Sha256Digest`
+) -&gt; PublicInput {
+    let leaf_hash = balance_hash(balance); // undeclared `balance_hash`
+
+    let root_hash = restore_root_hash( // undeclared `restore_root_hash`
+        leaf_hash,
+        address,
+        merkle_path,
+    );
+
+    PublicInput {
+        root_hash: root_hash,
+    }
+}
+</code></pre>
+<p>This code will not compile, as we have several items undeclared now! Let's
+define our <code>merkle</code> module and resolve the function paths:</p>
+<pre><code class="language-rust no_run noplaypen">mod merkle; // defined a module
+
+struct PublicInput {
+    root_hash: merkle::Sha256Digest, // use a type declaration from `merkle`
+}
+
+fn main(
+    address: [bool; 10],
+    balance: field,
+    merkle_path: [merkle::Sha256Digest; 10] // use a type declaration from `merkle`
+) -&gt; PublicInput {
+    let leaf_hash = merkle::balance_hash(balance); // call a function from `merkle`
+
+    // call a function from `merkle`
+    let root_hash = merkle::restore_root_hash(
+        leaf_hash,
+        address,
+        merkle_path,
+    );
+
+    PublicInput {
+        root_hash: root_hash,
+    }
+}
+</code></pre>
+<p>Perfect! Now all our functions and types are defined. By the way, let's have a
+glance at our <code>merkle</code> module, where you can find another improvement!</p>
+<pre><code class="language-rust no_run noplaypen">use std::crypto::sha256; // an import
+
+type Sha256Digest = [bool; 256];
+
+fn balance_hash(balance: field) -&gt; Sha256Digest {
+    let bits = std::convert::to_bits(balance);
+    let bits_padded = std::array::pad(bits, 256, false);
+    sha256(bits_padded)
+}
+
+fn merkle_node_hash(left: Sha256Digest, right: Sha256Digest) -&gt; Sha256Digest {
+    let mut data = [false; 512];
+
+    for i in 0..256 {
+        data[i] = left[i];
+        data[256 + i] = right[i];
+    }
+
+    sha256(data)
+}
+
+fn restore_root_hash(
+    leaf_hash: Sha256Digest,
+    address: [bool; 10],
+    merkle_path: [Sha256Digest; 10],
+) -&gt; Sha256Digest
+{
+    let mut current = leaf_hash;
+
+    for i in 0..10 {
+        let left_and_right = if address[i] {
+            (current, merkle_path[i])
+        } else {
+            (merkle_path[i], current)
+        };
+
+        current = merkle_node_hash(left_and_right.0, left_and_right.1);
+    }
+
+    current
+}
+</code></pre>
+<p>You may notice a <code>use</code> statement at the first line of code. It is an import statement
+which is designed to prevent using long repeated paths in our code. As you see,
+now we are able to call the standard library function more conveniently:
+<code>sha256(data)</code> instead of <code>std::crypto::sha256(data)</code>.</p>
+<h2><a class="header" href="#finalizing" id="finalizing">Finalizing</a></h2>
+<p>Congratulations, you are an experienced Zinc developer!
+Now, you may build the circuit, generate and verify a proof, like it was
+explained in the <a href="02-getting-started/00-first-circuit.html">previous chapter</a>,
+and move on to reading the rest of the book!</p>
+<h1><a class="header" href="#zero-knowledge-circuits" id="zero-knowledge-circuits">Zero-knowledge circuits</a></h1>
+<p>A Zinc circuit consists of the entry point file called <code>main.zn</code> and zero or more
+modules whose contents can be imported into the main file.</p>
+<p>The entry point file must contain the <code>main</code> function, which accepts secret witness
+data and returns public input data. For more detail, see the <a href="03-circuits/01-input-output.html">next section</a>.</p>
+<h2><a class="header" href="#example-1" id="example-1">Example</a></h2>
+<h3><a class="header" href="#entry-point-file" id="entry-point-file">Entry point file</a></h3>
+<pre><code class="language-rust no_run noplaypen">//! 
+//! 'src/main.zn'
+//!
+//! Proves a knowledge of a cube root `r` for a given public input `x`.
+//!
+
+mod simple_math;
+
+fn main(x: field) -&gt; field {
+    simple_math::cube(x)
+}
+</code></pre>
+<h3><a class="header" href="#module-simple_math-file" id="module-simple_math-file">Module <code>simple_math</code> file</a></h3>
+<pre><code class="language-rust no_run noplaypen">//! 
+//! 'src/simple_math.zn'
+//! 
+
+/// Returns x^3.
+fn cube(x: field) -&gt; field {
+    x * x * x
+}
+</code></pre>
+<h1><a class="header" href="#input-and-output" id="input-and-output">Input and output</a></h1>
+<p>In terms of zero-knowledge circuits, the information that we are trying to prove
+valid is called <strong>public input</strong>. The secret piece of information that may
+be known only by the prover is called <strong>witness</strong>.</p>
+<p>In the Zinc framework, the circuit <strong>output</strong> becomes <strong>public input</strong>.
+This means that whatever the <code>main</code> function returns should be known by the verifier.
+All other runtime values including <strong>arguments</strong> represent the circuit <strong>witness</strong> data.</p>
+<p>So when verifier checks the circuit <strong>output</strong> and the <strong>proof</strong>
+it is safe to state that:</p>
+<blockquote>
+<p>There is some set of <strong>arguments</strong> known to <strong>prover</strong>, which,
+being provided to circuit yields the same <strong>output</strong>.</p>
+</blockquote>
+<p>The prover must provide arguments to the program to generate the result and proof.</p>
+<p>Verifier will use the proof to check that the result has been obtained by
+executing the circuit.</p>
+<p>The following example illustrates a circuit proving knowledge of some
+<code>sha256</code> hash preimage:</p>
+<pre><code class="language-rust no_run noplaypen">use std::crypto::sha256;
+
+fn main(preimage: [bool; 512]) -&gt; [bool; 256] {
+    sha256(preimage)
+}
+</code></pre>
+<h1><a class="header" href="#smart-contracts" id="smart-contracts">Smart contracts</a></h1>
+<p>A Zinc smart contract consists of the entry file <code>main.zn</code>, where the contract
+itself is declared, and zero or more modules, whose contents can be imported
+into the main file.</p>
+<h2><a class="header" href="#example-2" id="example-2">Example</a></h2>
+<h3><a class="header" href="#entry-point-file-1" id="entry-point-file-1">Entry point file</a></h3>
+<pre><code class="language-rust no_run noplaypen">/// 
+/// 'src/cube_deposit.zn'
+///
+/// Triples the deposited amount.
+///
+
+mod simple_math;
+
+use simple_math::cube;
+
+contract CubeDeposit {
+    pub balance: u64;
+
+    pub fn deposit(mut self, amount: u64) {
+        self.balance += cube(amount);
+    }
+}
+</code></pre>
+<h3><a class="header" href="#module-simple_math-file-1" id="module-simple_math-file-1">Module <code>simple_math</code> file</a></h3>
+<pre><code class="language-rust no_run noplaypen">/// 
+/// 'src/simple_math.zn'
+/// 
+
+/// Returns x^3.
+fn cube(x: u64) -&gt; u64 {
+    x * x * x
+}
+</code></pre>
+<h1><a class="header" href="#data-and-functions" id="data-and-functions">Data and functions</a></h1>
+<p>A typical contract consists of several groups of entities:</p>
+<ul>
+<li>storage fields</li>
+<li>public entry functions</li>
+<li>private functions</li>
+<li>constants</li>
+</ul>
+<h2><a class="header" href="#storage-fields" id="storage-fields">Storage fields</a></h2>
+<p>The storage fields are declared in the same way as in structure, but with
+a semicolon in the end.</p>
+<pre><code class="language-rust no_run noplaypen">contract Example {
+    pub extern address: u160;
+
+    pub tokens: (u8, u64);
+
+    data: [u8; 1000];
+
+    //...
+}
+</code></pre>
+<p>Fields with the <code>extern</code> modifier are set from the outside of a contract and
+cannot be changed from within. In the example above, the <code>address</code> is
+automatically set by the smart contract server for the newly created contract.</p>
+<p>The public (<code>pub</code>) fields are visible when querying the contract storage state,
+whereas the private fields are internal and cannot be seen.</p>
+<p>Each smart contract instance gets its own storage, which is written to the
+database by the Zinc Zandbox server.</p>
+<h2><a class="header" href="#public-methods" id="public-methods">Public methods</a></h2>
+<p>The contract declaration contains several public functions, which serve as
+contract methods. The contract must have at least one public function.</p>
+<pre><code class="language-rust no_run noplaypen">contract Example {
+    //...
+
+    pub fn deposit(mut self, amount: u64) -&gt; bool { ... }
+}
+</code></pre>
+<h2><a class="header" href="#private-methods" id="private-methods">Private methods</a></h2>
+<p>The private functions are declared without the <code>pub</code> keyword and have no
+special meaning. Such functions are simply associated with the contract and
+can be called from within the public methods.</p>
+<pre><code class="language-rust no_run noplaypen">contract Example {
+    //...
+
+    fn get_balance(address: u160) -&gt; bool { ... }
+}
+</code></pre>
+<h2><a class="header" href="#constants" id="constants">Constants</a></h2>
+<p>A contract may contain some constants associated with it. The constants do not
+have any special meaning and can be used from within the contract functions or
+from the outside.</p>
+<pre><code class="language-rust no_run noplaypen">contract Example {
+    //...
+
+    pub const VERSION: u8 = 1; // public constant 
+
+    const LIMIT: u8 = 255; // private constant
+}
+</code></pre>
+<h1><a class="header" href="#minimal-example" id="minimal-example">Minimal example</a></h1>
+<p>In this example we will implement the simplest exchange smart contract, where
+it will be possible to exchange between a pair of tokens with ever-constant price.</p>
+<p>This example will not use any means of transferring tokens between user accounts,
+since its point only to demonstrate the basics of working with Zinc smart
+contracts.</p>
+<p>You will need two binaries from the Zinc framework:</p>
+<ul>
+<li><code>zargo</code></li>
+<li><code>zandbox</code></li>
+</ul>
+<p>Zandbox is the Zinc sandbox server, which is a middleware between the user and
+<a href="https://zksync.io/">zkSync</a> platform. The server accepts the smart contract
+source code and method call requests.</p>
+<p>Zargo is the Zinc project manager, which bundles smart contract projects and
+simplifies usage of contract methods, using input data JSON templates located
+in the project data directory.</p>
+<h2><a class="header" href="#running-the-zandbox-server" id="running-the-zandbox-server">Running the Zandbox server</a></h2>
+<p>To be able to publish and call smart contract locally, open another terminal
+window and run the Zandbox server:</p>
+<pre><code class="language-bash">zandbox -v
+</code></pre>
+<h2><a class="header" href="#project-initialization" id="project-initialization">Project initialization</a></h2>
+<p>To create a new smart contract project, use the following command:</p>
+<pre><code class="language-bash">zargo new --type contract constant_price
+</code></pre>
+<p>Zargo will create a project with some default template code:</p>
+<pre><code class="language-rust no_run noplaypen">//!
+//! The 'constant_price' contract entry.
+//!
+
+contract ConstantPrice {
+    balance: u248;
+
+    pub fn new(_balance: u248) -&gt; Self {
+        Self {
+            balance: _balance,
+        }
+    }
+}
+</code></pre>
+<p>Let's change the code to have two balance fields, the <code>exchange</code> method, and
+two methods <code>get_x</code> and <code>get_y</code> to query the contract balances separately.</p>
+<pre><code class="language-rust no_run noplaypen">enum Token {
+    X = 1,
+    Y = 2,
+}
+
+type Balance = u248;
+
+contract ConstantPrice {
+    balance_x: Balance;
+    balance_y: Balance;
+
+    pub fn new(
+        _balance_x: Balance,
+        _balance_y: Balance,
+    ) -&gt; Self {
+        Self {
+            balance_x: _balance_x,
+            balance_y: _balance_y,
+        }
+    }
+
+    pub fn exchange(
+        mut self,
+        token: Token,
+        amount: Balance,
+    ) {
+        match token {
+            Token::X =&gt; {
+                assert!(self.balance_y &gt;= amount, &quot;Not enough Y tokens to withdraw&quot;);
+                self.balance_x += amount;
+                self.balance_y -= amount;
+
+                // transfer amount of X from the user
+                // transfer amount of Y to the user
+            },
+            Token::Y =&gt; {
+                assert!(self.balance_x &gt;= amount, &quot;Not enough X tokens to withdraw&quot;);
+                self.balance_y += amount;
+                self.balance_x -= amount;
+
+                // transfer amount of Y from the user
+                // transfer amount of X to the user
+            },
+        };
+    }
+
+    pub fn get_x(self) -&gt; Balance {
+        self.balance_x
+    }
+
+    pub fn get_y(self) -&gt; Balance {
+        self.balance_y
+    }
+}
+</code></pre>
+<p>In the listing above we declared the <code>Balance</code> type alias and the <code>Token</code>
+enumeration type, which identifies the token deposited by user.</p>
+<p>The exchange function increases and decreases the contract balances depending
+on the token identifier, which can be either X or Y. When the balances are
+changed, some code is called to transfer the tokens to and from user accounts.</p>
+<h2><a class="header" href="#publishing-the-contract" id="publishing-the-contract">Publishing the contract</a></h2>
+<p>Before publishing, open the <code>./data/witness_new</code> constructor input template file
+and fill the values you are going to pass:</p>
+<pre><code class="language-json">{
+  &quot;_balance_x&quot;: &quot;100&quot;,
+  &quot;_balance_y&quot;: &quot;100&quot;
+}
+</code></pre>
+<p>To publish the contract, use this simple command with the network identifier
+and instance name:</p>
+<pre><code class="language-bash">zargo publish --network ropsten --instance default
+</code></pre>
+<p>To see the available testnets, enter <code>zargo publish --help</code>. When the contract
+is successfully published, its ETH address and zkSync account ID will be returned.
+You will need the address to make the consequent calls. Let's assume it equal to
+<code>0x1234123412341234123412341234123412341234</code>.</p>
+<p>The instance name is used to uniquely identify your published contract without
+memorizing its ETH address.</p>
+<p>The contract has been published!</p>
+<h2><a class="header" href="#querying-the-contract-storage" id="querying-the-contract-storage">Querying the contract storage</a></h2>
+<p>The <code>constant_price</code> contract is now published, and its dedicated storage
+instance is created. You may query the Zandbox server to see the current balances:</p>
+<pre><code class="language-bash">zargo query --network ropsten --address 0x1234123412341234123412341234123412341234
+</code></pre>
+<h2><a class="header" href="#calling-a-non-mutable-contract-method" id="calling-a-non-mutable-contract-method">Calling a non-mutable contract method</a></h2>
+<p>A non-mutable contract method may be called with the same query as above, but
+with the <code>method</code> argument:</p>
+<pre><code class="language-bash">zargo query --network ropsten --address 0x1234123412341234123412341234123412341234 --method get_x
+</code></pre>
+<p>The output:</p>
+<pre><code class="language-json">{
+  &quot;output&quot;: &quot;50&quot;
+}
+</code></pre>
+<h2><a class="header" href="#calling-a-mutable-contract-method" id="calling-a-mutable-contract-method">Calling a mutable contract method</a></h2>
+<p>Let's now call our contract <code>exchange</code> method!</p>
+<p>Open the method input template file <code>./data/witness_exchange.json</code> and specify
+the token identifier and amount you want to exchange:</p>
+<pre><code class="language-json">{
+  &quot;token&quot;: &quot;Y&quot;,
+  &quot;amount&quot;: &quot;50&quot;
+}
+</code></pre>
+<p>To call the contract method, use the following command with the method name and
+contract account ID:</p>
+<pre><code class="language-bash">zargo call --network localhost --address 0x1234123412341234123412341234123412341234 --method exchange
+</code></pre>
+<p>After the call has succeeded, query the contract storage again to see the
+expected result:</p>
+<pre><code class="language-json">{
+  &quot;output&quot;: {
+    &quot;balance_x&quot;: &quot;50&quot;,
+    &quot;balance_y&quot;: &quot;150&quot;
+  }
+}
+</code></pre>
+<p>Congratulations! You have implemented and published a working smart contract!</p>
+<h2><a class="header" href="#whats-next" id="whats-next">What's next</a></h2>
+<p>You may play with the contract a little more, e.g. by adding some exchange fee.</p>
+<p>When you have a new smart contract version, just publish it under another ID and
+it will get a separate storage instance, living its own life!</p>
 <h1><a class="header" href="#variables-and-types" id="variables-and-types">Variables and types</a></h1>
 <p>This chapter describes the Zinc language concepts. Here you will learn about
 variables, types, and functions.</p>
@@ -777,24 +1024,25 @@ variables are immutable by default. If you are going to change their values,
 you must explicitly mark them as mutable. It protects your data from accidental
 mutating where the compiler is unable to check your intentions.</p>
 <pre><code class="language-rust no_run noplaypen">fn test() {
-    let x = 0;
-    // compile error: mutating an immutable variable
-    // x = 42;
+    let x = 0;    
+    x = 42; // compile error: mutating an immutable variable
 
     let mut y = 0;
     y = 42; // ok
 }
 </code></pre>
+<blockquote>
 <p>If you are familiar with Rust, you will not have any trouble understanding this
 concept, since the syntax and semantics are almost identical. However, pattern
 matching and destructuring are not implemented yet.</p>
+</blockquote>
 <p>Immutable variables are similar to constants. Like with constants, you cannot
 change the immutable variable value. However, constants cannot infer their type
 and you must specify it explicitly.</p>
 <blockquote>
 <p>In contrast to Rust, variables can only be declared in functions. If you need a
 global variable, you should declare a constant instead. This limitation is devised to
-prevent unwanted side effects, polluting the global namespace, and bad design.</p>
+prevent unwanted side effects, polluting the global namespace, and bad code design.</p>
 </blockquote>
 <pre><code class="language-rust no_run noplaypen">const VALUE: field = 0;
 
@@ -803,37 +1051,37 @@ fn test() {
 }
 </code></pre>
 <p>Variable shadowing can be a convenient feature, but Zinc is going to enforce
-warning-as-error development workflow, forbidding shadowing as a potentially
-unsafe trick. You should use mutable variables and type suffixes if you want
-several variables with similar logical meaning.</p>
+warning-as-error development workflow, forbidding variable shadowing as a
+potentially unsafe trick. You should use mutable variables or type suffixes
+if you need several adjacent variables with similar logical meaning.</p>
 <pre><code class="language-rust no_run noplaypen">fn test() {
     let mut x = 5;
-    {
-        // compile error: redeclared variable 'x'
-        // let x = 25;
-    }
-    // compile error: redeclared variable 'x'
-    // let x = 25;
+    {        
+        let x = 25; // compile error: redeclared variable 'x'
+    };    
+    let x = 25; // compile error: redeclared variable 'x'
 
     x = 25; // ok
 }
 </code></pre>
 <h1><a class="header" href="#types" id="types">Types</a></h1>
 <p>Zinc is a statically typed language, thus all the variables must have a type
-known at the compile time. Strict type system allows to catch the majority of
-runtime errors, which are very common to dynamically typed languages. Zinc type
-system closely resembles that of Rust, but with some modifications, limitations,
-and restrictions.</p>
+known at the compile-time. Strict type system allows to catch the majority of
+runtime errors, which are very common to dynamically typed languages.</p>
+<blockquote>
+<p>If you are familiar with Rust, you will find the Zinc type system very similar,
+but with some modifications, limitations, and restrictions.</p>
+</blockquote>
 <p>Types are divided into several groups:</p>
 <ul>
-<li><a href="04-variables-and-types/02-types/./01-scalar.html">Scalar</a></li>
-<li><a href="04-variables-and-types/02-types/02-arrays.html">Array</a></li>
-<li><a href="04-variables-and-types/02-types/03-tuples.html">Tuple</a></li>
-<li><a href="04-variables-and-types/02-types/04-structures.html">Structure</a></li>
-<li><a href="04-variables-and-types/02-types/05-enumerations.html">Enumeration</a></li>
-<li><a href="04-variables-and-types/02-types/06-strings.html">String</a></li>
+<li><a href="05-variables-and-types/02-types/./01-scalar.html">Scalar</a></li>
+<li><a href="05-variables-and-types/02-types/02-arrays.html">Array</a></li>
+<li><a href="05-variables-and-types/02-types/03-tuples.html">Tuple</a></li>
+<li><a href="05-variables-and-types/02-types/04-structures.html">Structure</a></li>
+<li><a href="05-variables-and-types/02-types/05-enumerations.html">Enumeration</a></li>
+<li><a href="05-variables-and-types/02-types/06-strings.html">String</a></li>
 </ul>
-<p>To read more about casting, conversions, and type policy, go to <a href="04-variables-and-types/02-types/07-casting-and-conversions.html">this chapter</a>.</p>
+<p>To read more about casting, conversions, and type policy, go to <a href="05-variables-and-types/02-types/07-casting-and-conversions.html">this chapter</a>.</p>
 <p>You can declare type aliases in Zinc, which allow you to shorten type
 signatures of complex types by giving them a name:</p>
 <pre><code class="language-rust no_run noplaypen">type ComplexType = [(u8, [bool; 8], field); 16];
@@ -843,11 +1091,10 @@ fn example(data: ComplexType) {}
 <h1><a class="header" href="#scalar-types" id="scalar-types">Scalar types</a></h1>
 <p>Scalar types are also called primitive types and contain a single value.</p>
 <h2><a class="header" href="#unit" id="unit">Unit</a></h2>
-<p>The unit type and value are described with empty round parenthesis <code>()</code> and
-have no differences from the same type in Rust. Values of that type are
-implicitly returned from functions, blocks, and other expressions which do not
-return a value explicitly. Also, this type can be used as a placeholder for
-input, witness and output types of the <code>main</code> function.</p>
+<p>The unit type and value are described with empty round parenthesis <code>()</code>.
+Values of that type are implicitly returned from functions, blocks, and other
+expressions which do not return a value explicitly. Also, this type can be used
+as a placeholder for input, witness and output types of the <code>main</code> function.</p>
 <p><code>()</code> is the literal for both unit type and value. The unit type values cannot be
 used by any operators or casted back and forth.</p>
 <p>The unit type can exist as a standalone value:</p>
@@ -863,12 +1110,10 @@ let y = check(true); // y is ()
 <h2><a class="header" href="#boolean" id="boolean">Boolean</a></h2>
 <p><code>bool</code> is the boolean type keyword.</p>
 <p>Boolean value is represented as <code>field</code> with value set to either <code>0</code> or <code>1</code>.
-To ensure type safety casting between boolean and integer types is not allowed.
-In general, its behavior is indistinguishable from the same type from Rust or other
-C-like languages.</p>
+To ensure type safety casting between boolean and integer types is not allowed.</p>
 <h3><a class="header" href="#literals" id="literals">Literals</a></h3>
 <p><code>true</code> and <code>false</code>.</p>
-<h3><a class="header" href="#examples-1" id="examples-1">Examples</a></h3>
+<h3><a class="header" href="#examples" id="examples">Examples</a></h3>
 <pre><code class="language-rust no_run noplaypen">let a = true;
 let b: bool = false;
 
@@ -877,8 +1122,7 @@ if a &amp;&amp; !b {
 };
 </code></pre>
 <h2><a class="header" href="#integer" id="integer">Integer</a></h2>
-<p>Integer types are somewhat different from those of Rust since they are
-extended to be able to use any size between 1 and 32 bytes. This feature was
+<p>Integer types can be of any size between 1 and 32 bytes. This feature was
 borrowed from Solidity and it helps to reduce the number of constraints and
 smart contract size. Internal integer representation uses the BN256 field of
 different bitlength.</p>
@@ -901,15 +1145,15 @@ constraint system.</p>
 <li>decimal: <code>0</code>, <code>1</code>, <code>122</code>, <code>574839572494237242</code></li>
 <li>hexadecimal: <code>0x0</code>, <code>0xfa</code>, <code>0x0001</code>, <code>0x1fffDEADffffffffffBEEFffff</code></li>
 </ul>
-<p>Following the Rust rules, only unsigned integer literals can be expressed, since
-the unary minus is not a part of the literal but a standalone operator. Thus,
-unsigned values can be implicitly casted to signed ones using the unary minus.</p>
+<p>Only unsigned integer literals can be expressed, since the unary minus
+is not a part of the literal but a standalone operator. Thus, unsigned values
+can be implicitly casted to signed ones using the unary minus.</p>
 <h3><a class="header" href="#casting" id="casting">Casting</a></h3>
-<p>Casting is possible only to a type with greater bitlength. Probably, this
-behavior will become less strict in the future.</p>
+<p>Casting can be done only between integer and <code>field</code> types. If the value does
+not fit into the target type, it is truncated.</p>
 <h3><a class="header" href="#inference" id="inference">Inference</a></h3>
 <p>If the literal type is not specified, the minimal possible bitlength is inferred.</p>
-<h3><a class="header" href="#examples-2" id="examples-2">Examples</a></h3>
+<h3><a class="header" href="#examples-1" id="examples-1">Examples</a></h3>
 <pre><code class="language-rust no_run noplaypen">let a = 0; // u8
 let a: i24 = 0; // i24
 let b = 256; // u16
@@ -920,48 +1164,95 @@ let e: field = 0; // field
 </code></pre>
 <h1><a class="header" href="#arrays" id="arrays">Arrays</a></h1>
 <p>Arrays are collections of values of the same type sequentially stored in the memory.</p>
-<p>Fixed-sized arrays follow the Rust rules. The only exception is the restriction
-to constant indexes, that is, you cannot index an array with anything but a
-constant expression for now.</p>
-<p>Arrays support the index and slice operators, which is explained in detail <a href="04-variables-and-types/02-types/../../05-operators/06-access.html">here</a>.</p>
+<p>Arrays support the index and slice operators, which is explained in detail <a href="05-variables-and-types/02-types/../../06-operators/06-access.html">here</a>.</p>
 <pre><code class="language-rust no_run noplaypen">let mut fibbonaci = [0, 1, 1, 2, 3, 5, 8, 13];
 let element = fibbonaci[3];
 fibbonaci[2] = 1;
 </code></pre>
+<blockquote>
+<p>There is a minor restriction for arrays at the current language state. Arrays
+cannot be indexed with a witness value, but only with a constant or
+witness-independent variable.</p>
+</blockquote>
 <h1><a class="header" href="#tuples" id="tuples">Tuples</a></h1>
 <p>Tuples are anonymous collections of values of different types, sequentially
 stored in memory and gathered together due to some logical relations.</p>
-<blockquote>
-<p>Like in Rust, <code>()</code> is a void value, <code>(value)</code> is a parenthesized expression,
-and <code>(value,)</code> is a tuple with one element.</p>
-</blockquote>
-<p>Tuple fields can be accessed via the dot operator, which is explained in detail <a href="04-variables-and-types/02-types/../../05-operators/06-access.html">here</a>.</p>
+<p>Tuple fields can be accessed via the dot operator, which is explained in detail <a href="05-variables-and-types/02-types/../../06-operators/06-access.html">here</a>.</p>
 <pre><code class="language-rust no_run noplaypen">let mut tuple: (u8, field) = (0xff, 0 as field);
 tuple.0 = 42;
 dbg!(&quot;{}&quot;, tuple.1);
 </code></pre>
+<blockquote>
+<p>If you familiar with Rust, you may remember the peculiar connection between
+unit values, parenthesized expressions, and tuples of one element:</p>
+<ul>
+<li><code>()</code> is a unit value</li>
+<li><code>(value)</code> is a parenthesized expression</li>
+<li><code>(value,)</code> is a tuple of one element</li>
+</ul>
+</blockquote>
 <h1><a class="header" href="#structures" id="structures">Structures</a></h1>
-<p>The structure is a custom data type that lets you name and package together
+<p>The structure is a custom data type which lets you name and package together
 multiple related values that make up a meaningful group. Structures allow you
 to easily build complex data types and pass them around your code with as little
 verbosity as possible.</p>
 <p>Structure fields can be accessed via the dot operator, which is explained in
-detail <a href="04-variables-and-types/02-types/../../05-operators/06-access.html">here</a>.</p>
+detail <a href="05-variables-and-types/02-types/../../06-operators/06-access.html">here</a>.</p>
 <pre><code class="language-rust no_run noplaypen">struct Person {
     age: u8,
     id: u64,
 }
 
-let mut person = Person {
-    age: 24,
-    id: 123456789 as u64,
-};
-person.age = 25;
+fn main() {
+    let mut person = Person {
+        age: 24,
+        id: 123456789 as u64,
+    };
+    person.age = 25;
+}
 </code></pre>
+<h2><a class="header" href="#implementation" id="implementation">Implementation</a></h2>
+<p>A structure can be implemented, that is, some methods and associated items
+may be declared for it. The structure implementation resemble the behavioral
+part of a class in object-oriented language.</p>
+<pre><code class="language-rust no_run noplaypen">struct Arithmetic {
+    a: field,
+    b: field,
+}
+
+impl Arithmetic {
+    pub fn add(self) -&gt; field {
+        self.a + self.b
+    }
+
+    pub fn sub(self) -&gt; field {
+        self.a - self.b
+    }
+
+    pub fn mul(self) -&gt; field {
+        self.a * self.b
+    }
+
+    pub fn div(self) {
+        assert!(false, &quot;Field division is forbidden!&quot;);
+    }
+}
+
+fn main() {
+    let a: field = 10;
+    let b: field = 5;
+    let arithmetic = Arithmetic { a: a, b: b };
+    
+    dbg!(&quot;{} + {} = {}&quot;, a, b, arithmetic.add());
+    dbg!(&quot;{} - {} = {}&quot;, a, b, arithmetic.sub());
+    dbg!(&quot;{} * {} = {}&quot;, a, b, arithmetic.mul());
+    dbg!(&quot;{} / {} = {}&quot;, a, b, arithmetic.div()); // will panic
+}
+</code></pre>
+<p>For more information on methods, see this <a href="05-variables-and-types/02-types/../03-functions.html">chapter</a>.</p>
 <h1><a class="header" href="#enumerations" id="enumerations">Enumerations</a></h1>
-<p>Enums allow you to define a type by enumerating its possible values. Only simple
-C-like enums are supported for now, which are groups of constants, following
-the Rust syntax:</p>
+<p>These allow you to define a type by enumerating its possible values. Only simple
+C-like enums are supported for now, which are groups of constants:</p>
 <pre><code class="language-rust no_run noplaypen">enum Order {
     FIRST = 0,
     SECOND = 1,
@@ -975,28 +1266,57 @@ let result = match value {
     Order::SECOND =&gt; do_that(),
 };
 </code></pre>
-<p>The enum values can be implicitly casted to unsigned integers of enough
-bitlength using <code>let</code> statements or explicitly using the <code>as</code> operator:</p>
+<p>The enum values can be implicitly casted to integers using <code>let</code> statements or
+explicitly via the <code>as</code> operator:</p>
 <pre><code class="language-rust no_run noplaypen">let x = Order::FIRST; // the type is Order (inference)
 let y: u8 = Order::SECOND; // the type is u8 (implicit casting)
 let z = Order::SECOND as u8; // the type is u8 (explicit casting)
 </code></pre>
+<h2><a class="header" href="#implementation-1" id="implementation-1">Implementation</a></h2>
+<p>An enumeration can be implemented, that is, some methods and associated items
+may be declared for it. The enumeration implementation resemble the behavioral
+part of a class in object-oriented language.</p>
+<pre><code class="language-rust no_run noplaypen">enum List {
+    First = 1,
+    Second = 2,
+    Third = 3,
+}
+
+impl List {
+    pub fn first() -&gt; Self {
+        Self::First
+    }
+
+    pub fn second() -&gt; Self {
+        Self::Second
+    }
+
+    pub fn third() -&gt; Self {
+        Self::Third
+    }
+}
+
+fn main(witness: field) -&gt; field {
+    (List::first() + List::second() + List::third()) as field * witness
+}
+</code></pre>
+<p>For more information on methods, see this <a href="05-variables-and-types/02-types/../03-functions.html">chapter</a>.</p>
 <h1><a class="header" href="#strings" id="strings">Strings</a></h1>
 <p>For now, strings have very limited implementation and usability.</p>
-<p>The string type exists only in the literal form and can only appear in <code>dbg</code> and
-<code>assert</code> built-in functions:</p>
-<pre><code class="language-rust no_run noplaypen">dbg!(&quot;{}&quot;, 42);
+<p>The string values may exist only in the literal form and can only appear in the
+<code>dbg</code> and <code>assert</code> built-in functions:</p>
+<pre><code class="language-rust no_run noplaypen">dbg!(&quot;{}&quot;, 42); // format string
 
-assert!(true != false, &quot;a very obvious fact&quot;);
+assert!(true != false, &quot;a very obvious fact&quot;); // optional error message
 </code></pre>
 <h1><a class="header" href="#casting-and-conversions" id="casting-and-conversions">Casting and conversions</a></h1>
-<p>The language enforces static strong explicit type semantics. It is the most
-strict type system available since reliability is above everything. However,
+<p>The language enforces static strong explicit type semantics. It is the strictest
+type system available since reliability is above everything. However,
 some inference abilities will not do any harm, so you do not have to specify
 types in places where they are highly obvious.</p>
 <h2><a class="header" href="#explicit" id="explicit">Explicit</a></h2>
 <p>Type conversions can be only performed on the integer and enumeration types with
-the casting operator. <a href="04-variables-and-types/02-types/../../05-operators/05-casting.html">This chapter</a> explains
+the casting operator. <a href="05-variables-and-types/02-types/../../06-operators/05-casting.html">This chapter</a> explains
 the operator's behavior in detail.</p>
 <h2><a class="header" href="#implicit" id="implicit">Implicit</a></h2>
 <p>The <code>let</code> statement can perform implicit type casting of integers if the type
@@ -1015,52 +1335,118 @@ input argument.</p>
 <pre><code class="language-rust no_run noplaypen">let positive = 100; // u8
 let negative = -positive; // i8
 </code></pre>
-<p><a href="04-variables-and-types/02-types/../../05-operators/01-arithmetic.html">This chapter</a> describes the negation operator
-with more detail.</p>
+<p><a href="05-variables-and-types/02-types/../../06-operators/01-arithmetic.html">This chapter</a> describes the negation operator
+in more detail.</p>
 <h2><a class="header" href="#inference-1" id="inference-1">Inference</a></h2>
 <p>For now, Zinc infers types in two cases: integer literals and <code>let</code> bindings.</p>
 <p>Integer literals are always inferred as values of the minimal possible size.
-That is, <code>255</code> is a <code>u8</code> value, whereas <code>256</code> is a <code>u16</code> value. Signed integers
-must be implicitly cast using the negation operator.</p>
+That is, <code>255</code> is a <code>u8</code> value, whereas <code>256</code> is a <code>u16</code> value.</p>
 <p>The <code>let</code> statement can infer types in case its type is not specified.</p>
 <pre><code class="language-rust no_run noplaypen">let value = 0xffffffff_ffffffff_ffffffff_ffffffff;
 </code></pre>
 <p>In the example above, the <code>value</code> variable gets type <code>u128</code>, since 128 bytes
 are enough to represent the value <code>0xffffffff_ffffffff_ffffffff_ffffffff</code>;</p>
 <h1><a class="header" href="#function" id="function">Function</a></h1>
-<p>The function is the only callable type in Zinc and it closely follows the Rust
-syntax. However, R1CS specifics require that functions must be executed completely,
-thus there is no <code>return</code> statement in Zinc. The only way to return a value is
-to specify it as the last unterminated statement of the function block.</p>
+<p>The function is the only callable type in Zinc. However, R1CS specifics require
+that functions must be executed completely, thus there is no <code>return</code> statement.
+The only way to return a value is to specify it as the last unterminated
+statement of the function block.</p>
 <p>Functions consist of several parts: the name, arguments, return type, and the
 code block. The function name uniquely defines the function within its namespace.
 The arguments can be only passed by value, and the function result can only be
 returned by value. If the return type is omitted, the function is considered
-to return a void value <code>()</code>. The code block can access the global scope,
+returning a unit value <code>()</code>. The code block can access the global scope,
 but it has no information about where the function has been called from.</p>
 <pre><code class="language-rust no_run noplaypen">const GLOBAL: u8 = 31;
 
 fn wierd_sum(a: u8, b: u8) -&gt; u8 {
-    side_effect(); // a statement
+    dbg!(&quot;{} + {}&quot;, a, b);
     a + b + GLOBAL // return value
 }
 
-let result = wierd_sum(42, 27);
-assert!(result == 100, &quot;the weird sum is incorrect&quot;);
+fn main() {
+    let result = wierd_sum(42, 27);
+    assert!(result == 100, &quot;the weird sum is incorrect&quot;);
+}
 </code></pre>
+<h2><a class="header" href="#methods" id="methods">Methods</a></h2>
+<p>Methods are functions declared in a structure or enumeration implementation,
+or in a smart contract definition. Such functions accept the object instance as
+the first argument and can be called via the dot operator.</p>
+<pre><code class="language-rust no_run noplaypen">struct Data {
+    a: u8,
+    b: u8,
+    c: u8,
+    d: u8,
+}
+
+impl Data {
+    pub fn sum(self) -&gt; u8 {
+        self.a + self.b + self.c + self.d
+    }
+}
+
+fn main() {
+    let data = Data { a: 1, b: 2, c: 3, d: 4 };
+    
+    dbg!(&quot;Data sum is: {}&quot;, data.sum());
+}
+</code></pre>
+<p>Methods can be called like ordinary functions using the type namespace they
+are declared in. In some languages it is called a static form:</p>
+<pre><code class="language-rust no_run noplaypen">dbg!(&quot;Data sum is: {}&quot;, Data::sum(data));
+</code></pre>
+<p>If the first argument of a method is mutable, the method is considered mutable and
+it can alter the instance field values. Also, a mutable method can only be called
+from another mutable method, providing some extra data safety.</p>
+<pre><code class="language-rust no_run noplaypen">struct Data {
+    a: u8,
+    b: u8,
+}
+
+impl Data {
+    pub fn double(mut self) -&gt; Self {
+        self.a *= 2;
+        self.b *= 2;
+        self
+    }
+}
+
+fn main() {
+    let mut data = Data { a: 2, b: 1 };
+    dbg!(&quot;Data x1 is: {}&quot;, data);
+
+    let data_x2 = data.double();
+    dbg!(&quot;Data x2 is: {}&quot;, data_x2);
+}
+</code></pre>
+<h2><a class="header" href="#constant-functions" id="constant-functions">Constant functions</a></h2>
+<p>Constant functions are called at compile-time, thus they may only accept and
+return constant expressions. Such functions are useful when you need to use
+a lot of similar parameterized values, and you are not willing to repeat the
+calculating code each time.</p>
+<pre><code class="language-rust no_run noplaypen">const fn cube(x: u64) -&gt; u64 { x * x * x }
+
+fn main() {
+    let cubed_ten = cube(10 as u64); // 1000
+    let cubed_twenty = cube(20 as u64); // 8000
+}
+</code></pre>
+<p>Such functions only exist at compile time, so they do not impact the circuit
+performance at all.</p>
 <h1><a class="header" href="#operators" id="operators">Operators</a></h1>
 <p>Operators of the Zinc language can be divided into several groups:</p>
 <ul>
-<li><a href="05-operators/./01-arithmetic.html">Arithmetic</a></li>
-<li><a href="05-operators/./02-bitwise.html">Bitwise</a></li>
-<li><a href="05-operators/./03-comparison.html">Comparison</a></li>
-<li><a href="05-operators/./04-logical.html">Logical</a></li>
-<li><a href="05-operators/./05-casting.html">Casting</a></li>
-<li><a href="05-operators/./06-access.html">Access</a></li>
-<li><a href="05-operators/./07-range.html">Range</a></li>
-<li><a href="05-operators/./08-assignment.html">Assignment</a></li>
+<li><a href="06-operators/./01-arithmetic.html">Arithmetic</a></li>
+<li><a href="06-operators/./02-bitwise.html">Bitwise</a></li>
+<li><a href="06-operators/./03-comparison.html">Comparison</a></li>
+<li><a href="06-operators/./04-logical.html">Logical</a></li>
+<li><a href="06-operators/./05-casting.html">Casting</a></li>
+<li><a href="06-operators/./06-access.html">Access</a></li>
+<li><a href="06-operators/./07-range.html">Range</a></li>
+<li><a href="06-operators/./08-assignment.html">Assignment</a></li>
 </ul>
-<p>#№ Precedence</p>
+<h1><a class="header" href="#precedence" id="precedence">Precedence</a></h1>
 <p>The top one is executed first.</p>
 <table><thead><tr><th>Operator</th><th>Associativity</th></tr></thead><tbody>
 <tr><td>::</td><td>left to right</td></tr>
@@ -1082,7 +1468,7 @@ assert!(result == 100, &quot;the weird sum is incorrect&quot;);
 </tbody></table>
 <h1><a class="header" href="#arithmetic-operators" id="arithmetic-operators">Arithmetic operators</a></h1>
 <p>Arithmetic operators do not perform any kind of overflow checking at
-compile time. If an overflow happens, the Zinc VM will fail at runtime.</p>
+compile-time. If an overflow happens, the Zinc VM will fail at runtime.</p>
 <blockquote>
 <p>When it comes to the division of negative numbers, Zinc follows the Euclidean
 division concept. It means that <code>-45 % 7 == 4</code>. To get the detailed explanation
@@ -1135,23 +1521,18 @@ like a variable, array element, or structure field.</p>
 <p><code>-</code> is an unary operator.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
+<li>Unsigned integer expression</li>
 </ol>
-<p><strong>Returns</strong> a signed integer with the same bitlength.</p>
+<p><strong>Returns</strong> an integer result of the same type.</p>
 <h1><a class="header" href="#bitwise-operators" id="bitwise-operators">Bitwise operators</a></h1>
-<p>Bitwise operators do not perform any kind of overflow checking at
-compile time. If an overflow happens, the Zinc VM will fail at runtime.</p>
 <p>The <code>|=</code>, <code>^=</code>, <code>&amp;=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code> shortcut operators perform the operation
 and assign the result to the first operand. The first operand must be a mutable memory location
 like a variable, array element, or structure field.</p>
-<blockquote>
-<p>For now, bitwise operators are allowed for constants only. Witness data will be covered soon.</p>
-</blockquote>
 <h4><a class="header" href="#bitwise-or" id="bitwise-or">Bitwise OR</a></h4>
 <p><code>|</code> and <code>|=</code> are binary operators.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
 <li>Expression of the operand 1 type</li>
 </ol>
 <p><strong>Returns</strong> an integer result of the same type.</p>
@@ -1159,7 +1540,7 @@ like a variable, array element, or structure field.</p>
 <p><code>^</code> and <code>^=</code> are binary operators.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
 <li>Expression of the operand 1 type</li>
 </ol>
 <p><strong>Returns</strong> an integer result of the same type.</p>
@@ -1167,7 +1548,7 @@ like a variable, array element, or structure field.</p>
 <p><code>&amp;</code> and <code>&amp;=</code> are binary operators.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
 <li>Expression of the operand 1 type</li>
 </ol>
 <p><strong>Returns</strong> an integer result of the same type.</p>
@@ -1175,23 +1556,23 @@ like a variable, array element, or structure field.</p>
 <p><code>&lt;&lt;</code> and <code>&lt;&lt;=</code> are binary operators.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
-<li>Constant integer expression</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
+<li>Constant unsigned integer expression</li>
 </ol>
 <p><strong>Returns</strong> an integer result of the operand 1 type.</p>
 <h4><a class="header" href="#bitwise-shift-right" id="bitwise-shift-right">Bitwise shift right</a></h4>
 <p><code>&gt;&gt;</code> and <code>&gt;&gt;=</code> are binary operators.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
-<li>Constant integer expression</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
+<li>Constant unsigned integer expression</li>
 </ol>
 <p><strong>Returns</strong> an integer result of the operand 1 type.</p>
 <h4><a class="header" href="#bitwise-not" id="bitwise-not">Bitwise NOT</a></h4>
 <p><code>~</code> is an unary operator.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Integer expression (any type except <code>field</code>)</li>
+<li>Unsigned integer expression (excluding <code>field</code>)</li>
 </ol>
 <p><strong>Returns</strong> an integer result.</p>
 <h1><a class="header" href="#comparison-operators" id="comparison-operators">Comparison operators</a></h1>
@@ -1269,7 +1650,7 @@ like a variable, array element, or structure field.</p>
 </ol>
 <p><strong>Returns</strong> the boolean result.</p>
 <h4><a class="header" href="#not" id="not">NOT</a></h4>
-<p><code>!</code> is an unary operator.</p>
+<p><code>!</code> is a unary operator.</p>
 <p><strong>Accepts</strong></p>
 <ol>
 <li>Boolean expression</li>
@@ -1280,7 +1661,7 @@ like a variable, array element, or structure field.</p>
 <p><strong>Accepts</strong></p>
 <ol>
 <li>Expression of any type</li>
-<li>Expression of the same or integer type</li>
+<li>Expression of the same or another integer type</li>
 </ol>
 <p><strong>Returns</strong> the casted value.</p>
 <p>Casting allowed:</p>
@@ -1333,7 +1714,7 @@ to contain the greater range bound.</p>
 <p><strong>Accepts</strong></p>
 <ol>
 <li>Constant integer expression</li>
-<li>Expression of the operand 1 type</li>
+<li>Constant integer expression</li>
 </ol>
 <p><strong>Returns</strong> a temporary range element to be used as a slice or loop range.</p>
 <h4><a class="header" href="#inclusive-range" id="inclusive-range">Inclusive range</a></h4>
@@ -1342,20 +1723,24 @@ to contain the greater range bound.</p>
 <p><strong>Accepts</strong></p>
 <ol>
 <li>Constant integer expression</li>
-<li>Expression of the operand 1 type</li>
+<li>Constant integer expression</li>
 </ol>
 <p><strong>Returns</strong> a temporary range element to be used as a slice or loop range.</p>
-<h1><a class="header" href="#assignment-operator" id="assignment-operator">Assignment operator</a></h1>
+<h1><a class="header" href="#assignment-operators" id="assignment-operators">Assignment operators</a></h1>
 <p><code>=</code> is a binary operator.</p>
 <p><strong>Accepts</strong></p>
 <ol>
-<li>Place expression (a descriptor of a memory place, e.g. a variable or array element)</li>
-<li>Value expression</li>
+<li>Place expression (a descriptor of a memory place, e.g. a variable, array element, etc.)</li>
+<li>Expression of the operand 1 type</li>
 </ol>
 <p><strong>Returns</strong> <code>()</code>.</p>
+<p>There are several variations of the assignment operator performing an operation
+before the assignment: <code>|=</code>, <code>^=</code>, <code>&amp;=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.</p>
 <h1><a class="header" href="#expressions" id="expressions">Expressions</a></h1>
 <p>Expressions consist of operands and operators.</p>
-<p>Operators have already been described in <a href="06-expressions/../05-operators/00-overview.html">this chapter</a>.</p>
+<p>Operators have already been described in <a href="07-expressions/../06-operators/00-overview.html">this chapter</a>.</p>
+<p>Zinc supports constant expressions with arrays, tuples, structures, conditionals,
+and matches, which are described <a href="07-expressions/04-constant.html">here</a>.</p>
 <h2><a class="header" href="#operands" id="operands">Operands</a></h2>
 <p>Any syntax constructions computed into values can be used in expressions.
 Zinc does all the type checking at compile-time, so you can build expressions
@@ -1371,8 +1756,15 @@ probably other people going to work with your code.</p>
 <li><code>u128</code> - type (in casting clauses like <code>42 as u128</code>)</li>
 </ul>
 <p>There are several complex operands worth mentioning. As you will see from the
-examples, you can nest these constructions as much as you need, but do not abuse
+examples, you can nest these constructions as deep as you need, but do not abuse
 this ability too much.</p>
+<blockquote>
+<p>Integer literal can be written with the pseudo-fractional part, which is useful
+for representing values with a lot of zeros after the comma, e.g. WEI units or
+satoshis: <code>1.0_E18</code>, <code>0.001_E8</code>, <code>42_E6</code>.</p>
+<p>Such numbers are pseudo-fractional, as the exponent cannot be less than the number
+of fractional digits.</p>
+</blockquote>
 <h2><a class="header" href="#array" id="array">Array</a></h2>
 <pre><code class="language-rust no_run noplaypen">let array = [
     1,
@@ -1394,9 +1786,11 @@ this ability too much.</p>
     value: field,
 }
 
-let data = Data {
-    value: 0,
-};
+fn main() {
+    let data = Data {
+        value: 0,
+    };
+}
 </code></pre>
 <h1><a class="header" href="#blocks" id="blocks">Blocks</a></h1>
 <p>A block expression consists of zero or more statements and an optional result
@@ -1423,12 +1817,19 @@ let c = if condition {
 <h2><a class="header" href="#match" id="match"><code>match</code></a></h2>
 <p>The match expression is a syntactic sugar for nested conditional
 expressions. Each branch block starts a new scope of visibility.</p>
-<pre><code class="language-rust no_run noplaypen">let value = MyEnum::ValueOne;
+<pre><code class="language-rust no_run noplaypen">enum MyEnum {
+    ValueOne = 1,
+    // ...
+    ValueTen = 10,
+}
 
-match value {
-    MyEnum::ValueOne =&gt; { ... }
-    MyEnum::ValueTen =&gt; { ... }
-    _ =&gt; { ... }
+fn main() {
+    let value = MyEnum::ValueOne;
+
+    match value {
+        MyEnum::ValueOne =&gt; { /* ... */ },
+        MyEnum::ValueTen =&gt; { /* ... */ },
+    }
 }
 </code></pre>
 <p>For now, only the following match patterns are supported:</p>
@@ -1440,8 +1841,13 @@ match value {
 </ul>
 <blockquote>
 <p>Only simple types can be used as the <code>match</code> scrutinee for now,
-this is, you cannot match an array, tuple or structure.</p>
+that is, you cannot match an array, tuple, or structure.</p>
 </blockquote>
+<h1><a class="header" href="#constant-expressions" id="constant-expressions">Constant expressions</a></h1>
+<p>A constant expression is evaluated at compile time. It is useful to declare
+some global data used throughout the project.</p>
+<pre><code class="language-rust no_run noplaypen">const UNIX_EPOCH_TIMESTAMP: (u64, u8, u8) = (1970, 1, 1);
+</code></pre>
 <h1><a class="header" href="#statements" id="statements">Statements</a></h1>
 <p>The basic element of a Zinc program is a <strong>statement</strong>.</p>
 <p>Statements are divided into several types:</p>
@@ -1494,7 +1900,7 @@ the expression result type, otherwise, it is inferred.</p>
 }
 
 impl Data {
-    fn print(data: Self) {
+    fn print(self) {
         dbg!(&quot;{}&quot;, data.value);
     }
 }
@@ -1506,6 +1912,41 @@ impl Data {
 <p><code>use {path};</code></p>
 <p>The <code>use</code> statement imports an item from another namespace and behaves the same
 way as in Rust.</p>
+<h2><a class="header" href="#contract-declaration" id="contract-declaration"><code>contract</code> declaration</a></h2>
+<p>The <code>contract</code> statement declares a smart contract. Contracts are described
+<a href="08-statements/../04-smart-contracts/00-overview.html">here</a>.
+The statement is a merged <code>struct</code> and <code>impl</code> statements, but it can be only
+declared in the entry point file.</p>
+<pre><code class="language-rust no_run noplaypen">type Currency = u248;
+type PairToken = u8;
+
+contract Uniswap {
+    // The contract storage fields     
+    balance_1: Currency;
+    balance_2: Currency;    
+    rate: u248;
+    
+    // Public entries available from outside   
+    
+    pub fn deposit(self, amount: Currency, token: PairToken) {
+        // ...
+    }
+
+    pub fn withdraw(self, amount: Currency) {
+        // ...
+    }
+    
+    pub fn buy(self, amount: Currency, from: PairToken) {
+        // ...
+    }
+    
+    // Private functions
+    
+    fn foo(self) {
+        // ...
+    }
+}
+</code></pre>
 <h1><a class="header" href="#expression-statements" id="expression-statements">Expression statements</a></h1>
 <h2><a class="header" href="#expression" id="expression">Expression</a></h2>
 <p>The expression statement is an expression terminated with a <code>;</code> to ignore its
@@ -1513,35 +1954,10 @@ result. The most common use is the assignment to a mutable variable:</p>
 <pre><code class="language-rust no_run noplaypen">let mut a = 0;
 a = 42; // an expression statement ignoring the '()' result of the assignment
 </code></pre>
-<p>For more information on expressions, check <a href="07-statements/../06-expressions/00-overview.html">this chapter</a>.</p>
+<p>For more information on expressions, check <a href="08-statements/../07-expressions/00-overview.html">this chapter</a>.</p>
 <h2><a class="header" href="#semicolons" id="semicolons">Semicolons</a></h2>
-<p>In contrast with Rust, expression statements in Zinc must be always terminated
-with <code>;</code> to get rid of some ambiguities regarding block and conditional
-expressions. Let us compare the examples of Rust and Zinc to illustrate the
-problem.</p>
-<pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
-    {
-        get_unit()
-    } // a statement, but only because the block result is ()
-    {
-        get_integer()
-    } // a return expression, only because the block result is an integer
-}
-</code></pre>
-<p>In the Rust example above, the blocks are completely identical, but their semantic
-meaning depends on the block return type. Zinc solves this problem by enforcing
-all expression statements to be explicitly terminated with a semicolon, like in
-the following Zinc example:</p>
-<pre><code class="language-rust no_run noplaypen">fn blocks() -&gt; i32 {
-    {
-        get_unit()
-    }; // a statement, because it is explicitly terminated with a semicolon
-    {
-        get_integer()
-    } // a return expression, because it goes the last in the function block
-}
-</code></pre>
-<p>Conditional and match expressions follow the same rules as simple blocks.</p>
+<p>Expression statements in Zinc must be always terminated with <code>;</code> to get rid
+of some ambiguities regarding block and conditional expressions.</p>
 <h1><a class="header" href="#control-statements" id="control-statements">Control statements</a></h1>
 <p>Control statements neither ignore the result nor declare a new item. The
 only such statement is the <code>for-while</code> loop.</p>
@@ -1550,10 +1966,9 @@ only such statement is the <code>for-while</code> loop.</p>
     ...
 }
 </code></pre>
-<p>The <code>for</code> loop statement behaves just like in Rust, but it is merged with the
-<code>while</code> loop, so the optional <code>while</code> condition is checked before each iteration
-of the loop. The <code>while</code> condition expression has access to the inner scope and
-can use its variables and the loop iterator.</p>
+<p>The <code>for</code> loop statement can be modified with the <code>while</code> condition, which will
+be checked before each iteration of the loop. The <code>while</code> condition expression
+has access to the inner scope and can use its variables and the loop iterator.</p>
 <pre><code class="language-rust no_run noplaypen">for i in 0..10 while i % x != 8 {
     // do something
 };
@@ -1567,21 +1982,18 @@ can be optimized to be treated as a constant, reducing the circuit cost, but on
 the other hand, you cannot force a loop to return early, increasing the circuit
 cost.</p>
 <h2><a class="header" href="#if-and-match" id="if-and-match"><code>if</code> and <code>match</code></a></h2>
-<p>The <a href="07-statements/../06-expressions/03-conditionals.html">conditional and match</a> expressions
+<p>The <a href="08-statements/../07-expressions/03-conditionals.html">conditional and match</a> expressions
 can act as control statements, ignoring the returned value. To use them in such
-role, just terminate the expression with a semicolon:</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-fn unknown(value: u8) -&gt; u8 {
+a role, just terminate the expression with a semicolon:</p>
+<pre><code class="language-rust no_run noplaypen">fn unknown(value: u8) -&gt; u8 {
     match value {
         1 =&gt; dbg!(&quot;One!&quot;),
         2 =&gt; dbg!(&quot;Two!&quot;),
         _ =&gt; dbg!(&quot;Perhaps, three!&quot;),
     };
     42
-}}
-#}</code></pre></pre>
+}
+</code></pre>
 <h1><a class="header" href="#virtual-machine" id="virtual-machine">Virtual machine</a></h1>
 <p>Zinc code is compiled into bytecode which can be run by Zinc VM.</p>
 <p>Zinc VM is a virtual machine that serves three purposes: executing arbitrary
@@ -1592,9 +2004,9 @@ the Python VM. Even though the VM is designed considering specifics and
 limitations of zero-knowledge computations, bytecode instructions only
 manipulate data on the stack while all zero-knowledge constraints are
 automatically applied by the virtual machine.</p>
-<h1><a class="header" href="#zargo-circuit-manager" id="zargo-circuit-manager">Zargo circuit manager</a></h1>
-<p><code>Zargo</code> is a circuit managing tool, which can create, build, and use circuits
-to generate and verify proofs.</p>
+<h1><a class="header" href="#zargo-project-manager" id="zargo-project-manager">Zargo project manager</a></h1>
+<p><code>Zargo</code> is a project managing tool, which can create and build projects,
+generate and verify proofs, publish and call smart contracts.</p>
 <h2><a class="header" href="#commands-overview" id="commands-overview">Commands overview</a></h2>
 <p>All the commands have default values, so you may omit them in normal circumstances.
 See <code>zargo --help</code> for more detail.</p>
@@ -1628,7 +2040,7 @@ proof generated with <code>prove</code>, and provided public data.</p>
 <h2><a class="header" href="#workflow-example" id="workflow-example">Workflow example</a></h2>
 <h3><a class="header" href="#short" id="short">Short</a></h3>
 <pre><code class="language-bash"># create a new circuit called 'zircuit'
-zargo new zircuit
+zargo new --type circuit zircuit
 cd zircuit/
 
 # write some code
@@ -1638,7 +2050,7 @@ zargo proof-check
 </code></pre>
 <h3><a class="header" href="#long" id="long">Long</a></h3>
 <pre><code class="language-bash"># create a new circuit called 'zircuit'
-zargo new zircuit
+zargo new --type circuit zircuit
 cd zircuit/
 
 # write some code
@@ -1684,7 +2096,8 @@ version = &quot;0.1.0&quot;
 <p>From <code>stdin</code>:</p>
 <pre><code class="language-bash">schnorr sign --key 'private_key.txt' --message -
 </code></pre>
-<p>The JSON output can be used as witness data if you want to pass the signature to a circuit.</p>
+<p>The JSON output can be used as witness data if you want to pass
+the signature to a circuit.</p>
 <h3><a class="header" href="#extracting-the-public-key" id="extracting-the-public-key">Extracting the public key</a></h3>
 <pre><code class="language-bash">schnorr pub-key &lt; 'private_key.txt' &gt; 'public_key.txt'
 </code></pre>
@@ -1714,6 +2127,9 @@ keyword =
   | 'mod'
   | 'use'
   | 'impl'
+  | 'contract'
+  | 'pub'
+  | 'extern'
 
   | 'for'
   | 'in'
@@ -1726,26 +2142,41 @@ keyword =
   | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
   | 'u72' | 'u80' | 'u88' | 'u96' | 'u104' | 'u112' | 'u120' | 'u128'
   | 'u136' | 'u144' | 'u152' | 'u160' | 'u168' | 'u176' | 'u184' | 'u192'
-  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248' | 'field'
+  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248'
   | 'i8' | 'i16' | 'i24' | 'i32' | 'i40' | 'i48' | 'i56' | 'i64'
   | 'i72' | 'i80' | 'i88' | 'i96' | 'i104' | 'i112' | 'i120' | 'i128'
   | 'i136' | 'i144' | 'i152' | 'i160' | 'i168' | 'i176' | 'i184' | 'i192'
   | 'i200' | 'i208' | 'i216' | 'i224' | 'i232' | 'i240' | 'i248'
+  | 'field'
 
   | 'true'
   | 'false'
 
   | 'as'
 
+  | 'crate'
+  | 'super'
+  | 'self'
   | 'Self'
+
+  | 'static'
+  | 'ref'
+  | 'extern'
+  | 'return'
+  | 'loop'
+  | 'break'
+  | 'continue'
+  | 'trait'
 ;
 
 literal = boolean | integer | string ;
 boolean = 'true' | 'false' ;
 integer =
     '0'
-  | digit - '0', { digit }
-  | '0x', hex_digit, { hex_digit }
+  | '0b', binary_digit | '_', { binary_digit | '_' }
+  | '0o', octal_digit | '_', { octal_digit | '_' }
+  | decimal_digit - '0', { decimal_digit | '_' }
+  | '0x', hexadecimal_digit | '_', { hexadecimal_digit | '_' }
 ;
 string = '&quot;', { ANY - '&quot;' | '\', ANY }, '&quot;' ;
 
@@ -1775,6 +2206,7 @@ symbol =
   | '&amp;'
   | '^'
   | '~'
+  | '#'
   | '&lt;&lt;'
   | '&gt;&gt;'
   | '+='
@@ -1812,9 +2244,13 @@ alpha =
   | 'v' | 'w' | 'x' | 'y' | 'z'
 ;
 
-digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+binary_digit = '0' | '1' ;
 
-hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+octal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' ;
+
+decimal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+
+hexadecimal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
   | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
   | 'a' | 'b' | 'c' | 'd' | 'e' | 'f'
 ;
@@ -1826,7 +2262,7 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 <tr><td>lowercase</td><td>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td></tr>
 <tr><td>uppercase</td><td>a b c d e f g h i j k l m n o p q r s t u v w x y z</td></tr>
 <tr><td>numbers</td><td>0 1 2 3 4 5 6 7 8 9</td></tr>
-<tr><td>symbols</td><td>+ - * / % &lt; = &gt; ⎮ &amp; ^ _ ! ~ ( ) [ ] { } &quot; , . : ;</td></tr>
+<tr><td>symbols</td><td>+ - * / % &lt; = &gt; ⎮ &amp; ^ _ ! ~ ( ) [ ] { } &quot; , . : ; #</td></tr>
 </tbody></table>
 <h1><a class="header" href="#syntax-grammar-ebnf" id="syntax-grammar-ebnf">Syntax grammar (EBNF)</a></h1>
 <pre><code>file = { module_local_statement } ;
@@ -1841,6 +2277,7 @@ module_local_statement =
   | mod_statement
   | use_statement
   | impl_statement
+  | contract_statement
   | empty_statement
 ;
 
@@ -1858,16 +2295,37 @@ implementation_local_statement =
   | empty_statement
 ;
 
-type_statement = 'type', identifier, '=', type ;
-struct_statement = 'struct', '{', field_list, '}' ;
-enum_statement = 'enum', '{', variant_list, '}' ;
-fn_statement = 'fn', identifier, '(', field_list, ')', [ '-&gt;', type ], block_expression ;
-mod_statement = 'mod', identifier ;
-use_statement = 'use', path_expression ;
+contract_local_statement =
+    field_statement
+  | const_statement
+  | fn_statement
+  | empty_statement
+;
+
+field_statement = [ 'pub' ], [ 'extern' ], identifier, ':', type, ';' ;
+
+type_statement = [ 'pub' ], 'type', identifier, '=', type, ';' ;
+
+struct_statement = [ 'pub' ], 'struct', '{', field_list, '}' ;
+
+enum_statement = [ 'pub' ], 'enum', '{', variant_list, '}' ;
+
+fn_statement = [ 'pub' ], [ 'const' ], 'fn', identifier, '(', pattern_binding_list, ')', [ '-&gt;', type ], block_expression ;
+
+mod_statement = [ 'pub' ], 'mod', identifier, ';' ;
+
+use_statement = [ 'pub' ], 'use', path_expression, [ 'as', identifier ], ';' ;
+
 impl_statement = 'impl', identifier, '{', { implementation_local_statement }, '}' ;
-const_statement = 'const', identifier, ':', type, '=', expression ;
-let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression ;
+
+const_statement = [ 'pub' ], 'const', identifier, ':', type, '=', expression, ';' ;
+
+let_statement = 'let', [ 'mut' ], identifier, [ ':', type ], '=', expression, ';' ;
+
 loop_statement = 'for', identifier, 'in', expression, [ 'while', expression ], block_expression ;
+
+contract_statement = 'contract', '{', { contract_local_statement }, '}' ;
+
 empty_statement = ';' ;
 
 (* Expressions *)
@@ -1890,19 +2348,19 @@ operand_access = operand_path, {
   | '.', integer | identifier
   | [ '!' ], '(', expression_list, ')'
 } ;
-operand_path = operand_terminal, { '::', operand_terminal } ;
+operand_path = operand_terminal, { '::', operand_terminal }, [ structure_expression ] ;
 operand_terminal =
     tuple_expression
   | block_expression
   | array_expression
   | conditional_expression
   | match_expression
-  | struct_expression
   | literal
   | identifier
+  | alias
 ;
 
-expression_list = [ expression, { ',', expression } ] ;
+expression_list = [ expression, { ',', expression } | ',' ] ;
 
 block_expression = '{', { function_local_statement }, [ expression ], '}' ;
 
@@ -1921,9 +2379,14 @@ tuple_expression =
   | '(', expression, ',', [ expression, { ',', expression } ], ')'
 ;
 
-struct_expression = identifier, '{', field_list, '}';
+structure_expression = '{', field_list, '}';
+
+(* Attributes *)
+attribute = '#', [ '!' ], '[', identifier, ']' ;
 
 (* Parts *)
+alias = 'crate' | 'super' | 'self' | 'Self'
+
 type =
     '(', ')'
   | 'bool'
@@ -1938,7 +2401,7 @@ type =
   | 'field'
   | '[', type, ';', expression, ']'
   | '(', type, { ',', type }, ')'
-  | expression
+  | identifier | alias, { '::', identifier | alias }
 ;
 
 pattern_match =
@@ -1949,11 +2412,18 @@ pattern_match =
   | '_'
 ;
 
+pattern_binding =
+    [ 'mut' ], identifier, ':', type
+  | [ 'mut' ], 'self'
+  | '_', ':', type
+;
+pattern_binding_list = [ pattern_binding, { ',', pattern_binding } | ',' ] ;
+
 field = identifier, ':', type ;
-field_list = [ field, { ',', field } ] ;
+field_list = [ field, { ',', field } | ',' ] ;
 
 variant = identifier, '=', integer ;
-variant_list = [ variant, { ',', variant } ] ;
+variant_list = [ variant, { ',', variant } | ',' ] ;
 
 </code></pre>
 <h1><a class="header" href="#keywords" id="keywords">Keywords</a></h1>
@@ -1969,6 +2439,8 @@ use
 mod
 impl
 contract
+pub
+extern
 </code></pre>
 <h4><a class="header" href="#controls" id="controls">Controls</a></h4>
 <pre><code class="language-rust no_run noplaypen">for
@@ -1991,20 +2463,20 @@ false
 <h4><a class="header" href="#operators-1" id="operators-1">Operators</a></h4>
 <pre><code class="language-rust no_run noplaypen">as
 </code></pre>
-<h4><a class="header" href="#special" id="special">Special</a></h4>
-<pre><code class="language-rust no_run noplaypen">Self
+<h4><a class="header" href="#aliases" id="aliases">Aliases</a></h4>
+<pre><code class="language-rust no_run noplaypen">crate
+super
 self
+Self
 </code></pre>
 <h2><a class="header" href="#reserved" id="reserved">Reserved</a></h2>
-<pre><code class="language-rust no_run noplaypen">self
-static
-pub
+<pre><code class="language-rust no_run noplaypen">static
 ref
-extern
 return
 loop
 break
 continue
+trait
 </code></pre>
 <h1><a class="header" href="#built-in-functions-1" id="built-in-functions-1">Built-in functions</a></h1>
 <h2><a class="header" href="#dbg-1" id="dbg-1"><code>dbg</code></a></h2>
@@ -2069,25 +2541,19 @@ system, but <code>std</code> makes an exception to simplify development for now.
 <p>Returns: elliptic curve point coordinates <code>(field, field)</code></p>
 <h3><a class="header" href="#stdcryptoeccpoint" id="stdcryptoeccpoint"><code>std::crypto::ecc::Point</code></a></h3>
 <p>The elliptic curve point.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-struct Point {
+<pre><code class="language-rust no_run noplaypen">struct Point {
     x: field,
     y: field,
 }
-#}</code></pre></pre>
+</code></pre>
 <h3><a class="header" href="#stdcryptoschnorrsignature" id="stdcryptoschnorrsignature"><code>std::crypto::schnorr::Signature</code></a></h3>
 <p>The Schnorr EDDSA signature structure.</p>
-<pre><pre class="playpen"><code class="language-rust">
-# #![allow(unused_variables)]
-#fn main() {
-struct Signature {
+<pre><code class="language-rust no_run noplaypen">struct Signature {
     r: std::crypto::ecc::Point,
     s: field,
     pk: std::crypto::ecc::Point,
 }
-#}</code></pre></pre>
+</code></pre>
 <h3><a class="header" href="#stdcryptoschnorrsignatureverify" id="stdcryptoschnorrsignatureverify"><code>std::crypto::schnorr::Signature::verify</code></a></h3>
 <p>Verifies the EDDSA signature.</p>
 <p>Will cause a compile-error if either:</p>
@@ -2154,7 +2620,7 @@ struct Signature {
 <p>Truncates an array of size <code>N</code> to an array of size <code>new_length</code>.</p>
 <p>Will cause a compile-error if either:</p>
 <ul>
-<li>array size is lesser than new length</li>
+<li>array size is less than new length</li>
 <li>new length is not a constant expression</li>
 </ul>
 <p>Arguments:</p>
@@ -2185,6 +2651,17 @@ struct Signature {
 <li>value: <code>field</code></li>
 </ul>
 <p>Returns: <code>field</code></p>
+<h2><a class="header" href="#stdzksync-module" id="stdzksync-module"><code>std::zksync</code> module</a></h2>
+<h3><a class="header" href="#stdzksynctransfer" id="stdzksynctransfer"><code>std::zksync::transfer</code></a></h3>
+<p>Executes a transfer which is sent to the zkSync platform.</p>
+<p>Arguments:</p>
+<ul>
+<li>from: <code>u160</code></li>
+<li>to: <code>u160</code></li>
+<li>token_id: <code>u{N}</code></li>
+<li>amount: <code>u248</code></li>
+</ul>
+<p>Returns: <code>()</code></p>
 
                     </main>
 
@@ -2209,6 +2686,14 @@ struct Signature {
 
         
 
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
         

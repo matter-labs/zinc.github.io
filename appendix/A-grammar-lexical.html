@@ -1,17 +1,28 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>A - Lexical grammar - Zinc v0.1.5</title>
+        <title>A - Lexical grammar - Zinc v0.2.0</title>
         
+        
+
+
+        <!-- Custom HTML head -->
+        
+
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="The official Zinc book">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
+        <link rel="icon" href="../favicon.svg">
+        
+        
         <link rel="shortcut icon" href="../favicon.png">
+        
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/chrome.css">
@@ -19,8 +30,9 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        
 
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="../highlight.css">
@@ -32,11 +44,11 @@
 
         
     </head>
-    <body class="light">
+    <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
             var path_to_root = "../";
-            var default_theme = "light";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
@@ -60,8 +72,11 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            document.body.className = theme;
-            document.querySelector('html').className = theme + ' js';
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
@@ -78,7 +93,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="affix"><a href="../index.html">Introduction</a></li><li><a href="../01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li><a href="../02-getting-started/01-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li><a href="../02-getting-started/02-more-complex-example.html"><strong aria-hidden="true">2.1.</strong> More complex example</a></li></ol></li><li><a href="../03-basic-concepts/00-overview.html"><strong aria-hidden="true">3.</strong> Basic concepts</a></li><li><ol class="section"><li><a href="../03-basic-concepts/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li><li><a href="../03-basic-concepts/02-builtin-functions.html"><strong aria-hidden="true">3.2.</strong> Built-in functions</a></li><li><a href="../03-basic-concepts/03-standard-library.html"><strong aria-hidden="true">3.3.</strong> Standard library</a></li></ol></li><li><a href="../04-variables-and-types/00-overview.html"><strong aria-hidden="true">4.</strong> Variables and types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/01-variables.html"><strong aria-hidden="true">4.1.</strong> Variables</a></li><li><a href="../04-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">4.2.</strong> Types</a></li><li><ol class="section"><li><a href="../04-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">4.2.1.</strong> Scalar</a></li><li><a href="../04-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">4.2.2.</strong> Arrays</a></li><li><a href="../04-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">4.2.3.</strong> Tuples</a></li><li><a href="../04-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">4.2.4.</strong> Structures</a></li><li><a href="../04-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">4.2.5.</strong> Enumerations</a></li><li><a href="../04-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">4.2.6.</strong> Strings</a></li><li><a href="../04-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">4.2.7.</strong> Casting and conversions</a></li></ol></li><li><a href="../04-variables-and-types/03-functions.html"><strong aria-hidden="true">4.3.</strong> Functions</a></li></ol></li><li><a href="../05-operators/00-overview.html"><strong aria-hidden="true">5.</strong> Operators</a></li><li><ol class="section"><li><a href="../05-operators/01-arithmetic.html"><strong aria-hidden="true">5.1.</strong> Arithmetic</a></li><li><a href="../05-operators/02-bitwise.html"><strong aria-hidden="true">5.2.</strong> Bitwise</a></li><li><a href="../05-operators/03-comparison.html"><strong aria-hidden="true">5.3.</strong> Comparison</a></li><li><a href="../05-operators/04-logical.html"><strong aria-hidden="true">5.4.</strong> Logical</a></li><li><a href="../05-operators/05-casting.html"><strong aria-hidden="true">5.5.</strong> Casting</a></li><li><a href="../05-operators/06-access.html"><strong aria-hidden="true">5.6.</strong> Access</a></li><li><a href="../05-operators/07-range.html"><strong aria-hidden="true">5.7.</strong> Range</a></li><li><a href="../05-operators/08-assignment.html"><strong aria-hidden="true">5.8.</strong> Assignment</a></li></ol></li><li><a href="../06-expressions/00-overview.html"><strong aria-hidden="true">6.</strong> Expressions</a></li><li><ol class="section"><li><a href="../06-expressions/01-literals.html"><strong aria-hidden="true">6.1.</strong> Literals</a></li><li><a href="../06-expressions/02-blocks.html"><strong aria-hidden="true">6.2.</strong> Blocks</a></li><li><a href="../06-expressions/03-conditionals.html"><strong aria-hidden="true">6.3.</strong> Conditionals</a></li></ol></li><li><a href="../07-statements/00-overview.html"><strong aria-hidden="true">7.</strong> Statements</a></li><li><ol class="section"><li><a href="../07-statements/01-declaration.html"><strong aria-hidden="true">7.1.</strong> Declaration</a></li><li><a href="../07-statements/02-expression.html"><strong aria-hidden="true">7.2.</strong> Expression</a></li><li><a href="../07-statements/03-control.html"><strong aria-hidden="true">7.3.</strong> Control</a></li></ol></li><li><a href="../08-virtual-machine/00-overview.html"><strong aria-hidden="true">8.</strong> Virtual machine</a></li><li><a href="../09-zargo-circuit-manager/00-overview.html"><strong aria-hidden="true">9.</strong> Zargo circuit manager</a></li><li><a href="../10-schnorr-signature-tool/00-overview.html"><strong aria-hidden="true">10.</strong> Schnorr signature tool</a></li><li><a href="../appendix/_overview.html"><strong aria-hidden="true">11.</strong> Appendix</a></li><li><ol class="section"><li><a href="../appendix/A-grammar-lexical.html" class="active"><strong aria-hidden="true">11.1.</strong> A - Lexical grammar</a></li><li><a href="../appendix/B-grammar-syntax.html"><strong aria-hidden="true">11.2.</strong> B - Syntax grammar</a></li><li><a href="../appendix/C-keywords.html"><strong aria-hidden="true">11.3.</strong> C - Keywords</a></li><li><a href="../appendix/D-built-in-functions.html"><strong aria-hidden="true">11.4.</strong> D - Built-in functions</a></li><li><a href="../appendix/E-standard-library.html"><strong aria-hidden="true">11.5.</strong> E - Standard library</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../index.html">Introduction</a></li><li class="chapter-item expanded "><a href="../01-design-background.html"><strong aria-hidden="true">1.</strong> Design background</a></li><li class="chapter-item expanded "><a href="../02-getting-started/00-first-circuit.html"><strong aria-hidden="true">2.</strong> Getting started</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../02-getting-started/01-builtin-functions.html"><strong aria-hidden="true">2.1.</strong> Built-in functions</a></li><li class="chapter-item expanded "><a href="../02-getting-started/02-standard-library.html"><strong aria-hidden="true">2.2.</strong> Standard library</a></li><li class="chapter-item expanded "><a href="../02-getting-started/03-more-complex-example.html"><strong aria-hidden="true">2.3.</strong> More complex example</a></li></ol></li><li class="chapter-item expanded "><a href="../03-circuits/00-overview.html"><strong aria-hidden="true">3.</strong> Zero-knowledge circuits</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../03-circuits/01-input-output.html"><strong aria-hidden="true">3.1.</strong> Input and output</a></li></ol></li><li class="chapter-item expanded "><a href="../04-smart-contracts/00-overview.html"><strong aria-hidden="true">4.</strong> Smart contracts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../04-smart-contracts/01-data-and-functions.html"><strong aria-hidden="true">4.1.</strong> Data and functions</a></li><li class="chapter-item expanded "><a href="../04-smart-contracts/02-minimal-example.html"><strong aria-hidden="true">4.2.</strong> Uniswap example</a></li></ol></li><li class="chapter-item expanded "><a href="../05-variables-and-types/00-overview.html"><strong aria-hidden="true">5.</strong> Variables and types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../05-variables-and-types/01-variables.html"><strong aria-hidden="true">5.1.</strong> Variables</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/00-overview.html"><strong aria-hidden="true">5.2.</strong> Types</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/01-scalar.html"><strong aria-hidden="true">5.2.1.</strong> Scalar</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/02-arrays.html"><strong aria-hidden="true">5.2.2.</strong> Arrays</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/03-tuples.html"><strong aria-hidden="true">5.2.3.</strong> Tuples</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/04-structures.html"><strong aria-hidden="true">5.2.4.</strong> Structures</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/05-enumerations.html"><strong aria-hidden="true">5.2.5.</strong> Enumerations</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/06-strings.html"><strong aria-hidden="true">5.2.6.</strong> Strings</a></li><li class="chapter-item expanded "><a href="../05-variables-and-types/02-types/07-casting-and-conversions.html"><strong aria-hidden="true">5.2.7.</strong> Casting and conversions</a></li></ol></li><li class="chapter-item expanded "><a href="../05-variables-and-types/03-functions.html"><strong aria-hidden="true">5.3.</strong> Functions</a></li></ol></li><li class="chapter-item expanded "><a href="../06-operators/00-overview.html"><strong aria-hidden="true">6.</strong> Operators</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../06-operators/01-arithmetic.html"><strong aria-hidden="true">6.1.</strong> Arithmetic</a></li><li class="chapter-item expanded "><a href="../06-operators/02-bitwise.html"><strong aria-hidden="true">6.2.</strong> Bitwise</a></li><li class="chapter-item expanded "><a href="../06-operators/03-comparison.html"><strong aria-hidden="true">6.3.</strong> Comparison</a></li><li class="chapter-item expanded "><a href="../06-operators/04-logical.html"><strong aria-hidden="true">6.4.</strong> Logical</a></li><li class="chapter-item expanded "><a href="../06-operators/05-casting.html"><strong aria-hidden="true">6.5.</strong> Casting</a></li><li class="chapter-item expanded "><a href="../06-operators/06-access.html"><strong aria-hidden="true">6.6.</strong> Access</a></li><li class="chapter-item expanded "><a href="../06-operators/07-range.html"><strong aria-hidden="true">6.7.</strong> Range</a></li><li class="chapter-item expanded "><a href="../06-operators/08-assignment.html"><strong aria-hidden="true">6.8.</strong> Assignment</a></li></ol></li><li class="chapter-item expanded "><a href="../07-expressions/00-overview.html"><strong aria-hidden="true">7.</strong> Expressions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../07-expressions/01-literals.html"><strong aria-hidden="true">7.1.</strong> Literals</a></li><li class="chapter-item expanded "><a href="../07-expressions/02-blocks.html"><strong aria-hidden="true">7.2.</strong> Blocks</a></li><li class="chapter-item expanded "><a href="../07-expressions/03-conditionals.html"><strong aria-hidden="true">7.3.</strong> Conditionals</a></li><li class="chapter-item expanded "><a href="../07-expressions/04-constant.html"><strong aria-hidden="true">7.4.</strong> Constant</a></li></ol></li><li class="chapter-item expanded "><a href="../08-statements/00-overview.html"><strong aria-hidden="true">8.</strong> Statements</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../08-statements/01-declaration.html"><strong aria-hidden="true">8.1.</strong> Declaration</a></li><li class="chapter-item expanded "><a href="../08-statements/02-expression.html"><strong aria-hidden="true">8.2.</strong> Expression</a></li><li class="chapter-item expanded "><a href="../08-statements/03-control.html"><strong aria-hidden="true">8.3.</strong> Control</a></li></ol></li><li class="chapter-item expanded "><a href="../09-virtual-machine/00-overview.html"><strong aria-hidden="true">9.</strong> Virtual machine</a></li><li class="chapter-item expanded "><a href="../10-zargo/00-overview.html"><strong aria-hidden="true">10.</strong> Zargo</a></li><li class="chapter-item expanded "><a href="../11-schnorr/00-overview.html"><strong aria-hidden="true">11.</strong> Schnorr signature tool</a></li><li class="chapter-item expanded "><a href="../appendix/_overview.html"><strong aria-hidden="true">12.</strong> Appendix</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../appendix/A-grammar-lexical.html" class="active"><strong aria-hidden="true">12.1.</strong> A - Lexical grammar</a></li><li class="chapter-item expanded "><a href="../appendix/B-grammar-syntax.html"><strong aria-hidden="true">12.2.</strong> B - Syntax grammar</a></li><li class="chapter-item expanded "><a href="../appendix/C-keywords.html"><strong aria-hidden="true">12.3.</strong> C - Keywords</a></li><li class="chapter-item expanded "><a href="../appendix/D-built-in-functions.html"><strong aria-hidden="true">12.4.</strong> D - Built-in functions</a></li><li class="chapter-item expanded "><a href="../appendix/E-standard-library.html"><strong aria-hidden="true">12.5.</strong> E - Standard library</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -87,37 +102,36 @@
 
             <div class="page">
                 
-                <div id="menu-bar" class="menu-bar">
-                    <div id="menu-bar-sticky-container">
-                        <div class="left-buttons">
-                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                                <i class="fa fa-bars"></i>
-                            </button>
-                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                                <i class="fa fa-paint-brush"></i>
-                            </button>
-                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                            </ul>
-                            
-                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                                <i class="fa fa-search"></i>
-                            </button>
-                            
-                        </div>
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
 
-                        <h1 class="menu-title">Zinc v0.1.5</h1>
+                    <h1 class="menu-title">Zinc v0.2.0</h1>
 
-                        <div class="right-buttons">
-                            <a href="../print.html" title="Print this book" aria-label="Print this book">
-                                <i id="print-button" class="fa fa-print"></i>
-                            </a>
-                            
-                        </div>
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        
                     </div>
                 </div>
 
@@ -168,6 +182,9 @@ keyword =
   | 'mod'
   | 'use'
   | 'impl'
+  | 'contract'
+  | 'pub'
+  | 'extern'
 
   | 'for'
   | 'in'
@@ -180,26 +197,41 @@ keyword =
   | 'u8' | 'u16' | 'u24' | 'u32' | 'u40' | 'u48' | 'u56' | 'u64'
   | 'u72' | 'u80' | 'u88' | 'u96' | 'u104' | 'u112' | 'u120' | 'u128'
   | 'u136' | 'u144' | 'u152' | 'u160' | 'u168' | 'u176' | 'u184' | 'u192'
-  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248' | 'field'
+  | 'u200' | 'u208' | 'u216' | 'u224' | 'u232' | 'u240' | 'u248'
   | 'i8' | 'i16' | 'i24' | 'i32' | 'i40' | 'i48' | 'i56' | 'i64'
   | 'i72' | 'i80' | 'i88' | 'i96' | 'i104' | 'i112' | 'i120' | 'i128'
   | 'i136' | 'i144' | 'i152' | 'i160' | 'i168' | 'i176' | 'i184' | 'i192'
   | 'i200' | 'i208' | 'i216' | 'i224' | 'i232' | 'i240' | 'i248'
+  | 'field'
 
   | 'true'
   | 'false'
 
   | 'as'
 
+  | 'crate'
+  | 'super'
+  | 'self'
   | 'Self'
+
+  | 'static'
+  | 'ref'
+  | 'extern'
+  | 'return'
+  | 'loop'
+  | 'break'
+  | 'continue'
+  | 'trait'
 ;
 
 literal = boolean | integer | string ;
 boolean = 'true' | 'false' ;
 integer =
     '0'
-  | digit - '0', { digit }
-  | '0x', hex_digit, { hex_digit }
+  | '0b', binary_digit | '_', { binary_digit | '_' }
+  | '0o', octal_digit | '_', { octal_digit | '_' }
+  | decimal_digit - '0', { decimal_digit | '_' }
+  | '0x', hexadecimal_digit | '_', { hexadecimal_digit | '_' }
 ;
 string = '&quot;', { ANY - '&quot;' | '\', ANY }, '&quot;' ;
 
@@ -229,6 +261,7 @@ symbol =
   | '&amp;'
   | '^'
   | '~'
+  | '#'
   | '&lt;&lt;'
   | '&gt;&gt;'
   | '+='
@@ -266,9 +299,13 @@ alpha =
   | 'v' | 'w' | 'x' | 'y' | 'z'
 ;
 
-digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+binary_digit = '0' | '1' ;
 
-hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
+octal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' ;
+
+decimal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+
+hexadecimal_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
   | 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
   | 'a' | 'b' | 'c' | 'd' | 'e' | 'f'
 ;
@@ -280,7 +317,7 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 <tr><td>lowercase</td><td>A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</td></tr>
 <tr><td>uppercase</td><td>a b c d e f g h i j k l m n o p q r s t u v w x y z</td></tr>
 <tr><td>numbers</td><td>0 1 2 3 4 5 6 7 8 9</td></tr>
-<tr><td>symbols</td><td>+ - * / % &lt; = &gt; ⎮ &amp; ^ _ ! ~ ( ) [ ] { } &quot; , . : ;</td></tr>
+<tr><td>symbols</td><td>+ - * / % &lt; = &gt; ⎮ &amp; ^ _ ! ~ ( ) [ ] { } &quot; , . : ; #</td></tr>
 </tbody></table>
 
                     </main>
@@ -306,13 +343,13 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a href="../appendix/_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../appendix/_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a href="../appendix/B-grammar-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../appendix/B-grammar-syntax.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
@@ -322,6 +359,14 @@ hex_digit = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
 
         
 
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
         
 
         
