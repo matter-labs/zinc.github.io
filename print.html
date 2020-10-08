@@ -311,7 +311,7 @@ fn main(preimage: [bool; 256]) -&gt; ([bool; 256], (field, field)) {
 <h1><a class="header" href="#zksync-library" id="zksync-library">ZkSync library</a></h1>
 <p>The zkSync library is an emerging library, which contains the only function to
 make transfers in the zkSync network.</p>
-<pre><code class="language-rust no_run noplaypen">
+<pre><code class="language-rust no_run noplaypen">zksync::transfer(tx.sender, TokenId::ETH, 1_000_000);
 </code></pre>
 <h1><a class="header" href="#debugging" id="debugging">Debugging</a></h1>
 <p>There is a special <code>dbg!</code> function, which can print any data anywhere in your code.
@@ -1574,7 +1574,7 @@ the token identifier and amount you want to exchange:</p>
 </code></pre>
 <p>To call the contract method, use the following command with the method name and
 contract account ID:</p>
-<pre><code class="language-bash no_run noplaypen">zargo call --network localhost --address 0x1234123412341234123412341234123412341234 --method exchange
+<pre><code class="language-bash no_run noplaypen">zargo call --network localhost --address 0x1234...1234 --method exchange
 </code></pre>
 <p>After the call has succeeded, query the contract storage again to see the
 expected result:</p>
